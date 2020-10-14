@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Newsletter</title>
+</head>
+<body>
+    <form action="formdata.html" method="post">
+        <fieldset>
+            <legend>Anmeldung</legend><br>
+            <label for="frau">Anrede</label><br>
+            <input id="frau" type="radio" name="geschlecht" value="Frau">Frau <br>
+            <input type="radio" name="geschlecht" value="Herr">Herr <br>
+            <br>
+            <label for="vorname">Vorname*</label><br>
+            <input id="vorname" type="text" name="vorname" placeholder="Bitte geben Sie Ihren Vornamen ein" size="30" required><br>
+            <br>
+            <label for="nachname">Nachname*</label><br>
+            <input id="nachname" type="text" name="vorname" placeholder="Bitte geben Sie Ihren Nachnamen ein" size="30" required><br>
+            <br>
+            <label for="email">Email*</label><br>
+            <input id="email" type="email" name="email" placeholder="Bitte geben Sie Ihre E-Mail ein" size="30" required><br>
+            <br>
+            <label for="interval">Benachrichtigungsintervall</label><br>
+            <select id="interval" name="interval">
+                <option value="tag">Tag</option>
+                <option value="woche">Woche</option>
+                <option value="monat">Monat</option>
+            </select><br>
+            <br>
+            <input id="checkbox" type="checkbox" name="checkbox">Datenschutzhinweise gelesen<br>
+            <br>
+            <input id="submit" type="submit" name="submit" value="Abschicken">
+            <br>
+            <p><sup>*)</sup> Eingaben sind Pflicht</p>
+        </fieldset>
+    </form>
+</body>
+</html>
