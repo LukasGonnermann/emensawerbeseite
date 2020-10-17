@@ -1,0 +1,15 @@
+#firstcontainer{
+    display: grid;
+    grid-template-rows: 10% 10% 10%;
+    gap: 10px;
+    background-color: mediumturquoise;
+
+}
+#secondcontainer{
+    display: grid;
+    grid-template-columns: 40% 50% 40%;
+    gap: 10px;
+    background-color: mediumturquoise;
+    margin-top: 200px;
+
+}
