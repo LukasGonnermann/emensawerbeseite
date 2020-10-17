@@ -1,0 +1,25 @@
+h1{
+    font-family: Arial;
+    text-decoration: none ;
+    border-bottom: 1px solid lightslategray;
+    margin-bottom: 2px;
+
+
+}
+
+h3{
+    font-family: Arial;
+    font-weight: bold;
+    margin-top: 1px;
+    font-style: italic;
+    font-size: small;
+}
+ul{
+    font-family: Arial;
+    font-weight: bold;
+
+}
+.beilage{
+
+    color: green;
+}
