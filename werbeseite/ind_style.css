@@ -1,0 +1,5 @@
+#main_grid_container {
+    display: grid;
+    grid-template-columns: 14% 70% 14%;
+    gap: 2%;
+}
