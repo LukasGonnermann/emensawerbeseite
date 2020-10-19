@@ -1,5 +1,51 @@
+* {
+    font-family: "Sans-serif", "Verdana";
+}
+
 #main_grid_container {
+    margin: auto;
+    width: 80%;
+    border: 1px solid;
+    padding: 10px;
+}
+
+#content {
+    width: 65%;
+    margin: auto;
+}
+
+p {
+    border: 1px solid;
+    padding: 20px;
+}
+
+table {
+    border: 1px solid;
+}
+
+#emensa_logo {
+    border: 1px solid;
+}
+
+#head {
     display: grid;
-    grid-template-columns: 14% 70% 14%;
-    gap: 2%;
+    grid-template-columns: auto 65% auto;
+}
+
+#logo {
+    text-align: center;
+}
+
+/* Gilt für alles nach der ersten Spalte*/
+td + td {
+    text-align: center;
+}
+
+#letzte {
+    text-align: center;
+}
+
+/* TODO */
+#head > div {
+    border: 1px solid;
 }
