@@ -13,15 +13,22 @@
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:old-origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:old-origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6555435a-c353-4646-8b3b-b61504428d61" name="Default Changelist" comment="Minor Bugfixes comments etc.">
+    <list default="true" id="6555435a-c353-4646-8b3b-b61504428d61" name="Default Changelist" comment="Added and Finished Aufgabe 4a, 4b">
+      <change afterPath="$PROJECT_DIR$/werbeseite/ind_style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/beispiele/m1_4b_tabelle.html" beforeDir="false" afterPath="$PROJECT_DIR$/beispiele/m1_4b_tabelle.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/werbeseite/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/werbeseite/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,15 +42,11 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="master" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1iolBgY7HuoNtf77kRQZ5AvsWW5" />
@@ -55,12 +58,14 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="Errors" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -74,10 +79,7 @@
       <updated>1602581691591</updated>
       <workItem from="1602581692974" duration="164000" />
       <workItem from="1602704927979" duration="4020000" />
-      <workItem from="1602883548601" duration="500000" />
-      <workItem from="1602884076798" duration="595000" />
-      <workItem from="1602940217432" duration="2729000" />
-      <workItem from="1602952611680" duration="1274000" />
+      <workItem from="1603106521333" duration="1274000" />
     </task>
     <task id="LOCAL-00001" summary="Added and Finished Aufgabe 4a, 4b">
       <created>1602707661471</created>
@@ -86,28 +88,7 @@
       <option name="project" value="LOCAL" />
       <updated>1602707661471</updated>
     </task>
-    <task id="LOCAL-00002" summary="Added Hamdy MatNR">
-      <created>1602940258089</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1602940258089</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Added missing Author comments">
-      <created>1602940379559</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1602940379559</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Minor Bugfixes comments etc.">
-      <created>1602952772398</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1602952772398</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -127,21 +108,20 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added and Finished Aufgabe 4a, 4b" />
-    <MESSAGE value="Added Hamdy MatNR" />
-    <MESSAGE value="Added missing Author comments" />
-    <MESSAGE value="Minor Bugfixes comments etc." />
-    <option name="LAST_COMMIT_MESSAGE" value="Minor Bugfixes comments etc." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added and Finished Aufgabe 4a, 4b" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="157" y="96" key="SettingsEditor" timestamp="1602952701688">
-      <screen x="0" y="0" width="1500" height="960" />
+    <state x="1026" y="554" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1603056171944">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="157" y="96" key="SettingsEditor/0.0.1500.960@0.0.1500.960" timestamp="1602952701688" />
-    <state x="228" y="348" key="SettingsEditor/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1602705184553" />
-    <state x="187" y="299" key="Vcs.Push.Dialog.v2" timestamp="1602952778506">
-      <screen x="0" y="0" width="1500" height="960" />
+    <state x="1026" y="554" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1603056171944" />
+    <state x="228" y="348" key="SettingsEditor" timestamp="1603056358115">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="187" y="299" key="Vcs.Push.Dialog.v2/0.0.1500.960@0.0.1500.960" timestamp="1602952778506" />
+    <state x="228" y="348" key="SettingsEditor/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1603056358115" />
+    <state x="319" y="436" key="Vcs.Push.Dialog.v2" timestamp="1602707657318">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
     <state x="319" y="436" key="Vcs.Push.Dialog.v2/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1602707657318" />
   </component>
 </project>
