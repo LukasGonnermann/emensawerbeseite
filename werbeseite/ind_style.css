@@ -1,5 +1,6 @@
+/* Globals */
 * {
-    font-family: "Sans-serif", "Verdana";
+    font-family: "Sans-serif", "Verdana", sans-serif;
 }
 
 #main_grid_container {
@@ -13,15 +14,7 @@
     width: 65%;
     margin: auto;
 }
-
-p {
-    border: 1px solid;
-    padding: 20px;
-}
-
-table {
-    border: 1px solid;
-}
+/* Head Felder */
 
 #emensa_logo {
     border: 1px solid;
@@ -29,15 +22,26 @@ table {
 
 #head {
     display: grid;
-    grid-template-columns: auto 65% auto;
+    grid-template-columns: auto 60% auto;
+
 }
 
 #logo {
     text-align: center;
 }
 
-/* Gilt für alles nach der ersten Spalte*/
-td + td {
+/* Paragraphen*/
+p {
+    border: 1px solid;
+    padding: 20px;
+}
+
+/*Preise Tabelle*/
+table {
+    border: 1px solid;
+}
+
+td + td {   /* Gilt für alles nach der ersten Spalte*/
     text-align: center;
 }
 
