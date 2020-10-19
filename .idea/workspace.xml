@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6555435a-c353-4646-8b3b-b61504428d61" name="Default Changelist" comment="Minor Bugfixes comments etc.">
+    <list default="true" id="6555435a-c353-4646-8b3b-b61504428d61" name="Default Changelist" comment="Minor Code Layout changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/werbeseite/ind_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/werbeseite/ind_style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/werbeseite/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/werbeseite/index.html" afterDir="false" />
@@ -108,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602952772398</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Minor Code Layout changes">
+      <created>1603136024874</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1603136024874</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -131,7 +138,8 @@
     <MESSAGE value="Added Hamdy MatNR" />
     <MESSAGE value="Added missing Author comments" />
     <MESSAGE value="Minor Bugfixes comments etc." />
-    <option name="LAST_COMMIT_MESSAGE" value="Minor Bugfixes comments etc." />
+    <MESSAGE value="Minor Code Layout changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor Code Layout changes" />
   </component>
   <component name="WindowStateProjectService">
     <state x="157" y="96" key="SettingsEditor" timestamp="1602952701688">
@@ -144,5 +152,9 @@
     </state>
     <state x="187" y="299" key="Vcs.Push.Dialog.v2/0.0.1500.960@0.0.1500.960" timestamp="1602952778506" />
     <state x="319" y="436" key="Vcs.Push.Dialog.v2/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1602707657318" />
+    <state x="838" y="-823" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603137079591">
+      <screen x="241" y="-1440" width="2560" height="1400" />
+    </state>
+    <state x="838" y="-823" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1500.960/241.-1440.2560.1400@241.-1440.2560.1400" timestamp="1603137079591" />
   </component>
 </project>

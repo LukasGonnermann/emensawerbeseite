@@ -14,42 +14,55 @@
     width: 65%;
     margin: auto;
 }
+
 /* Head Felder */
-
-#emensa_logo {
-    border: 1px solid;
-}
-
 #head {
     display: grid;
-    grid-template-columns: auto 60% auto;
-
+    grid-template-columns: 17% 65% 18%;
+    padding:0.5%;
 }
 
-#logo {
+.header_innen_abstaende {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 10px;
+}
+
+#logo > div {
     text-align: center;
 }
 
-/* Paragraphen*/
-p {
+#adressen > a {
+    padding-right: 40px;
+}
+
+/* Paragraph*/
+#info {
     border: 1px solid;
     padding: 20px;
 }
 
 /*Preise Tabelle*/
 table {
-    border: 1px solid;
+    /*border: 1px solid;*/
+    width: 100%;
+}
+
+table.center {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 td + td {   /* Gilt für alles nach der ersten Spalte*/
     text-align: center;
 }
 
+td {
+    padding: 10px;
+}
+
 #letzte {
     text-align: center;
 }
 
-/* TODO */
-#head > div {
-    border: 1px solid;
-}
+/*TODO*/
