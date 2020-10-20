@@ -20,6 +20,7 @@
     display: grid;
     grid-template-columns: 17% 65% 18%;
     padding:0.5%;
+    border: 1px solid;
 }
 
 .header_innen_abstaende {
@@ -73,4 +74,25 @@ td {
 
 select {
     width: 80%;
+}
+
+#verabschiedung > h2 {
+    text-align: center;
+}
+
+/* Footer */
+#footer {
+    display: grid;
+    grid-template-columns: 33.3% 33.3% 33.3%;
+    border: 1px solid;
+    padding: 0.5%;
+}
+
+#footer > div {
+    text-align: center;
+    padding: 0.5%;
+}
+
+#footer > div + div {
+    border-left: 1px solid;
 }
