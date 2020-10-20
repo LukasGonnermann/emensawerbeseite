@@ -91,20 +91,31 @@
         <div>
             <h2 id="kontakt">Interesse geweckt? Wir informieren Sie!</h2>
             <form action="index.html" method="post">
-                <fieldset>
+                <fieldset id="nlform">
                     <legend>Newsletter abonieren</legend>
-                    <label for="name">Ihr Name:</label>
-                    <input id="name" type="text" placeholder="Vorname">
-                    <label for="email">Ihre Email:</label>
-                    <input id="email" type="email" placeholder="">
-                    <label for="sprache">Newsletter bitte in:</label>
-                    <select id="sprache">
-                        <option value="deutsch">Deutsch</option>
-                        <option value="englisch">Englisch</option>
-                    </select>
-                    <input id="checkbox" type="checkbox" name="checkbox">
-                    <label for="checkbox">Den Datenschutzbestimmungen stimme ich zu</label>
-                    <input id="submit" type="submit" value="Zum Newsletter anmelden">
+                    <div>
+                        <label for="name">Ihr Name:</label>
+                        <input id="name" type="text" placeholder="Vorname">
+                    </div>
+                    <div>
+                        <label for="email">Ihre Email:</label>
+                        <input id="email" type="email" placeholder="">
+                    </div>
+                    <div>
+                        <label for="sprache">Newsletter bitte in:</label>
+                        <select id="sprache">
+                            <option value="deutsch">Deutsch</option>
+                            <option value="englisch">Englisch</option>
+                        </select>
+                    </div>
+                    <div style="clear: both; width: 60%">
+                        <input id="checkbox" type="checkbox" name="checkbox">
+                        <label for="checkbox">Den Datenschutzbestimmungen stimme ich zu</label>
+                    </div>
+                    <div>
+                        <input id="submit" type="submit" value="Zum Newsletter anmelden">
+                    </div>
+
                 </fieldset>
             </form>
         </div>

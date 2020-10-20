@@ -64,5 +64,13 @@ td {
 #letzte {
     text-align: center;
 }
+/* Form Div container  */
+#nlform > div {
+    float: left;
+    width: 25%;
+    margin: 1.5%;
+}
 
-/*TODO*/
+select {
+    width: 80%;
+}
