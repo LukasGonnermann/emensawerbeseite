@@ -25,8 +25,9 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6555435a-c353-4646-8b3b-b61504428d61" name="Default Changelist" comment="Added Author">
+    <list default="true" id="6555435a-c353-4646-8b3b-b61504428d61" name="Default Changelist" comment="Some Style Changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/beispiele/css_table.html" beforeDir="false" afterPath="$PROJECT_DIR$/beispiele/css_table.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/werbeseite/ind_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/werbeseite/ind_style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/werbeseite/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/werbeseite/index.html" afterDir="false" />
     </list>
@@ -143,7 +144,21 @@
       <option name="project" value="LOCAL" />
       <updated>1603390303341</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Changed CSS">
+      <created>1603399581056</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1603399581056</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Added team.json">
+      <created>1603399625350</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1603399625350</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,7 +197,10 @@
     <MESSAGE value="Finished Headers" />
     <MESSAGE value="Fixed Newsletter abo" />
     <MESSAGE value="Added Author" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Author" />
+    <MESSAGE value="Changed CSS" />
+    <MESSAGE value="Added team.json" />
+    <MESSAGE value="Some Style Changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Some Style Changes" />
   </component>
   <component name="WindowStateProjectService">
     <state x="157" y="96" key="SettingsEditor" timestamp="1602952701688">
@@ -194,9 +212,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="92" y="92" width="2376" height="1216" key="ShowDiffWithBranchDialog/-240.1440.1500.980/0.0.2560.1400@0.0.2560.1400" timestamp="1603391803133" />
-    <state x="560" y="-1004" key="Vcs.Push.Dialog.v2" timestamp="1603140210102">
-      <screen x="241" y="-1440" width="2560" height="1400" />
+    <state x="319" y="436" key="Vcs.Push.Dialog.v2" timestamp="1603399643961">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
+    <state x="319" y="436" key="Vcs.Push.Dialog.v2/-240.1440.1500.980/0.0.2560.1400@0.0.2560.1400" timestamp="1603399643961" />
     <state x="560" y="-1004" key="Vcs.Push.Dialog.v2/0.0.1500.960/241.-1440.2560.1400@241.-1440.2560.1400" timestamp="1603140210102" />
     <state x="187" y="299" key="Vcs.Push.Dialog.v2/0.0.1500.960@0.0.1500.960" timestamp="1602952778506" />
     <state x="319" y="436" key="Vcs.Push.Dialog.v2/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1602707657318" />

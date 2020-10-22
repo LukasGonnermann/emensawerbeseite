@@ -23,7 +23,7 @@
 /* Head Felder */
 #head {
     display: grid;
-    grid-template-columns: 16% 66% 18%;
+    grid-template-columns: 16.5% 66% auto;
     padding:0.5%;
     gap: 10px;
 }
@@ -119,7 +119,6 @@ select {
 
 #footer > div {
     text-align: center;
-    color: deepskyblue;
     padding: 0.5%;
 }
 
@@ -131,4 +130,8 @@ select {
     padding-top: 20px;
     padding-bottom: 20px;
     padding-right: 10px;
+}
+
+#impressum > a {
+    color: deepskyblue;
 }
