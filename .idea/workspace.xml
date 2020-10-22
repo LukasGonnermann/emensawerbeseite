@@ -19,8 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6555435a-c353-4646-8b3b-b61504428d61" name="Default Changelist" comment="Finished Footer">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="6555435a-c353-4646-8b3b-b61504428d61" name="Default Changelist" comment="Added Author">
       <change beforePath="$PROJECT_DIR$/werbeseite/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/werbeseite/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -129,7 +128,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603208278452</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added Author">
+      <created>1603390303341</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1603390303341</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -155,7 +161,8 @@
     <MESSAGE value="Minor Code Layout changes" />
     <MESSAGE value="Finished Headers" />
     <MESSAGE value="Fixed Newsletter abo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed Newsletter abo" />
+    <MESSAGE value="Added Author" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Author" />
   </component>
   <component name="WindowStateProjectService">
     <state x="157" y="96" key="SettingsEditor" timestamp="1602952701688">
