@@ -16,11 +16,18 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6555435a-c353-4646-8b3b-b61504428d61" name="Default Changelist" comment="Added Author">
-      <change beforePath="$PROJECT_DIR$/werbeseite/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/werbeseite/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/beispiele/m1_4b_tabelle.html" beforeDir="false" afterPath="$PROJECT_DIR$/beispiele/m1_4b_tabelle.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,7 +153,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -170,6 +189,10 @@
     </state>
     <state x="157" y="96" key="SettingsEditor/0.0.1500.960@0.0.1500.960" timestamp="1602952701688" />
     <state x="228" y="348" key="SettingsEditor/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1602705184553" />
+    <state x="92" y="92" width="2376" height="1216" key="ShowDiffWithBranchDialog" timestamp="1603391803133">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="92" y="92" width="2376" height="1216" key="ShowDiffWithBranchDialog/-240.1440.1500.980/0.0.2560.1400@0.0.2560.1400" timestamp="1603391803133" />
     <state x="560" y="-1004" key="Vcs.Push.Dialog.v2" timestamp="1603140210102">
       <screen x="241" y="-1440" width="2560" height="1400" />
     </state>
