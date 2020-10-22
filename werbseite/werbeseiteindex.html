@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Ihre E-Mensa</title>
+    <link href="style4.css" rel="stylesheet">
+</head>
+<body>
+<div id="main_grid_container">
+    <!-- Header Section -->
+    <div id="head">
+        <div id="logo" class="header_innen_abstaende">
+            <div>E-Mensa Logo</div>
+        </div>
+        <div id="adressen" class="header_innen_abstaende">
+            <a href="#ankuendigungen">Ankündigungen</a>
+            <a href="#speisen">Speisen</a>
+            <a href="#zahlen">Zahlen</a>
+            <a href="#diuw">Wichtig für uns</a>
+            <a id="konta" href="#kontakt">Kontakt</a>
+        </div>
+    </div>
+    <hr>
+
+    <!-- Content -->
+    <div id="content">
+        <!-- Ankündigungen -->
+        <div >
+            <h2 id="ankuendigungen">Bald gibt es Essen auch online</h2>
+            <p id="info">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
+                et
+                dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+                Stet
+                clita kasd gubergren,
+                no sea takimata sanctus est <br>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+                sadipscing
+                elitr, sed diam
+                nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
+                accusam et
+                justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor
+                sit
+                amet.</p>
+        </div>
+        <!-- Speisen -->
+        <div>
+            <h2 id="speisen">Köstlichkeiten, die Sie erwarten</h2>
+            <table class="center">
+                <tr id="tr1">
+                    <td></td>
+                    <td>Preis intern</td>
+                    <td>Preis extern</td>
+                </tr>
+                <tr id="tr2">
+                    <td>Rindfleisch mit Bambus, Kaiserschoten<br>Und rotem Paprika dazu Mie Nudeln</td>
+                    <td>3,50 €</td>
+                    <td>6,20 €</td>
+                </tr>
+                <tr id="tr3">
+                    <td>Spinatrisotto mit kleinen Samsosateigecken<br>Und gemischter Salat</td>
+                    <td>2,90 €</td>
+                    <td>5,30 €</td>
+                </tr>
+                <tr id="tr4">
+                    <td id="letzte">...</td>
+                    <td>...</td>
+                    <td>...</td>
+                </tr>
+
+            </table>
+        </div>
+        <!-- Zahlen -->
+        <div>
+            <h2 id="zahlen">E-Mensa in Zahlen</h2>
+            <table>
+                <tr>
+                    <td>500 Besuche</td>
+                    <td>200 Anmeldungen zum Newsletter</td>
+                    <td>50 Speisen</td>
+                </tr>
+            </table>
+        </div>
+        <!-- Wichtig für uns -->
+        <div>
+            <h2 id="diuw">Das ist uns wichtig</h2>
+            <ul>
+                <li>Beste frische saisonale Zutaten</li>
+                <li>Ausgewogene abwechslungsreiche Gerichte</li>
+                <li>Sauberkeit</li>
+            </ul>
+        </div>
+        <!-- Newsletter -->
+        <div>
+            <h2 id="kontakt">Interesse geweckt? Wir informieren Sie!</h2>
+            <form action="index.html" method="post">
+                <fieldset>
+                    <legend>Newsletter abonieren</legend>
+                    <label for="name">Ihr Name:</label>
+                    <input id="name" type="text" placeholder="Vorname">
+                    <label for="email">Ihre Email:</label>
+                    <input id="email" type="email" placeholder="">
+                    <label for="sprache">Newsletter bitte in:</label>
+                    <select id="sprache">
+                        <option value="deutsch">Deutsch</option>
+                        <option value="englisch">Englisch</option>
+                    </select>
+                    <input id="checkbox" type="checkbox" name="checkbox">
+                    <label for="checkbox">Den Datenschutzbestimmungen stimme ich zu</label>
+                    <input id="submit" type="submit" value="Zum Newsletter anmelden">
+                </fieldset>
+            </form>
+        </div>
+        <div>
+            <h2 id="WFB">Wir freuen uns auf Ihren Besuch!</h2>
+        </div>
+    </div>
+    <hr>
+    <!-- Footer -->
+    <div id="footer">
+        <p>&copy E-Mensa GmbH </p>
+        <p id="au" > Hamdy Sarhan, Lukas Gonnermann</p>
+        <p><a  id="Im" href="">Impressum</a></p>
+    </div>
+</div>
+</body>
+</html>
