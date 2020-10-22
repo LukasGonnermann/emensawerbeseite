@@ -1,6 +1,6 @@
 /* Globals */
 * {
-    font-family: "Sans-serif", "Verdana", sans-serif;
+    font-family: "Sans-serif", "Comic Sans MS", sans-serif;
 }
 
 #main_grid_container {
@@ -12,29 +12,54 @@
 
 #content {
     width: 65%;
-    margin: auto;
+    margin:auto;
+}
+
+#content > div {
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
 /* Head Felder */
 #head {
     display: grid;
-    grid-template-columns: 17% 65% 18%;
+    grid-template-columns: 16% 66% 18%;
     padding:0.5%;
-    border: 1px solid;
+    gap: 10px;
 }
 
 .header_innen_abstaende {
     padding-top: 20px;
     padding-bottom: 20px;
-    padding-right: 10px;
+}
+
+#logo {
+    border: 1px solid;
 }
 
 #logo > div {
     text-align: center;
+    font-weight: bold;
+}
+
+#adressen {
+    border: 1px solid;
 }
 
 #adressen > a {
-    padding-right: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: deepskyblue;
+    font-weight: bold;
+}
+
+/* Placeholder */
+
+#placeholder {
+    padding-top: 20%;
+    padding-bottom: 20%;
+    text-align: center;
+    border: 1px solid;
 }
 
 /* Paragraph*/
@@ -50,11 +75,13 @@ table {
 }
 
 table.center {
+    /* Seitenabstände zur Content width anpassen */
     margin-left: auto;
     margin-right: auto;
+    border: 1px solid black;
 }
 
-td + td {   /* Gilt für alles nach der ersten Spalte*/
+td + td {   /* Gilt für alles nach der ersten Spalte(Preise etc.) */
     text-align: center;
 }
 
@@ -65,6 +92,7 @@ td {
 #letzte {
     text-align: center;
 }
+
 /* Form Div container  */
 #nlform > div {
     float: left;
@@ -83,16 +111,24 @@ select {
 /* Footer */
 #footer {
     display: grid;
-    grid-template-columns: 33.3% 33.3% 33.3%;
+    grid-template-columns: 20% 30% 20%;
+    justify-content: center;
     border: 1px solid;
     padding: 0.5%;
 }
 
 #footer > div {
     text-align: center;
+    color: deepskyblue;
     padding: 0.5%;
 }
 
 #footer > div + div {
-    border-left: 1px solid;
+    border-left: 1px solid black;
+}
+
+.footer_innen_abstaende {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 10px;
 }
