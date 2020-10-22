@@ -9,15 +9,13 @@
     padding: 10px;
 
 }
-body{
-    width: 90%;
 
-
-}
 
 #content {
     width: 50%;
-    margin: auto;
+   /* margin: auto;*/
+    margin-top: 250px;
+    margin-left: 340px;
 
 }
 
