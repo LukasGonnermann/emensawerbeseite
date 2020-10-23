@@ -25,9 +25,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6555435a-c353-4646-8b3b-b61504428d61" name="Default Changelist" comment="Author Fix">
+    <list default="true" id="6555435a-c353-4646-8b3b-b61504428d61" name="Default Changelist" comment="Aufgabe 9 überarbeitet">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/beispiele/css_table.html" beforeDir="false" afterPath="$PROJECT_DIR$/beispiele/css_table.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/beispiele/m1_8b_layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/beispiele/m1_8b_layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/beispiele/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/beispiele/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +91,8 @@
       <workItem from="1602940217432" duration="2729000" />
       <workItem from="1602952611680" duration="1274000" />
       <workItem from="1603205672077" duration="4679000" />
-      <workItem from="1603450161527" duration="3795000" />
+      <workItem from="1603450161527" duration="3884000" />
+      <workItem from="1603456803023" duration="1446000" />
     </task>
     <task id="LOCAL-00001" summary="Added and Finished Aufgabe 4a, 4b">
       <created>1602707661471</created>
@@ -176,7 +178,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603400472294</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Aufgabe 9 überarbeitet">
+      <created>1603453998399</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1603453998399</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,7 +202,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="Hamdy" />
                       </list>
                     </value>
                   </entry>
@@ -220,7 +229,8 @@
     <MESSAGE value="Some Style Changes" />
     <MESSAGE value="Fixed some Validation Errors and Stuff" />
     <MESSAGE value="Author Fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Author Fix" />
+    <MESSAGE value="Aufgabe 9 überarbeitet" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aufgabe 9 überarbeitet" />
   </component>
   <component name="WindowStateProjectService">
     <state x="157" y="96" key="SettingsEditor" timestamp="1602952701688">
@@ -232,16 +242,17 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="92" y="92" width="2376" height="1216" key="ShowDiffWithBranchDialog/-240.1440.1500.980/0.0.2560.1400@0.0.2560.1400" timestamp="1603391803133" />
-    <state x="319" y="436" key="Vcs.Push.Dialog.v2" timestamp="1603400386394">
+    <state x="319" y="436" key="Vcs.Push.Dialog.v2" timestamp="1603454044826">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="319" y="436" key="Vcs.Push.Dialog.v2/-240.1440.1500.980/0.0.2560.1400@0.0.2560.1400" timestamp="1603400386394" />
+    <state x="319" y="436" key="Vcs.Push.Dialog.v2/-240.1440.1500.980/0.0.2560.1400@0.0.2560.1400" timestamp="1603454044826" />
     <state x="560" y="-1004" key="Vcs.Push.Dialog.v2/0.0.1500.960/241.-1440.2560.1400@241.-1440.2560.1400" timestamp="1603140210102" />
     <state x="187" y="299" key="Vcs.Push.Dialog.v2/0.0.1500.960@0.0.1500.960" timestamp="1602952778506" />
     <state x="319" y="436" key="Vcs.Push.Dialog.v2/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1602707657318" />
-    <state x="838" y="-823" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603137079591">
-      <screen x="241" y="-1440" width="2560" height="1400" />
+    <state x="597" y="617" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603454048058">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
+    <state x="597" y="617" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-240.1440.1500.980/0.0.2560.1400@0.0.2560.1400" timestamp="1603454048058" />
     <state x="838" y="-823" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1500.960/241.-1440.2560.1400@241.-1440.2560.1400" timestamp="1603137079591" />
   </component>
 </project>
