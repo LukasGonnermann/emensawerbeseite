@@ -8,95 +8,79 @@
 <head>
     <meta charset="UTF-8">
     <title>CSS Übung</title>
-    <style>
-        #etabelle {
-            border: 1px solid orange;
+    <style type="text/css">
+        * {
             font-family: Arial, Helvetica, sans-serif;
-            table-layout: fixed;
-            width: 600px;
-
         }
-
         body {
-            margin-left: 500px;
-        }
-
-        #first {
-            background-color: antiquewhite;
-        }
-
-        #third {
-            background-color: antiquewhite;
-        }
-
-        #link1 {
-            color: orange;
-            text-decoration-color: white;
-            font-weight: bold;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        #elektro {
-            font-family: Arial, Helvetica, sans-serif;
-            font-weight: bold;
-        }
-
-        footer {
-
-        }
-
-        #foot {
-            list-style-position: outside;
+            width: 60%;
         }
 
         .center {
             text-align: center;
-            margin-right: 825px;
+        }
+        /* Border über dem Footer */
+        main {
             border-bottom: 1px solid orange;
-            padding-bottom: 10px;
+        }
+        /* Link Farbe und Schrift*/
+        a {
+            color: orange;
+            text-decoration: none;
+            font-weight: bold;
         }
 
-        /*#foot li{
-
-           color: black;
-           display: grid;
-           grid-template-columns: 20% 20% 20%;
-
-
-           justify-content: center;
-       }*/
-        #foot li {
+        #etabelle {
+            border: 1px solid orange;
+            margin-left: auto;
+            margin-right: auto;
+            width: 70%;
+        }
+        /* Abstaende der li's in der Tabelle */
+        ol > li {
+            margin-top:15px;
+            margin-bottom: 15px;
+        }
+        /* Weiße Borders innerhalb des tables */
+        td {
+            border:1px solid white;
+        }
+        /* Ueber Pseudoclassen 2. tr Element auswählen */
+        tr:nth-child(2) {
+            background-color: antiquewhite;
+        }
+        /* Table Header background clolor */
+        thead {
+            background-color: antiquewhite;
+        }
+        ul {
+            text-align: right;
+            padding-right: 30px;
+        }
+        /* Footer Liste inline */
+        ul > li {
             display: inline;
-            padding: 10px;
-
-
         }
-
-        #foot {
-            margin-left: 80px;
-        }
-
-        #li1 {
+        /* Trennungs-Streifen links */
+        ul > li + li{
+            margin-left: 10px;
+            padding-left: 15px;
             border-left: 1px solid orange;
-            border-right: 1px solid orange;
-        }
-
-        #li2 {
-            border-right: 1px solid orange;
         }
     </style>
     <link rel="stylesheet" href="bildschirm-stylesheet.css" media="screen">
     <link rel="stylesheet" href="druck-stylesheet.css" media="print">
+
 </head>
 <body>
 <main>
     <!-- das <div> in <main> aus Part 1 hier einfügen, um die komplette Webseite zu erhalten -->
     <div class="elektro zeile">
         <h1 id="elektro">Wofür steht das E in E-Mensa?</h1>
-        <p>Am besten zeigt man das in einer <a id="link1" href="#etabelle">Tabelle</a>.</p>
+        <p>Am besten zeigt man das in einer <a href="#etabelle">Tabelle</a>.</p>
         <table id="etabelle">
             <thead>
-            <tr id="first">
+            <tr>
                 <th>Bedeutung</th>
                 <th>Philosophie</th>
                 <th>Beispiele</th>
@@ -115,7 +99,7 @@
                     </ol>
                 </td>
             </tr>
-            <tr id="third">
+            <tr>
                 <td>Extravagant</td>
                 <td>Es gibt auch Ausgefallenes</td>
                 <td><p>Wir sind die einzige Mensa weit und breit mit </p>
@@ -145,10 +129,10 @@
     </div>
 </main>
 <footer>
-    <ul id="foot">
+    <ul>
         <li>(c) DBWT</li>
-        <li id="li1">Hilfe</li>
-        <li id="li2">Datenschutz</li>
+        <li>Hilfe</li>
+        <li>Datenschutz</li>
         <li>Impressum</li>
     </ul>
 </footer>
