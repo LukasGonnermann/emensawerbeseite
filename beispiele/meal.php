@@ -15,11 +15,15 @@ $de = [
     'gericht' => 'Gericht',
     'allergene' => 'Allergene',
     'bewertungen' => 'Bewertungen (Insgesamt',
+    'preis' => 'Preise',
+    'intern' => 'Intern',
+    'extern' => 'Extern',
     'filter' => 'Filter',
     'hier_suchen' => 'Hier suchen!',
+    'beschreibung_anzeigen' => 'Gerichtbeschreibung anzeigen',
     'suchen' => 'Suchen',
-    'text' =>'Text',
-    'autor' =>  'Autor',
+    'text' => 'Text',
+    'autor' => 'Autor',
     'sterne' => 'Sterne',
     'sprache' => 'Sprache',
     'deutsch' => 'Deutsch',
@@ -30,11 +34,15 @@ $en = [
     'gericht' => 'Meal',
     'allergene' => 'Allergens',
     'bewertungen' => 'Rating (Total',
+    'preis' => 'Prices',
+    'intern' => 'Intern',
+    'extern' => 'Extern',
     'filter' => 'Filter',
     'hier_suchen' => 'Search here!',
+    'beschreibung_anzeigen' => 'Show Meal Description',
     'suchen' => 'Search',
-    'text' =>'Text',
-    'autor' =>  'Author',
+    'text' => 'Text',
+    'autor' => 'Author',
     'sterne' => 'Stars',
     'sprache' => 'Language',
     'deutsch' => 'German',
@@ -47,17 +55,13 @@ $en = [
 $lang = [];
 if (!isset($_GET['sprache'])) {
     $lang = $de;
-}
-elseif ($_GET['sprache'] == 'de') {
+} elseif ($_GET['sprache'] == 'de') {
     $lang = $de;
-}
-elseif ($_GET['sprache'] == 'en') {
+} elseif ($_GET['sprache'] == 'en') {
     $lang = $en;
-}
-else {
+} else {
     $lang = $de;
 }
-
 
 /**
  * Liste aller möglichen Allergene.
@@ -80,18 +84,18 @@ $meal = [ // Kurzschreibweise für ein Array (entspricht = array())
 ];
 
 $ratings = [
-    [   'text' => 'Die Kartoffel ist einfach klasse. Nur die Fischstäbchen schmecken nach Käse. ',
+    ['text' => 'Die Kartoffel ist einfach klasse. Nur die Fischstäbchen schmecken nach Käse. ',
         'author' => 'Ute U.',
-        'stars' => 2 ],
-    [   'text' => 'Sehr gut. Immer wieder gerne',
+        'stars' => 2],
+    ['text' => 'Sehr gut. Immer wieder gerne',
         'author' => 'Gustav G.',
-        'stars' => 4 ],
-    [   'text' => 'Der Klassiker für den Wochenstart. Frisch wie immer',
+        'stars' => 4],
+    ['text' => 'Der Klassiker für den Wochenstart. Frisch wie immer',
         'author' => 'Renate R.',
-        'stars' => 4 ],
-    [   'text' => 'Kartoffel ist gut. Das Grüne ist mir suspekt.',
+        'stars' => 4],
+    ['text' => 'Kartoffel ist gut. Das Grüne ist mir suspekt.',
         'author' => 'Marta M.',
-        'stars' => 3 ]
+        'stars' => 3]
 ];
 
 $showRatings = [];
@@ -124,7 +128,8 @@ if ($_GET['search_text']) {
     $searchTerm = $_GET['search_text'];
 }
 
-function calcMeanStars($ratings) : float { // : float gibt an, dass der Rückgabewert vom Typ "float" ist
+function calcMeanStars($ratings): float
+{ // : float gibt an, dass der Rückgabewert vom Typ "float" ist
     $sum = 0;
     $i = 0;
     foreach ($ratings as $rating) {
@@ -138,68 +143,96 @@ function calcMeanStars($ratings) : float { // : float gibt an, dass der Rückgab
 
 <!DOCTYPE html>
 <html lang="de">
-    <head>
-        <meta charset="UTF-8"/>
-        <title><?php echo $lang['gericht'] . ': ' . $meal['name']; ?></title>
-        <style type="text/css">
-            * {
-                font-family: Arial, serif;
-            }
-            .rating {
-                color: darkgray;
-            }
-        </style>
-    </head>
-    <body>
-        <h1><?php echo $lang['gericht'] . ': ' . $meal['name']; ?></h1>
-        <p><?php
-            echo $showDescriptions;
-            ?></p>
-        <h1><?php echo $lang['allergene'] . ': '?></h1>
-        <ul>
-            <?php
-                foreach ($allergens as $allergen => $alval) {
-                    echo "<li>$alval</li>";
-                }
-            ?>
-        </ul>
-        <h1><?php echo $lang['bewertungen'] . ' ' . calcMeanStars($ratings); ?>)</h1>
-        <form method="get">
-            <label for="search_text"><?php echo $lang['filter'] . ': ' ?></label>
-            <input id="search_text"
-                   type="text"
-                   name="search_text"
-                   value="<?php echo htmlspecialchars($searchTerm)?>"
-                   placeholder="<?php echo htmlspecialchars($lang['hier_suchen'])?>">
-            <input id="description_checkbox" name="show_description" type="checkbox" value="checked">
-            <input type="submit" value="<?php echo $lang['suchen']; ?>">
-        </form>
-        <table class="rating">
-            <thead>
-            <tr>
-                <td><?php echo $lang['text'] ?></td>
-                <td><?php echo $lang['autor'] ?></td>
-                <td><?php echo $lang['sterne'] ?></td>
-            </tr>
-            </thead>
-            <tbody>
-            <?php
-        foreach ($showRatings as $rating) {
-            echo "<tr><td class='rating_text'>{$rating['text']}</td>
+<head>
+    <meta charset="UTF-8"/>
+    <title><?php echo $lang['gericht'] . ': ' . $meal['name']; ?></title>
+    <style type="text/css">
+        * {
+            font-family: Arial, serif;
+        }
+
+        .rating {
+            color: darkgray;
+        }
+        table {
+            border: 1px solid;
+        }
+        td {
+            padding: 10px;
+            margin: 10px;
+        }
+
+    </style>
+</head>
+<body>
+<h1><?php echo $lang['gericht'] . ': ' . $meal['name']; ?></h1>
+<p><?php
+    echo $showDescriptions;
+    ?></p>
+<h1><?php echo $lang['allergene'] . ': ' ?></h1>
+<ul>
+    <?php
+    foreach ($allergens as $allergen => $alval) {
+        echo "<li>$alval</li>";
+    }
+    ?>
+</ul>
+
+<h1><?php echo $lang['preis'] . ': ' ?></h1>
+<table>
+    <tr class='preise'>
+        <td><?php echo $lang['intern'] . ':' ?></td>
+        <td><?php echo number_format($meal['price_intern'], 2, ',', '.') .'€' ?></td>
+    </tr>
+    <tr class='preise'>
+        <td><?php echo $lang['extern'] . ':' ?></td>
+        <td><?php echo number_format($meal['price_extern'], 2, ',','.') .'€'  ?></td>
+    </tr>
+</table>
+<h1><?php echo $lang['bewertungen'] . ' ' . calcMeanStars($ratings); ?>)</h1>
+
+<form method="get">
+    <label for="search_text"><?php echo $lang['filter'] . ': ' ?></label>
+    <input id="search_text"
+           type="text"
+           name="search_text"
+           value="<?php echo htmlspecialchars($searchTerm) ?>"
+           placeholder="<?php echo htmlspecialchars($lang['hier_suchen']) ?>">
+    <br>
+    <br>
+    <label for="description_checkbox"><?php echo $lang['beschreibung_anzeigen'] . ': ' ?></label>
+    <input id="description_checkbox" name="show_description" type="checkbox" value="checked">
+    <br>
+    <br>
+    <input id="submit" type="submit" value="<?php echo $lang['suchen']; ?>">
+</form>
+<br>
+<table class="rating">
+    <thead>
+    <tr>
+        <td><?php echo $lang['text'] ?></td>
+        <td><?php echo $lang['autor'] ?></td>
+        <td><?php echo $lang['sterne'] ?></td>
+    </tr>
+    </thead>
+    <tbody>
+    <?php
+    foreach ($showRatings as $rating) {
+        echo "<tr><td class='rating_text'>{$rating['text']}</td>
                       <td class = 'rating_text'>{$rating['author']}</td>  
                       <td class='rating_stars'>{$rating['stars']}</td>
                   </tr>";
-        }
-        ?>
-            </tbody>
-        </table>
-    </body>
+    }
+    ?>
+    </tbody>
+</table>
+<br>
 <footer>
     <div>
         <div><?php echo $lang['sprache'] . ':' ?></div>
         <a href="meal.php?sprache=de"><?php echo $lang['deutsch'] ?></a>
         <a href="meal.php?sprache=en"><?php echo $lang['englisch'] ?></a>
     </div>
-
 </footer>
+</body>
 </html>
