@@ -80,22 +80,21 @@ else {
                         echo "<tr>";
                             $i = 0;
                             foreach ($value as $colItem) {
-                                if ($colItem == $value[$i])
-
+                                if ($colItem == $value[$i]) {
+                                    $i++;
                                     echo "<td>$colItem</td>";
-
-                                elseif($i < 3) {
+                                }
+                                elseif($i < 2) {
                                     echo "<td>$colItem €</td>";
                                 }
                                 else {
-                                    echo "<td>";
-                                    echo "<img src=>"
-                                    echo "</td>";
+                                    echo "";
                                 }
                                 $i++;
                             }
                         echo "</tr>";
                     }
+
                 ?>
             </table>
         </div>
