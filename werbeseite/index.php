@@ -1,9 +1,24 @@
+<?php
+/**
+ * Praktikum DBWT. Autoren:
+ * Lukas, Gonnermann, 3218299
+ * Hamdy, Sarhan, 3251443
+ */
+$error = null;
+$gerichte = [];
+if (($file = fopen('gerichte.CSV', 'r')) !== FALSE) {
+    while (($data = fgetcsv($file, 1000, ';')) !== FALSE) {
+        if ((count($data) == 4)) {
+            array_push($gerichte, $data);
+        }
+    }
+}
+else {
+    $error = "Fileopen Error";
+}
+
+?>
 <!DOCTYPE html>
-<!--
-- Praktikum DBWT. Autoren:
-- Lukas, Gonnermann, 3218299
-- Hamdy, Sarhan, 3251443
--->
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -55,26 +70,33 @@
             <h2 id="speisen">Köstlichkeiten, die Sie erwarten</h2>
             <table class="center">
                 <tr>
-                    <td></td>
-                    <td>Preis intern</td>
-                    <td>Preis extern</td>
+                    <th>Beschreibung</th>
+                    <th>Preis intern</th>
+                    <th>Preis extern</th>
+                    <th>Bilder</th>
                 </tr>
-                <tr>
-                    <td>Rindfleisch mit Bambus, Kaiserschoten<br>Und rotem Paprika dazu Mie Nudeln</td>
-                    <td>3,50 €</td>
-                    <td>6,20 €</td>
-                </tr>
-                <tr>
-                    <td>Spinatrisotto mit kleinen Samsosateigecken<br>Und gemischter Salat</td>
-                    <td>2,90 €</td>
-                    <td>5,30 €</td>
-                </tr>
-                <tr>
-                    <td id="letzte">...</td>
-                    <td>...</td>
-                    <td>...</td>
-                </tr>
+                <?php
+                    foreach ($gerichte as $key => $value) {
+                        echo "<tr>";
+                            $i = 0;
+                            foreach ($value as $colItem) {
+                                if ($colItem == $value[$i])
 
+                                    echo "<td>$colItem</td>";
+
+                                elseif($i < 3) {
+                                    echo "<td>$colItem €</td>";
+                                }
+                                else {
+                                    echo "<td>";
+                                    echo "<img src=>"
+                                    echo "</td>";
+                                }
+                                $i++;
+                            }
+                        echo "</tr>";
+                    }
+                ?>
             </table>
         </div>
         <!-- Zahlen -->
@@ -100,7 +122,7 @@
         <!-- Newsletter -->
         <div>
             <h2 id="kontakt">Interesse geweckt? Wir informieren Sie!</h2>
-            <form action="index.html" method="post">
+            <form action="index.php" method="post">
                 <fieldset id="nlform">
                     <legend>Newsletter abonieren</legend>
                     <div>
@@ -143,7 +165,7 @@
             Hamdy Sarhan, Lukas Gonnermann
         </div>
         <div id="impressum" class="footer_innen_abstaende">
-            <a href="index.html">Impressum</a>
+            <a href="index.php">Impressum</a>
         </div>
     </div>
 </div>
