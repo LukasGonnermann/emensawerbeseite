@@ -78,20 +78,16 @@ else {
                 <?php
                     foreach ($gerichte as $key => $value) {
                         echo "<tr>";
-                            $i = 0;
-                            foreach ($value as $colItem) {
-                                if ($colItem == $value[$i]) {
-                                    $i++;
-                                    echo "<td>$colItem</td>";
-                                }
-                                elseif($i < 2) {
-                                    echo "<td>$colItem €</td>";
+                            for ($i = 0; $i < count($value) - 1; $i++) {
+                                if ($i == 0) {
+                                    echo "<td>$value[$i]</td>";
                                 }
                                 else {
-                                    echo "";
+                                    echo "<td>$value[$i]€</td>";
                                 }
-                                $i++;
+
                             }
+                            echo "<td><img src='$value[3]' alt='Gericht: $value[3]' width='75px' height='75px'></td>";
                         echo "</tr>";
                     }
 
