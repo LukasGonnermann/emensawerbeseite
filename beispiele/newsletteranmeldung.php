@@ -19,13 +19,11 @@ else {
         if (!preg_match("/^[a-zA-Z ]*$/", $vornamep)) {
             $errorp = ' Only letters and white spaces allowed';
         }
-
-
     } else {
         $errorp = 'Please enter your vorname';
 
     }
-   if (!empty($_Post['nachname'])) {
+   if (!empty($_POST['nachname'])) {
        $nachnamep = $_POST['nachname'];
        if (!preg_match("/^[a-zA-Z ]*$/", $nachnamep)) {
            $errorp = ' Only letters and white spaces allowed';
@@ -91,7 +89,7 @@ else {
 <body>
 <form method="post">
     <fieldset>
-        <b style="color: red"><?php echo $errorp ?></b>
+        <?php echo "<b style='color: red'>$errorp</b>" ?>
         <legend>Anmeldung</legend><br>
         <label for="frau">Anrede</label><br>
         <input id="frau" type="radio" name="geschlecht" value="Frau">
