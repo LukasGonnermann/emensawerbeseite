@@ -82,14 +82,14 @@
       <recent name="C:\Users\lukas\PhpstormProjects\e-mensa_werbeseite\beispiele\Oper" />
     </key>
   </component>
-  <component name="RunManager" selected="PHP Script.m2_4a_standardparameter.php">
+  <component name="RunManager" selected="PHP Script.m2_4a_stanardparameter.php">
     <configuration name="Praktikum" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$" port="9050">
       <method v="2" />
     </configuration>
     <configuration default="true" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$" host="Praktikum_Webserver" port="9050">
       <method v="2" />
     </configuration>
-    <configuration name="m2_4a_standardparameter.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/beispiele/m2_4a_standardparameter.php">
+    <configuration name="m2_4a_stanardparameter.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/beispiele/m2_4a_stanardparameter.php">
       <method v="2" />
     </configuration>
     <configuration name="m2_4b_include.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/beispiele/m2_4b_include.php">
@@ -102,7 +102,7 @@
       <list>
         <item itemvalue="PHP Script.m2_4e_accesslog.php" />
         <item itemvalue="PHP Script.m2_4b_include.php" />
-        <item itemvalue="PHP Script.m2_4a_standardparameter.php" />
+        <item itemvalue="PHP Script.m2_4a_stanardparameter.php" />
       </list>
     </recent_temporary>
   </component>
@@ -362,10 +362,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="92" y="92" width="2376" height="1216" key="ShowDiffWithBranchDialog/-240.1440.1500.980/0.0.2560.1400@0.0.2560.1400" timestamp="1603391803133" />
-    <state x="319" y="436" key="Vcs.Push.Dialog.v2" timestamp="1604601527282">
+    <state x="319" y="436" key="Vcs.Push.Dialog.v2" timestamp="1604581609034">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="319" y="436" key="Vcs.Push.Dialog.v2/-240.1440.1500.980/0.0.2560.1400@0.0.2560.1400" timestamp="1604601527282" />
+    <state x="319" y="436" key="Vcs.Push.Dialog.v2/-240.1440.1500.980/0.0.2560.1400@0.0.2560.1400" timestamp="1604581609034" />
     <state x="560" y="-1004" key="Vcs.Push.Dialog.v2/0.0.1500.960/241.-1440.2560.1400@241.-1440.2560.1400" timestamp="1603140210102" />
     <state x="187" y="299" key="Vcs.Push.Dialog.v2/0.0.1500.960@0.0.1500.960" timestamp="1602952778506" />
     <state x="319" y="436" key="Vcs.Push.Dialog.v2/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1602707657318" />
