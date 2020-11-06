@@ -5,7 +5,7 @@
  * Hamdy, Sarhan, 3251443
  */
 
-include 'm2_4a_stanardparameter.php';
+include 'm2_4a_standardparameter.php';
 
 echo addiere(32,1323);
 echo "\n";

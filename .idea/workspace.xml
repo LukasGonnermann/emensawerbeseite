@@ -82,14 +82,14 @@
       <recent name="C:\Users\lukas\PhpstormProjects\e-mensa_werbeseite\beispiele\Oper" />
     </key>
   </component>
-  <component name="RunManager" selected="PHP Script.m2_4a_stanardparameter.php">
+  <component name="RunManager" selected="PHP Script.m2_4a_standardparameter.php">
     <configuration name="Praktikum" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$" port="9050">
       <method v="2" />
     </configuration>
     <configuration default="true" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$" host="Praktikum_Webserver" port="9050">
       <method v="2" />
     </configuration>
-    <configuration name="m2_4a_stanardparameter.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/beispiele/m2_4a_stanardparameter.php">
+    <configuration name="m2_4a_standardparameter.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/beispiele/m2_4a_standardparameter.php">
       <method v="2" />
     </configuration>
     <configuration name="m2_4b_include.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/beispiele/m2_4b_include.php">
@@ -102,7 +102,7 @@
       <list>
         <item itemvalue="PHP Script.m2_4e_accesslog.php" />
         <item itemvalue="PHP Script.m2_4b_include.php" />
-        <item itemvalue="PHP Script.m2_4a_stanardparameter.php" />
+        <item itemvalue="PHP Script.m2_4a_standardparameter.php" />
       </list>
     </recent_temporary>
   </component>

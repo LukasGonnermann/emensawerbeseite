@@ -4,7 +4,7 @@
  * Lukas, Gonnermann, 3218299
  * Hamdy, Sarhan, 3251443
  */
-include 'm2_4a_stanardparameter.php';
+include 'm2_4a_standardparameter.php';
 function multi($a, $b = 1) {
     return (double) $a * (double) $b;
 }
