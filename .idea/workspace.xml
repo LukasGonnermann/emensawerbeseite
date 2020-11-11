@@ -19,12 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6555435a-c353-4646-8b3b-b61504428d61" name="Default Changelist" comment="Aufgabe 7 bearbeitet, kleine Bugs">
+    <list default="true" id="6555435a-c353-4646-8b3b-b61504428d61" name="Default Changelist" comment="Aufgabe 7 bearbeitet, Leerzeichen überprüfen">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/beispiele/data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/beispiele/data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/beispiele/newsletteranmeldung.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/beispiele/newsletteranmeldung.php" beforeDir="false" afterPath="$PROJECT_DIR$/beispiele/newsletteranmeldung.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/beispiele/speicher.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/beispiele/m2_4d_array.php" beforeDir="false" afterPath="$PROJECT_DIR$/beispiele/m2_4d_array.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -241,7 +238,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604663925242</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Aufgabe 7 bearbeitet, Leerzeichen überprüfen">
+      <created>1605130829640</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1605130829640</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -291,7 +295,8 @@
     <MESSAGE value="Finished Aufgabe  5" />
     <MESSAGE value="made some stuff" />
     <MESSAGE value="Aufgabe 7 bearbeitet, kleine Bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Aufgabe 7 bearbeitet, kleine Bugs" />
+    <MESSAGE value="Aufgabe 7 bearbeitet, Leerzeichen überprüfen" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aufgabe 7 bearbeitet, Leerzeichen überprüfen" />
   </component>
   <component name="WindowStateProjectService">
     <state x="205" y="119" width="1052" height="549" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604601677630">
@@ -351,6 +356,14 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="2517" height="492" key="GridCell.Tab.1.right/-240.1440.1500.980/0.0.2560.1400@0.0.2560.1400" timestamp="1604509869684" />
+    <state x="144" y="65" key="MergeDialog" timestamp="1605130750294">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="144" y="65" key="MergeDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1605130750294" />
+    <state x="405" y="174" key="MultipleFileMergeDialog" timestamp="1605130740098">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="405" y="174" key="MultipleFileMergeDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1605130740098" />
     <state x="603" y="274" key="NewPhpFileDialog" timestamp="1604612005020">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -368,12 +381,13 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="92" y="92" width="2376" height="1216" key="ShowDiffWithBranchDialog/-240.1440.1500.980/0.0.2560.1400@0.0.2560.1400" timestamp="1603391803133" />
-    <state x="191" y="212" width="814" height="578" key="Vcs.Push.Dialog.v2" timestamp="1604663958193">
+    <state x="191" y="212" width="814" height="578" key="Vcs.Push.Dialog.v2" timestamp="1605130943139">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="319" y="436" key="Vcs.Push.Dialog.v2/-240.1440.1500.980/0.0.2560.1400@0.0.2560.1400" timestamp="1604581609034" />
     <state x="560" y="-1004" key="Vcs.Push.Dialog.v2/0.0.1500.960/241.-1440.2560.1400@241.-1440.2560.1400" timestamp="1603140210102" />
     <state x="187" y="299" key="Vcs.Push.Dialog.v2/0.0.1500.960@0.0.1500.960" timestamp="1602952778506" />
+    <state x="191" y="212" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1605130943139" />
     <state x="191" y="212" width="814" height="578" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1604663958193" />
     <state x="319" y="436" key="Vcs.Push.Dialog.v2/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1602707657318" />
     <state x="597" y="617" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604522684359">
@@ -393,6 +407,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="155" y="230" width="1302" height="690" key="editAsTableFormatDialogDimension/-240.1440.1500.980/0.0.2560.1400@0.0.2560.1400" timestamp="1604599537643" />
+    <state x="554" y="325" key="git4idea.rebase.GitUnstructuredEditor" timestamp="1605130744001">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="554" y="325" key="git4idea.rebase.GitUnstructuredEditor/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1605130744001" />
     <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1604510489352">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>

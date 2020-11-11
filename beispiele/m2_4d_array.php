@@ -6,7 +6,7 @@
  */
 $famousMeals = [
     1 => ['name' => 'Currywurst mit Pommes',
-        'winner' => [2001, 2003, 2007, 2010, 2020]],
+        'winner' => [ 2001, 2003, 2007, 2010, 2020]],
     2 => ['name' => 'Hähnchencrossies mit Paprikareis',
         'winner' => [2002, 2004, 2008]],
     3 => ['name' => 'Spaghetti Bolognese',
@@ -30,14 +30,24 @@ function fehlendeWinnerJahre($famousMeals)
             }
         }
     }
+
+
+
+
+
+
+
     sort($years);
     $missingYears = [];
-    for ($i = 2000; $i < 2021; $i++) {
-        if (!array_search($i, $years)) {
+
+       for ($i = 2000; $i < 2021; $i++) {
+
+        if (!in_array($i, $years) ) {
             array_push($missingYears, $i);
-        }
-    }
+        }}
+
     return ($missingYears);
+
 }
 
 ?>
@@ -55,6 +65,7 @@ function fehlendeWinnerJahre($famousMeals)
     </style>
 </head>
 <body>
+
 
 <ol>
     <?php
@@ -79,6 +90,7 @@ function fehlendeWinnerJahre($famousMeals)
         }
         echo "</li>";
     }
+
     ?>
 </ol>
 
@@ -91,6 +103,8 @@ foreach ($mY as $missYear) {
     $i++;
     if ($i != $len) echo ", ";
 }
+
+
 ?>
 
 </body>
