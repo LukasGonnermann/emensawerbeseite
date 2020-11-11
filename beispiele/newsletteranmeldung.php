@@ -10,21 +10,19 @@ $checkboxp = '';
 if(!isset($_POST["submit"])) {
     $error = 'Error';
 }
+
 else {
     if (!empty($_POST['geschlecht'])) {
         $geschlechtp = $_POST['geschlecht'];
-
-
 
     } else {
         $errorp = 'Bitte Ihre Geschlecht auswählen!';
 
     }
-
     if (!empty($_POST['vorname'])&&!ctype_space($_POST['vorname'])) {
         $vornamep = $_POST['vorname'];
         if (!preg_match("/^[a-zA-Z ]*$/", $vornamep)) {
-            $errorp = ' Nur Buchstaben und Leerzeichen erlaubt!';
+            $errorp = 'Nur Buchstaben und Leerzeichen erlaubt! ';
         }
 
 
@@ -32,21 +30,21 @@ else {
         $errorp = 'Bitte Ihre Vorname eingeben!';
 
     }
-   if (!empty($_POST['nachname'])&&!ctype_space($_POST['nachname'])) {
-       $nachnamep = $_POST['nachname'];
-       if (!preg_match("/^[a-zA-Z ]*$/", $nachnamep)) {
-           $errorp = ' Nur Buchstaben und Leerzeichen erlaubt!';
-       }
+    if (!empty($_POST['nachname'])&&!ctype_space($_POST['nachname'])) {
+        $nachnamep = $_POST['nachname'];
+        if (!preg_match("/^[a-zA-Z ]*$/", $nachnamep)) {
+            $errorp = 'Nur Buchstaben und Leerzeichen erlaubt!';
+        }
     } else {
-       $errorp = 'Bitte Ihre Nachname eingeben!';
+        $errorp = 'Bitte Ihre Vorname eingeben!';
 
     }
     if (empty($_POST["email"])) {
-        $errorp = 'Bitte Ihre Email eingeben!';
+        $errorp = 'Bitte Ihre Email eingaben!';
     } else {
         $emailp = $_POST['email'];
         if (!filter_var($emailp, FILTER_VALIDATE_EMAIL)) {
-            $errorp = ' Ihre E-Mail entspricht nicht den Vorgaben!';
+            $errorp = 'Ihre E-Mail entspricht nicht den Vorgaben!';
         }
     }
     if (empty($_POST["interval"])) {
@@ -56,7 +54,7 @@ else {
 
     }
     if ($_POST['checkbox'] == 'On') {
-        $errorp = 'Bitte Datenschutz lesen! ';
+        $errorp = 'Bitte Datenschutz lesen!';
     } else {
         $checkboxp = $_POST['checkbox'];
 
@@ -73,11 +71,11 @@ else {
             'vorn' => $vornamep,
             'nachn' => $nachnamep,
             'em' => $emailp,
-             'inter' => $intervalp,
+            'inter' => $intervalp,
             'ch' => $checkboxp
         );
         fputcsv($file_open, $form_data);
-        echo  '<span style="color:green;">Daten erfolgreich gespeichert!</span>';
+        echo '<span style="color:green";>Daten erfolgreich gespeichert!</span>';
 
     }
 
