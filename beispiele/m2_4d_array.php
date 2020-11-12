@@ -32,12 +32,12 @@ function fehlendeWinnerJahre($famousMeals)
     }
     sort($years);
     $missingYears = [];
-    for ($i = 2000; $i < 2021; $i++) {
-        if (!array_search($i, $years)) {
+       for ($i = 2000; $i < 2021; $i++) {
+        if (!in_array($i, $years) ) {
             array_push($missingYears, $i);
-        }
-    }
+        }}
     return ($missingYears);
+
 }
 
 ?>
