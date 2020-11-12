@@ -6,54 +6,61 @@
  */
 
 $errorp = '';
-//$geschlechtp = '';
+$geschlechtp = '';
 $vornamep = '';
 $nachnamep = '';
 $emailp = '';
 $intervalp = '';
 $checkboxp = '';
-/*function clean_text($string){
-    $string = trim($string);
-    $string = stripcslashes($string);
-}*/
+
 if(!isset($_POST["submit"])) {
     $error = 'Error';
 }
+
 else {
-    if (!empty($_POST['vorname'])) {
-        $vornamep = $_POST['vorname'];
-        if (!preg_match("/^[a-zA-Z ]*$/", $vornamep)) {
-            $errorp = ' Only letters and white spaces allowed';
-        }
+    if (!empty($_POST['geschlecht'])) {
+        $geschlechtp = $_POST['geschlecht'];
+
     } else {
-        $errorp = 'Please enter your vorname';
+        $errorp = 'Bitte Ihre Geschlecht auswählen!';
 
     }
-   if (!empty($_POST['nachname'])) {
-       $nachnamep = $_POST['nachname'];
-       if (!preg_match("/^[a-zA-Z ]*$/", $nachnamep)) {
-           $errorp = ' Only letters and white spaces allowed';
-       }
+    if (!empty($_POST['vorname'])&&!ctype_space($_POST['vorname'])) {
+        $vornamep = $_POST['vorname'];
+        if (!preg_match("/^[a-zA-Z ]*$/", $vornamep)) {
+            $errorp = 'Nur Buchstaben und Leerzeichen erlaubt! ';
+        }
+
+
     } else {
-       $errorp = 'Please enter your nachname';
+        $errorp = 'Bitte Ihre Vorname eingeben!';
+
+    }
+    if (!empty($_POST['nachname'])&&!ctype_space($_POST['nachname'])) {
+        $nachnamep = $_POST['nachname'];
+        if (!preg_match("/^[a-zA-Z ]*$/", $nachnamep)) {
+            $errorp = 'Nur Buchstaben und Leerzeichen erlaubt!';
+        }
+    } else {
+        $errorp = 'Bitte Ihre Vorname eingeben!';
 
     }
     if (empty($_POST["email"])) {
-        $errorp = 'Please enter your email';
+        $errorp = 'Bitte Ihre Email eingaben!';
     } else {
         $emailp = $_POST['email'];
         if (!filter_var($emailp, FILTER_VALIDATE_EMAIL)) {
-            $errorp = ' Email not valid';
+            $errorp = 'Ihre E-Mail entspricht nicht den Vorgaben!';
         }
     }
     if (empty($_POST["interval"])) {
-        $errorp = 'Please choose';
+        $errorp = 'Bitte Interval auswählen!';
     } else {
         $intervalp = $_POST['interval'];
 
     }
     if ($_POST['checkbox'] == 'On') {
-        $errorp = 'Please read and confirm';
+        $errorp = 'Bitte Datenschutz lesen!';
     } else {
         $checkboxp = $_POST['checkbox'];
 
@@ -66,14 +73,15 @@ else {
         }
         $form_data = array(
             's_n' => $no_rows,
+            'gesch' => $geschlechtp,
             'vorn' => $vornamep,
             'nachn' => $nachnamep,
             'em' => $emailp,
-             'inter' => $intervalp,
+            'inter' => $intervalp,
             'ch' => $checkboxp
         );
         fputcsv($file_open, $form_data);
-        echo "Data saved successfully";
+        echo '<span style="color:green";>Daten erfolgreich gespeichert!</span>';
 
     }
 
@@ -95,7 +103,7 @@ else {
 <body>
 <form method="post">
     <fieldset>
-        <?php echo "<b style='color: red'>$errorp</b>" ?>
+        <b style="color: red"><?php echo $errorp ?></b>
         <legend>Anmeldung</legend><br>
         <label for="frau">Anrede</label><br>
         <input id="frau" type="radio" name="geschlecht" value="Frau">
