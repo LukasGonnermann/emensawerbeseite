@@ -18,6 +18,7 @@ $famousMeals = [
 function fehlendeWinnerJahre($famousMeals)
 {
     $years = [];
+
     foreach ($famousMeals as $key1 => $val1) {
         foreach ($val1 as $type => $val) {
             if ($type == 'winner') {
@@ -30,14 +31,13 @@ function fehlendeWinnerJahre($famousMeals)
             }
         }
     }
-    sort($years);
     $missingYears = [];
     for ($i = 2000; $i < 2021; $i++) {
-        if (!array_search($i, $years)) {
+        if (array_search($i, $years) == FALSE) {
             array_push($missingYears, $i);
         }
     }
-    return ($missingYears);
+    return $missingYears;
 }
 
 ?>
@@ -83,7 +83,8 @@ function fehlendeWinnerJahre($famousMeals)
 </ol>
 
 <h2>Fehlende Jahre:</h2>
-<?php $i = 0;
+<?php
+$i = 0;
 $mY = fehlendeWinnerJahre($famousMeals);
 $len = count($mY);
 foreach ($mY as $missYear) {
