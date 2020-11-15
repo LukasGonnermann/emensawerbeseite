@@ -4,7 +4,7 @@
  * Lukas, Gonnermann, 3218299
  * Hamdy, Sarhan, 3251443
  */
-$error = null;
+$gerichteFileError = null;
 $gerichte = [];
 if (($file = fopen('gerichte.CSV', 'r')) !== FALSE) {
     while (($data = fgetcsv($file, 1000, ';')) !== FALSE) {
@@ -12,10 +12,42 @@ if (($file = fopen('gerichte.CSV', 'r')) !== FALSE) {
             array_push($gerichte, $data);
         }
     }
+    fclose($file);
 }
+
 else {
-    $error = "Fileopen Error";
+    $gerichteFileError = "Gerichte fileopen error";
 }
+
+/**
+ * Besucher calc Section
+ */
+$file = fopen('besuche.txt', 'r');
+$besucherCount = fgets($file, 1000);
+fclose($file);
+$besucherCount = abs(intval($besucherCount) + 1);
+$file = fopen('besuche.txt', 'w');
+fwrite($file, $besucherCount);
+fclose($file);
+
+/**
+ * Newsletteranmeldungen
+ * TODO
+ * Diese Funktion ist nicht wirklich vertrauenswürdig, andere Lösung finden!
+ */
+$file = fopen('newsletter.txt', 'r');
+$newsletterCounter = fgets($file, 1000);
+if ($newsletterCounter !== False) {
+    $newsletterCounter = abs(intval($newsletterCounter));
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $newsletterCounter++;
+    $file = fopen('newsletter.txt', 'w');
+    fwrite($file, $newsletterCounter);
+}
+
+
 
 ?>
 <!DOCTYPE html>
@@ -99,9 +131,9 @@ else {
             <h2 id="zahlen">E-Mensa in Zahlen</h2>
             <table>
                 <tr>
-                    <td>500 Besuche</td>
-                    <td>200 Anmeldungen zum Newsletter</td>
-                    <td>50 Speisen</td>
+                    <td><?php echo $besucherCount . " Besucher" ?></td>
+                    <td><?php echo $newsletterCounter . " Anmeldungen zum Newsletter" ?></td>
+                    <td><?php echo sizeof($gerichte) . " Gerichte"?></td>
                 </tr>
             </table>
         </div>
@@ -140,7 +172,7 @@ else {
                         <label for="checkbox">Den Datenschutzbestimmungen stimme ich zu</label>
                     </div>
                     <div>
-                        <input id="submit" type="submit" value="Zum Newsletter anmelden" disabled>
+                        <input id="submit" type="submit" value="Zum Newsletter anmelden">
                     </div>
                 </fieldset>
             </form>
