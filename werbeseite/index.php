@@ -87,6 +87,7 @@ else {
                                 }
 
                             }
+                            // TODO
                             echo "<td><img src='$value[3]' alt='Gericht: $value[3]' width='75px' height='75px'></td>";
                         echo "</tr>";
                     }
