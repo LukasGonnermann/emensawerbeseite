@@ -36,7 +36,7 @@ fclose($file);
  * Diese Funktion ist nicht wirklich vertrauenswürdig, andere Lösung finden!
  */
 $file = fopen('newsletter.txt', 'r');
-$newsletterCounter = fgets($file, 1000);
+$newsletterCounter = fgets($file, 1024);
 if ($newsletterCounter !== False) {
     $newsletterCounter = abs(intval($newsletterCounter));
 }
@@ -47,7 +47,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     fwrite($file, $newsletterCounter);
 }
 
+/**
+ * Newsletteranmeldung
+ */
 
+if (isset($_POST['submit'])) {
+
+}
 
 ?>
 <!DOCTYPE html>
@@ -172,6 +178,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <label for="checkbox">Den Datenschutzbestimmungen stimme ich zu</label>
                     </div>
                     <div>
+                        <input id="lang" type="text" value="" hidden>
                         <input id="submit" type="submit" value="Zum Newsletter anmelden">
                     </div>
                 </fieldset>
