@@ -25,9 +25,18 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6555435a-c353-4646-8b3b-b61504428d61" name="Default Changelist" comment="Fixed radio label in newsletteranmeldung.html">
+    <list default="true" id="6555435a-c353-4646-8b3b-b61504428d61" name="Default Changelist" comment="Fixed fehlende Jahre Bug">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/beispiele/m2_4d_array.php" beforeDir="false" afterPath="$PROJECT_DIR$/beispiele/m2_4d_array.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/beispiele/data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/beispiele/data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/beispiele/newsletteranmeldung.php" beforeDir="false" afterPath="$PROJECT_DIR$/beispiele/newsletteranmeldung.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/werbeseite/besuche.txt" beforeDir="false" afterPath="$PROJECT_DIR$/werbeseite/besuche.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/werbeseite/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/werbeseite/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/werbeseite/newsletter.txt" beforeDir="false" afterPath="$PROJECT_DIR$/werbeseite/newsletter.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,11 +56,12 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Hamdy" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP v7.4" />
   <component name="ProjectId" id="1iolBgY7HuoNtf77kRQZ5AvsWW5" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -67,8 +77,13 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Praktikum" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -80,6 +95,9 @@
       <updated>1602581691591</updated>
       <workItem from="1602581692974" duration="164000" />
       <workItem from="1602704927979" duration="4020000" />
+      <workItem from="1605179810262" duration="2462000" />
+      <workItem from="1605277164231" duration="164000" />
+      <workItem from="1605382911138" duration="496000" />
     </task>
     <task id="LOCAL-00001" summary="Added and Finished Aufgabe 4a, 4b">
       <created>1602707661471</created>
@@ -88,7 +106,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602707661471</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Fixed fehlende Jahre Bug">
+      <created>1605179228745</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1605179228745</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -108,17 +133,54 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added and Finished Aufgabe 4a, 4b" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added and Finished Aufgabe 4a, 4b" />
+    <MESSAGE value="Fixed fehlende Jahre Bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed fehlende Jahre Bug" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="228" y="348" key="SettingsEditor" timestamp="1602705184553">
+    <state x="987" y="362" key="#PHP" timestamp="1605179979370">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="228" y="348" key="SettingsEditor/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1602705184553" />
-    <state x="319" y="436" key="Vcs.Push.Dialog.v2" timestamp="1602707657318">
+    <state x="987" y="362" key="#PHP/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1605179979370" />
+    <state x="872" y="341" key="#Plugins" timestamp="1605180122275">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="319" y="436" key="Vcs.Push.Dialog.v2/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1602707657318" />
+    <state x="872" y="341" key="#Plugins/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1605180122275" />
+    <state x="734" y="355" width="1092" height="728" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605630830925">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="734" y="355" width="1092" height="728" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1605630830925" />
+    <state width="2517" height="401" key="GridCell.Tab.0.bottom" timestamp="1605182270300">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="401" key="GridCell.Tab.0.bottom/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1605182270300" />
+    <state width="2517" height="401" key="GridCell.Tab.0.center" timestamp="1605182270300">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="401" key="GridCell.Tab.0.center/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1605182270300" />
+    <state width="2517" height="401" key="GridCell.Tab.0.left" timestamp="1605182270300">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="401" key="GridCell.Tab.0.left/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1605182270300" />
+    <state width="2517" height="401" key="GridCell.Tab.0.right" timestamp="1605182270300">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="401" key="GridCell.Tab.0.right/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1605182270300" />
+    <state x="228" y="348" key="SettingsEditor" timestamp="1605630198429">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="228" y="348" key="SettingsEditor/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1605630198429" />
+    <state x="319" y="436" key="Vcs.Push.Dialog.v2" timestamp="1605633739780">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="319" y="436" key="Vcs.Push.Dialog.v2/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1605633739780" />
+    <state x="1097" y="614" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605633733475">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1097" y="614" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1605633733475" />
+    <state x="860" y="355" key="editAsTableFormatDialogDimension" timestamp="1605181207036">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="860" y="355" key="editAsTableFormatDialogDimension/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1605181207036" />
     <state x="1051" y="413" key="git4idea.branch.GitSmartOperationDialog" timestamp="1605179192957">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>

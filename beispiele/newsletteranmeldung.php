@@ -44,13 +44,15 @@ else {
 
     }
     if (empty($_POST["email"])) {
-        $errorp = 'Bitte Ihre Email eingaben!';
+        $errorp = 'Bitte Ihre Email eingeben!';
     }
-    else { // TODO adressen Pruefen .* etc
+    else {
         $emailp = $_POST['email'];
-        if (!filter_var($emailp, FILTER_VALIDATE_EMAIL)) {
-            $errorp = 'Ihre E-Mail entspricht nicht den Vorgaben!';
-        }
+        if (!filter_var($emailp, FILTER_VALIDATE_EMAIL)) $errorp = 'Ihre E-Mail entspricht nicht den Vorgaben!';
+        else if (strpos($emailp, "rcpt.at")) $errorp = 'Ihre E-Mail enthält eine ungültige Domain!';
+        else if (strpos($emailp, "damnthespam.at")) $errorp = 'Ihre E-Mail enthält eine ungültige Domain!';
+        else if (strpos($emailp, "wegwerfmail.de")) $errorp = 'Ihre E-Mail enthält eine ungültige Domain!';
+        else if (strpos($emailp, "trashmail.")) $errorp = 'Ihre E-Mail enthält eine ungültige Domain!';
     }
     if (empty($_POST["interval"])) {
         $errorp = 'Bitte Interval auswählen!';
