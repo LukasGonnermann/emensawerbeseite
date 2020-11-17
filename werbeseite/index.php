@@ -50,8 +50,62 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 /**
  * Newsletteranmeldung
  */
+$errorp = '';
+$namep = '';
+$emailp = '';
+$sprachep = '';
+$datenp = '';
 
-if (isset($_POST['submit'])) {
+if (!isset($_POST['submit'])) {
+
+    $error = 'Error';
+}
+else {
+if (!empty($_POST['name'])) {
+    $namep = $_POST['name'];
+
+} else {
+    $errorp = 'Bitte Ihre Name eingeben!';
+
+}
+if (!empty($_POST['email'])) {
+    $emailp = $_POST['email'];
+
+} else {
+    $errorp = 'Bitte Ihre Email eingeben!';
+
+}
+if (!empty($_POST['sprache'])) {
+        $sprachep = $_POST['sprache'];
+
+} else {
+        $errorp = 'Bitte Ihre Sprache auswählen!';
+
+}
+if (!empty($_POST['checkbox'])) {
+        $datenp = $_POST['checkbox'];
+
+} else {
+        $errorp = 'Bitte Ihre Datenschutz lesen und beschtätigen!';
+
+}
+if ($errorp == '') {
+        $fileopen = fopen("gespeichert.csv", "a");
+        $no_rows = count(file("gespeichert.csv"));
+
+        $form_data = array(
+            's_n' => $no_rows,
+            'n' => $namep,
+            'e' => $emailp,
+            'sp' => $sprachep,
+            'd' => $datenp,
+
+        );
+        fputcsv($fileopen, $form_data);
+        echo '<span style="color:green";>Daten erfolgreich gespeichert!</span>';
+
+    }
+
 
 }
 
@@ -158,18 +212,19 @@ if (isset($_POST['submit'])) {
             <h2 id="kontakt">Interesse geweckt? Wir informieren Sie!</h2>
             <form action="index.php" method="post">
                 <fieldset id="nlform">
+                    <b style="color: red"><?php echo $errorp ?></b>
                     <legend>Newsletter abonieren</legend>
                     <div>
                         <label for="name">Ihr Name:</label>
-                        <input id="name" type="text" placeholder="Vorname">
+                        <input id="name" name="name" type="text" placeholder="Vorname">
                     </div>
                     <div>
                         <label for="email">Ihre Email:</label>
-                        <input id="email" type="email" placeholder="">
+                        <input id="email" name="email" type="email" placeholder="">
                     </div>
                     <div>
                         <label for="sprache">Newsletter bitte in:</label>
-                        <select id="sprache">
+                        <select id="sprache" name="sprache">
                             <option value="deutsch">Deutsch</option>
                             <option value="englisch">Englisch</option>
                         </select>
@@ -180,7 +235,7 @@ if (isset($_POST['submit'])) {
                     </div>
                     <div>
                         <input id="lang" type="text" value="" hidden>
-                        <input id="submit" type="submit" value="Zum Newsletter anmelden">
+                        <input id="submit" name="submit" type="submit" value="Zum Newsletter anmelden">
                     </div>
                 </fieldset>
             </form>

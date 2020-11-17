@@ -13,21 +13,19 @@
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:old-origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:old-origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </select>
+    <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6555435a-c353-4646-8b3b-b61504428d61" name="Default Changelist" comment="Fixed radio label in newsletteranmeldung.html">
+    <list default="true" id="6555435a-c353-4646-8b3b-b61504428d61" name="Default Changelist" comment="Aufgabe 7 bearbeitet, Leerzeichen überprüfen">
+      <change afterPath="$PROJECT_DIR$/werbeseite/gespeichert.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/werbeseite/nl-admin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/beispiele/m2_4d_array.php" beforeDir="false" afterPath="$PROJECT_DIR$/beispiele/m2_4d_array.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/werbeseite/besuche.txt" beforeDir="false" afterPath="$PROJECT_DIR$/werbeseite/besuche.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/werbeseite/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/werbeseite/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/werbeseite/newsletter.txt" beforeDir="false" afterPath="$PROJECT_DIR$/werbeseite/newsletter.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,12 +50,14 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP v7.4" />
   <component name="ProjectId" id="1iolBgY7HuoNtf77kRQZ5AvsWW5" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mariadb" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -111,6 +111,18 @@
     <option name="LAST_COMMIT_MESSAGE" value="Added and Finished Aufgabe 4a, 4b" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="475" y="55" key="#PHP" timestamp="1605635000603">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="475" y="55" key="#PHP/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1605635000603" />
+    <state x="361" y="71" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605635414989">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="71" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1605635414989" />
+    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1605635180843">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1605635180843" />
     <state x="228" y="348" key="SettingsEditor" timestamp="1602705184553">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -119,6 +131,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="319" y="436" key="Vcs.Push.Dialog.v2/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1602707657318" />
+    <state x="349" y="67" key="editAsTableFormatDialogDimension" timestamp="1605643306080">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="349" y="67" key="editAsTableFormatDialogDimension/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1605643306080" />
     <state x="1051" y="413" key="git4idea.branch.GitSmartOperationDialog" timestamp="1605179192957">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
