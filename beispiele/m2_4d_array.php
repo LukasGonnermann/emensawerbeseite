@@ -37,7 +37,6 @@ function fehlendeWinnerJahre($famousMeals)
             array_push($missingYears, $i);
         }}
     return ($missingYears);
-
 }
 
 ?>

@@ -62,6 +62,7 @@ if (!isset($_GET['sprache'])) {
 } else {
     $lang = $de;
 }
+// input Type hidden hinzufügen
 
 /**
  * Liste aller möglichen Allergene.

@@ -30,8 +30,6 @@ else {
         if (!preg_match("/^[a-zA-Z ]*$/", $vornamep)) {
             $errorp = 'Nur Buchstaben und Leerzeichen erlaubt! ';
         }
-
-
     } else {
         $errorp = 'Bitte Ihre Vorname eingeben!';
 
@@ -47,7 +45,8 @@ else {
     }
     if (empty($_POST["email"])) {
         $errorp = 'Bitte Ihre Email eingaben!';
-    } else {
+    }
+    else { // TODO adressen Pruefen .* etc
         $emailp = $_POST['email'];
         if (!filter_var($emailp, FILTER_VALIDATE_EMAIL)) {
             $errorp = 'Ihre E-Mail entspricht nicht den Vorgaben!';
