@@ -32,7 +32,7 @@ fclose($file);
 
 /**
  * Newsletteranmeldungen
- * TODO
+ *
  * Diese Funktion ist nicht wirklich vertrauenswürdig, andere Lösung finden!
  */
 $file = fopen('newsletter.txt', 'r');
@@ -50,9 +50,49 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 /**
  * Newsletteranmeldung
  */
+$status = '';
+$namep = '';
+$emailp = '';
+$intervalp = '';
+$checkboxp = '';
 
 if (isset($_POST['submit'])) {
 
+    if (!empty($_POST['name']) && !ctype_space($_POST['name'])) {
+        $namep = $_POST['name'];
+        if (!preg_match("/^[a-zA-Z ]*$/", $namep)) $status = 'Nur Buchstaben und Leerzeichen erlaubt! ';
+    }
+    else $status = 'Bitte Ihre Vorname eingeben!';
+
+    if (!empty($_POST["email"])) {
+        $emailp = $_POST['email'];
+        if (!filter_var($emailp, FILTER_VALIDATE_EMAIL)) $status = 'Ihre E-Mail entspricht nicht den Vorgaben!';
+        else if (strpos($emailp, "rcpt.at")) $status = 'Ihre E-Mail enthält eine ungültige Domain!';
+        else if (strpos($emailp, "damnthespam.at")) $status = 'Ihre E-Mail enthält eine ungültige Domain!';
+        else if (strpos($emailp, "wegwerfmail.de")) $status = 'Ihre E-Mail enthält eine ungültige Domain!';
+        else if (strpos($emailp, "trashmail.")) $status = 'Ihre E-Mail enthält eine ungültige Domain!';
+    }
+    else $status = 'Bitte Ihre Email eingeben!';
+
+    if ($_POST['checkbox'] == 'On') $status = 'Bitte Datenschutz lesen!';
+    else $checkboxp = $_POST['checkbox'];
+
+    if ($status == '') {
+        $file_open = fopen("newsletter_data.csv", "a");
+        $no_rows = count(file("newsletter_data.csv"));
+        if($no_rows > 1){
+            $no_rows = ($no_rows - 1) + 1 ;
+        }
+        $form_data = array(
+            's_n' => $no_rows,
+            'name' => $namep,
+            'email' => $emailp,
+            'inter' => $intervalp,
+            'ch' => $checkboxp
+        );
+        fputcsv($file_open, $form_data);
+        $status = "<span style='color:green';>Daten erfolgreich gespeichert!</span>";
+    }
 }
 
 ?>
@@ -158,6 +198,7 @@ if (isset($_POST['submit'])) {
             <h2 id="kontakt">Interesse geweckt? Wir informieren Sie!</h2>
             <form action="index.php" method="post">
                 <fieldset id="nlform">
+                    <b style="color: red"><?php echo $status ?></b>
                     <legend>Newsletter abonieren</legend>
                     <div>
                         <label for="name">Ihr Name:</label>
