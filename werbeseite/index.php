@@ -32,7 +32,7 @@ fclose($file);
 
 /**
  * Newsletteranmeldungen
- * TODO
+ *
  * Diese Funktion ist nicht wirklich vertrauenswürdig, andere Lösung finden!
  */
 $file = fopen('newsletter.txt', 'r');
@@ -50,63 +50,49 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 /**
  * Newsletteranmeldung
  */
-$errorp = '';
+$status = '';
 $namep = '';
 $emailp = '';
-$sprachep = '';
-$datenp = '';
+$intervalp = '';
+$checkboxp = '';
 
-if (!isset($_POST['submit'])) {
+if (isset($_POST['submit'])) {
 
-    $error = 'Error';
-}
-else {
-if (!empty($_POST['name'])) {
-    $namep = $_POST['name'];
+    if (!empty($_POST['name']) && !ctype_space($_POST['name'])) {
+        $namep = $_POST['name'];
+        if (!preg_match("/^[a-zA-Z ]*$/", $namep)) $status = 'Nur Buchstaben und Leerzeichen erlaubt! ';
+    }
+    else $status = 'Bitte Ihre Vorname eingeben!';
 
-} else {
-    $errorp = 'Bitte Ihre Name eingeben!';
+    if (!empty($_POST["email"])) {
+        $emailp = $_POST['email'];
+        if (!filter_var($emailp, FILTER_VALIDATE_EMAIL)) $status = 'Ihre E-Mail entspricht nicht den Vorgaben!';
+        else if (strpos($emailp, "rcpt.at")) $status = 'Ihre E-Mail enthält eine ungültige Domain!';
+        else if (strpos($emailp, "damnthespam.at")) $status = 'Ihre E-Mail enthält eine ungültige Domain!';
+        else if (strpos($emailp, "wegwerfmail.de")) $status = 'Ihre E-Mail enthält eine ungültige Domain!';
+        else if (strpos($emailp, "trashmail.")) $status = 'Ihre E-Mail enthält eine ungültige Domain!';
+    }
+    else $status = 'Bitte Ihre Email eingeben!';
 
-}
-if (!empty($_POST['email'])) {
-    $emailp = $_POST['email'];
+    if ($_POST['checkbox'] == 'On') $status = 'Bitte Datenschutz lesen!';
+    else $checkboxp = $_POST['checkbox'];
 
-} else {
-    $errorp = 'Bitte Ihre Email eingeben!';
-
-}
-if (!empty($_POST['sprache'])) {
-        $sprachep = $_POST['sprache'];
-
-} else {
-        $errorp = 'Bitte Ihre Sprache auswählen!';
-
-}
-if (!empty($_POST['checkbox'])) {
-        $datenp = $_POST['checkbox'];
-
-} else {
-        $errorp = 'Bitte Ihre Datenschutz lesen und beschtätigen!';
-
-}
-if ($errorp == '') {
-        $fileopen = fopen("gespeichert.csv", "a");
-        $no_rows = count(file("gespeichert.csv"));
-
+    if ($status == '') {
+        $file_open = fopen("newsletter_data.csv", "a");
+        $no_rows = count(file("newsletter_data.csv"));
+        if($no_rows > 1){
+            $no_rows = ($no_rows - 1) + 1 ;
+        }
         $form_data = array(
             's_n' => $no_rows,
-            'n' => $namep,
-            'e' => $emailp,
-            'sp' => $sprachep,
-            'd' => $datenp,
-
+            'name' => $namep,
+            'email' => $emailp,
+            'inter' => $intervalp,
+            'ch' => $checkboxp
         );
-        fputcsv($fileopen, $form_data);
-        echo '<span style="color:green";>Daten erfolgreich gespeichert!</span>';
-
+        fputcsv($file_open, $form_data);
+        $status = "<span style='color:green';>Daten erfolgreich gespeichert!</span>";
     }
-
-
 }
 
 ?>
@@ -212,19 +198,19 @@ if ($errorp == '') {
             <h2 id="kontakt">Interesse geweckt? Wir informieren Sie!</h2>
             <form action="index.php" method="post">
                 <fieldset id="nlform">
-                    <b style="color: red"><?php echo $errorp ?></b>
+                    <b style="color: red"><?php echo $status ?></b>
                     <legend>Newsletter abonieren</legend>
                     <div>
                         <label for="name">Ihr Name:</label>
-                        <input id="name" name="name" type="text" placeholder="Vorname">
+                        <input id="name" type="text" placeholder="Vorname">
                     </div>
                     <div>
                         <label for="email">Ihre Email:</label>
-                        <input id="email" name="email" type="email" placeholder="">
+                        <input id="email" type="email" placeholder="">
                     </div>
                     <div>
                         <label for="sprache">Newsletter bitte in:</label>
-                        <select id="sprache" name="sprache">
+                        <select id="sprache">
                             <option value="deutsch">Deutsch</option>
                             <option value="englisch">Englisch</option>
                         </select>
@@ -235,7 +221,7 @@ if ($errorp == '') {
                     </div>
                     <div>
                         <input id="lang" type="text" value="" hidden>
-                        <input id="submit" name="submit" type="submit" value="Zum Newsletter anmelden">
+                        <input id="submit" type="submit" value="Zum Newsletter anmelden">
                     </div>
                 </fieldset>
             </form>
