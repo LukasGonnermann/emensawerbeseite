@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="@localhost" uuid="538a3ebe-ee06-4008-be7b-dabf3739107e">
+    <data-source source="LOCAL" name="PraktDB" uuid="b5112bcd-c8eb-4cdc-8267-fb662f32380c">
       <driver-ref>mariadb</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mariadb://localhost:3306</jdbc-url>
+      <jdbc-url>jdbc:mariadb://127.0.0.1:3306</jdbc-url>
     </data-source>
   </component>
 </project>
