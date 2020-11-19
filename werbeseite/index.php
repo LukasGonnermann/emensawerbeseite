@@ -1,9 +1,14 @@
+
 <?php
+
 /**
  * Praktikum DBWT. Autoren:
  * Lukas, Gonnermann, 3218299
  * Hamdy, Sarhan, 3251443
  */
+
+
+
 $gerichteFileError = null;
 $gerichte = [];
 if (($file = fopen('gerichte.CSV', 'r')) !== FALSE) {
@@ -32,7 +37,7 @@ fclose($file);
 
 /**
  * Newsletteranmeldungen
- *
+ * TODO
  * Diese Funktion ist nicht wirklich vertrauenswürdig, andere Lösung finden!
  */
 $file = fopen('newsletter.txt', 'r');
@@ -50,49 +55,63 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 /**
  * Newsletteranmeldung
  */
-$status = '';
+$errorp = '';
 $namep = '';
 $emailp = '';
-$intervalp = '';
-$checkboxp = '';
+$sprachep = '';
+$datenp = '';
 
-if (isset($_POST['submit'])) {
+if (!isset($_POST['submit'])) {
 
-    if (!empty($_POST['name']) && !ctype_space($_POST['name'])) {
-        $namep = $_POST['name'];
-        if (!preg_match("/^[a-zA-Z ]*$/", $namep)) $status = 'Nur Buchstaben und Leerzeichen erlaubt! ';
-    }
-    else $status = 'Bitte Ihre Vorname eingeben!';
+    $error = 'Error';
+}
+else {
+if (!empty($_POST['name'])) {
+    $namep = $_POST['name'];
 
-    if (!empty($_POST["email"])) {
-        $emailp = $_POST['email'];
-        if (!filter_var($emailp, FILTER_VALIDATE_EMAIL)) $status = 'Ihre E-Mail entspricht nicht den Vorgaben!';
-        else if (strpos($emailp, "rcpt.at")) $status = 'Ihre E-Mail enthält eine ungültige Domain!';
-        else if (strpos($emailp, "damnthespam.at")) $status = 'Ihre E-Mail enthält eine ungültige Domain!';
-        else if (strpos($emailp, "wegwerfmail.de")) $status = 'Ihre E-Mail enthält eine ungültige Domain!';
-        else if (strpos($emailp, "trashmail.")) $status = 'Ihre E-Mail enthält eine ungültige Domain!';
-    }
-    else $status = 'Bitte Ihre Email eingeben!';
+} else {
+    $errorp = 'Bitte Ihre Name eingeben!';
 
-    if ($_POST['checkbox'] == 'On') $status = 'Bitte Datenschutz lesen!';
-    else $checkboxp = $_POST['checkbox'];
+}
+if (!empty($_POST['email'])) {
+    $emailp = $_POST['email'];
 
-    if ($status == '') {
-        $file_open = fopen("newsletter_data.csv", "a");
-        $no_rows = count(file("newsletter_data.csv"));
-        if($no_rows > 1){
-            $no_rows = ($no_rows - 1) + 1 ;
-        }
+} else {
+    $errorp = 'Bitte Ihre Email eingeben!';
+
+}
+if (!empty($_POST['sprache'])) {
+        $sprachep = $_POST['sprache'];
+
+} else {
+        $errorp = 'Bitte Ihre Sprache auswählen!';
+
+}
+if (!empty($_POST['checkbox'])) {
+        $datenp = $_POST['checkbox'];
+
+} else {
+        $errorp = 'Bitte Ihre Datenschutz lesen und beschtätigen!';
+
+}
+if ($errorp == '') {
+        $fileopen = fopen("gespeichert.csv", "a");
+        $no_rows = count(file("gespeichert.csv"));
+
         $form_data = array(
             's_n' => $no_rows,
-            'name' => $namep,
-            'email' => $emailp,
-            'inter' => $intervalp,
-            'ch' => $checkboxp
+            'n' => $namep,
+            'e' => $emailp,
+            'sp' => $sprachep,
+            'd' => $datenp,
+
         );
-        fputcsv($file_open, $form_data);
-        $status = "<span style='color:green';>Daten erfolgreich gespeichert!</span>";
+        fputcsv($fileopen, $form_data);
+        echo '<span style="color:green";>Daten erfolgreich gespeichert!</span>';
+
     }
+
+
 }
 
 ?>
@@ -146,15 +165,9 @@ if (isset($_POST['submit'])) {
         <!-- Speisen -->
         <div>
             <h2 id="speisen">Köstlichkeiten, die Sie erwarten</h2>
-            <table class="center">
-                <tr>
-                    <th>Beschreibung</th>
-                    <th>Preis intern</th>
-                    <th>Preis extern</th>
-                    <th>Bilder</th>
-                </tr>
+
                 <?php
-                    foreach ($gerichte as $key => $value) {
+                    /*foreach ($gerichte as $key => $value) {
                         echo "<tr>";
                             for ($i = 0; $i < count($value) - 1; $i++) {
                                 if ($i == 0) {
@@ -168,7 +181,48 @@ if (isset($_POST['submit'])) {
                             // TODO
                             echo "<td><img src='$value[3]' alt='Gericht: $value[3]' width='75px' height='75px'></td>";
                         echo "</tr>";
-                    }
+                    }*/?>
+
+
+                  <table class="center">
+                <tr>
+                    <th>Name</th>
+                    <th>Preis intern</th>
+                    <th>Preis extern</th>
+                    <th>Allergen</th>
+                </tr>
+                      <?php
+                $link = mysqli_connect(
+                    "127.0.0.1", // Host der Datenbank
+                    "root",                 // Benutzername zur Anmeldung
+                    "1234",    // Passwort
+                    "emensawerbeseite", // Auswahl der Datenbanken (bzw. des Schemas)
+                    3306
+
+// optional port der Datenbank
+                );
+
+
+                $mysqli= "SELECT *  
+                FROM gericht
+                JOIN gericht_hat_allergen
+                ON gericht.id=gericht_hat_allergen.gericht_id 
+                GROUP BY gericht.id LIMIT 5 offset 0  ";
+
+
+                $result = mysqli_query($link, $mysqli);
+                if (!$result) {
+                    echo "Fehler während der Abfrage:  ", mysqli_error($link);
+                    exit();
+                }
+
+                while ($row = mysqli_fetch_assoc($result)) {
+                    //array_multisort($row['name'], SORT_STRING ,$sort);
+                    echo "<tr><td>" . $row['name'] . "</td><td>" . $row['preis_intern'] . "</td><td>" . $row['preis_extern'] . "</td><td>" . $row['code'] . "</td></tr>";
+                }
+                mysqli_free_result($result);
+                mysqli_close($link);
+
 
                 ?>
             </table>
@@ -198,19 +252,19 @@ if (isset($_POST['submit'])) {
             <h2 id="kontakt">Interesse geweckt? Wir informieren Sie!</h2>
             <form action="index.php" method="post">
                 <fieldset id="nlform">
-                    <b style="color: red"><?php echo $status ?></b>
+                    <b style="color: red"><?php echo $errorp ?></b>
                     <legend>Newsletter abonieren</legend>
                     <div>
                         <label for="name">Ihr Name:</label>
-                        <input id="name" type="text" placeholder="Vorname">
+                        <input id="name" name="name" type="text" placeholder="Vorname">
                     </div>
                     <div>
                         <label for="email">Ihre Email:</label>
-                        <input id="email" type="email" placeholder="">
+                        <input id="email" name="email" type="email" placeholder="">
                     </div>
                     <div>
                         <label for="sprache">Newsletter bitte in:</label>
-                        <select id="sprache">
+                        <select id="sprache" name="sprache">
                             <option value="deutsch">Deutsch</option>
                             <option value="englisch">Englisch</option>
                         </select>
@@ -221,7 +275,7 @@ if (isset($_POST['submit'])) {
                     </div>
                     <div>
                         <input id="lang" type="text" value="" hidden>
-                        <input id="submit" type="submit" value="Zum Newsletter anmelden">
+                        <input id="submit" name="submit" type="submit" value="Zum Newsletter anmelden">
                     </div>
                 </fieldset>
             </form>
