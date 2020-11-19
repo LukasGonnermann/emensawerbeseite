@@ -35,10 +35,10 @@ if(isset($_GET[GET_PARAM_NAME]))
 </head>
 <body>
 <form method="get">
-    <input type="submit" name="ByName" value="Sortierung nach Name">
+    <input type="submit" name="ByName" value="Nach Name sortieren">
     <br>
     <br>
-    <input type="submit" name="ByEmail" value="Sortierung nach E-Mail">
+    <input type="submit" name="ByEmail" value="Nach Email sortieren">
 </form>
 <br>
 <form method="get">
