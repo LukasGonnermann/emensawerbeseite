@@ -1,14 +1,13 @@
-
 <?php
-
 /**
  * Praktikum DBWT. Autoren:
  * Lukas, Gonnermann, 3218299
  * Hamdy, Sarhan, 3251443
  */
 
-
-
+/**
+ * Gerichte aus Datei laden
+ */
 $gerichteFileError = null;
 $gerichte = [];
 if (($file = fopen('gerichte.CSV', 'r')) !== FALSE) {
@@ -18,14 +17,13 @@ if (($file = fopen('gerichte.CSV', 'r')) !== FALSE) {
         }
     }
     fclose($file);
-}
-
-else {
+} else {
     $gerichteFileError = "Gerichte fileopen error";
 }
 
 /**
  * Besucher calc Section
+ * TODO IP Filtern
  */
 $file = fopen('besuche.txt', 'r');
 $besucherCount = fgets($file, 1000);
@@ -34,23 +32,6 @@ $besucherCount = abs(intval($besucherCount) + 1);
 $file = fopen('besuche.txt', 'w');
 fwrite($file, $besucherCount);
 fclose($file);
-
-/**
- * Newsletteranmeldungen
- * TODO
- * Diese Funktion ist nicht wirklich vertrauenswürdig, andere Lösung finden!
- */
-$file = fopen('newsletter.txt', 'r');
-$newsletterCounter = fgets($file, 1024);
-if ($newsletterCounter !== False) {
-    $newsletterCounter = abs(intval($newsletterCounter));
-}
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $newsletterCounter++;
-    $file = fopen('newsletter.txt', 'w');
-    fwrite($file, $newsletterCounter);
-}
 
 /**
  * Newsletteranmeldung
@@ -64,37 +45,36 @@ $datenp = '';
 if (!isset($_POST['submit'])) {
 
     $error = 'Error';
-}
-else {
-if (!empty($_POST['name'])) {
-    $namep = $_POST['name'];
-
 } else {
-    $errorp = 'Bitte Ihre Name eingeben!';
+    if (!empty($_POST['name'])) {
+        $namep = $_POST['name'];
 
-}
-if (!empty($_POST['email'])) {
-    $emailp = $_POST['email'];
+    } else {
+        $errorp = 'Bitte Ihre Name eingeben!';
 
-} else {
-    $errorp = 'Bitte Ihre Email eingeben!';
+    }
+    if (!empty($_POST['email'])) {
+        $emailp = $_POST['email'];
 
-}
-if (!empty($_POST['sprache'])) {
+    } else {
+        $errorp = 'Bitte Ihre Email eingeben!';
+
+    }
+    if (!empty($_POST['sprache'])) {
         $sprachep = $_POST['sprache'];
 
-} else {
+    } else {
         $errorp = 'Bitte Ihre Sprache auswählen!';
 
-}
-if (!empty($_POST['checkbox'])) {
+    }
+    if (!empty($_POST['checkbox'])) {
         $datenp = $_POST['checkbox'];
 
-} else {
+    } else {
         $errorp = 'Bitte Ihre Datenschutz lesen und beschtätigen!';
 
-}
-if ($errorp == '') {
+    }
+    if ($errorp == '') {
         $fileopen = fopen("gespeichert.csv", "a");
         $no_rows = count(file("gespeichert.csv"));
 
@@ -107,12 +87,51 @@ if ($errorp == '') {
 
         );
         fputcsv($fileopen, $form_data);
+        $file = fopen('newsletter.txt', 'r');
+        $newsletterCounter = fgets($file, 1024);
+        if ($newsletterCounter !== False) {
+            $newsletterCounter = abs(intval($newsletterCounter));
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $newsletterCounter++;
+            $file = fopen('newsletter.txt', 'w');
+            fwrite($file, $newsletterCounter);
+        }
         echo '<span style="color:green";>Daten erfolgreich gespeichert!</span>';
-
     }
-
-
 }
+
+/**
+ * Gericht abfragen Datenbank
+ */
+$link = mysqli_connect(
+    "127.0.0.1",            // Host der Datenbank
+    "root",                 // Benutzername zur Anmeldung
+    "praktPort",        // Passwort
+    "emensawerbeseite", // Auswahl der Datenbanken (bzw. des Schemas)
+    3306                   // Datenbank Port
+);
+
+$error = null;
+
+if (!$link) {
+    $error = "Verbindung Fehlgeschlagen: " . mysqli_connect_error();
+} else {
+    $mysqli = "SELECT *  
+                FROM gericht
+                JOIN gericht_hat_allergen
+                ON gericht.id=gericht_hat_allergen.gericht_id 
+                GROUP BY gericht.id LIMIT 5 offset 0";
+
+    $result = mysqli_query($link, $mysqli);
+
+    if (!$result) {
+        echo "Fehler während der Abfrage:  ", mysqli_error($link);
+        exit();
+    }
+}
+
 
 ?>
 <!DOCTYPE html>
@@ -165,65 +184,41 @@ if ($errorp == '') {
         <!-- Speisen -->
         <div>
             <h2 id="speisen">Köstlichkeiten, die Sie erwarten</h2>
+            <?php
+                if ($error) echo $error;
+            ?>
 
-                <?php
-                    /*foreach ($gerichte as $key => $value) {
-                        echo "<tr>";
-                            for ($i = 0; $i < count($value) - 1; $i++) {
-                                if ($i == 0) {
-                                    echo "<td>$value[$i]</td>";
-                                }
-                                else {
-                                    echo "<td>$value[$i]€</td>";
-                                }
+            <?php
+            /*foreach ($gerichte as $key => $value) {
+                echo "<tr>";
+                    for ($i = 0; $i < count($value) - 1; $i++) {
+                        if ($i == 0) {
+                            echo "<td>$value[$i]</td>";
+                        }
+                        else {
+                            echo "<td>$value[$i]€</td>";
+                        }
 
-                            }
-                            // TODO
-                            echo "<td><img src='$value[3]' alt='Gericht: $value[3]' width='75px' height='75px'></td>";
-                        echo "</tr>";
-                    }*/?>
+                    }
+                    // TODO
+                    echo "<td><img src='$value[3]' alt='Gericht: $value[3]' width='75px' height='75px'></td>";
+                echo "</tr>";
+            }*/ ?>
 
-
-                  <table class="center">
+            <table class="center">
                 <tr>
                     <th>Name</th>
                     <th>Preis intern</th>
                     <th>Preis extern</th>
                     <th>Allergen</th>
                 </tr>
-                      <?php
-                $link = mysqli_connect(
-                    "127.0.0.1", // Host der Datenbank
-                    "root",                 // Benutzername zur Anmeldung
-                    "1234",    // Passwort
-                    "emensawerbeseite", // Auswahl der Datenbanken (bzw. des Schemas)
-                    3306
-
-// optional port der Datenbank
-                );
-
-
-                $mysqli= "SELECT *  
-                FROM gericht
-                JOIN gericht_hat_allergen
-                ON gericht.id=gericht_hat_allergen.gericht_id 
-                GROUP BY gericht.id LIMIT 5 offset 0  ";
-
-
-                $result = mysqli_query($link, $mysqli);
-                if (!$result) {
-                    echo "Fehler während der Abfrage:  ", mysqli_error($link);
-                    exit();
-                }
-
+                <?php
                 while ($row = mysqli_fetch_assoc($result)) {
                     //array_multisort($row['name'], SORT_STRING ,$sort);
                     echo "<tr><td>" . $row['name'] . "</td><td>" . $row['preis_intern'] . "</td><td>" . $row['preis_extern'] . "</td><td>" . $row['code'] . "</td></tr>";
                 }
                 mysqli_free_result($result);
                 mysqli_close($link);
-
-
                 ?>
             </table>
         </div>
@@ -234,7 +229,7 @@ if ($errorp == '') {
                 <tr>
                     <td><?php echo $besucherCount . " Besucher" ?></td>
                     <td><?php echo $newsletterCounter . " Anmeldungen zum Newsletter" ?></td>
-                    <td><?php echo sizeof($gerichte) . " Gerichte"?></td>
+                    <td><?php echo sizeof($gerichte) . " Gerichte" ?></td>
                 </tr>
             </table>
         </div>
