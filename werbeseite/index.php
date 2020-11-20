@@ -24,6 +24,7 @@ if (($file = fopen('gerichte.CSV', 'r')) !== FALSE) {
 /**
  * Zahlen Calc Sektion
  */
+// Anzahl Besuche in besuche.txt
 $file = fopen('besuche.txt', 'r');
 $besucherCount = fgets($file, 1000);
 fclose($file);
@@ -32,6 +33,7 @@ $file = fopen('besuche.txt', 'w');
 fwrite($file, $besucherCount);
 fclose($file);
 
+// Newsletteranmeldungen
 $file = fopen('newsletter.txt', 'r');
 $newsletterCounter = fgets($file, 1024);
 if ($newsletterCounter !== False) {
@@ -50,7 +52,6 @@ $sprachep = '';
 $datenp = '';
 
 if (!isset($_POST['submit'])) {
-
     $error = 'Error';
 } else {
     if (!empty($_POST['name'])) {
@@ -82,8 +83,9 @@ if (!isset($_POST['submit'])) {
 
     }
     if ($errorp == '') {
-        $fileopen = fopen("gespeichert.csv", "a");
-        $no_rows = count(file("gespeichert.csv"));
+        $newsletter_anmeldung_file = "gespeichert.csv";
+        $fileopen = fopen($newsletter_anmeldung_file, "a");
+        $no_rows = count(file($newsletter_anmeldung_file));
 
         $form_data = array(
             's_n' => $no_rows,
@@ -122,6 +124,7 @@ if (!$link) {
 /**
  * Datenbank anfragen
  */
+// Gerichte Abfragen
 $query = "SELECT name,preis_intern,preis_extern,id 
                           FROM gericht 
                           ORDER BY name ASC LIMIT 5;";
@@ -274,7 +277,6 @@ function getAllergensById($id, $link)
                         <label for="checkbox">Den Datenschutzbestimmungen stimme ich zu</label>
                     </div>
                     <div>
-                        <input id="lang" type="text" value="" hidden>
                         <input id="submit" name="submit" type="submit" value="Zum Newsletter anmelden">
                     </div>
                 </fieldset>
