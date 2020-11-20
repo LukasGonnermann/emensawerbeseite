@@ -210,22 +210,20 @@ function getAllergensById($id, $link)
                         while ($row2 = mysqli_fetch_assoc($allergene)) {
                             array_push($allergene_codes, $row2['code']);
                         }
-                        echo '<th>';
-                        $k = "Keine Allergen";
-                        foreach ($allergene_codes as $value) {
-                            if (!isset($value)) {
-
-                                echo '<b>Keine Value</b>';
-                            } else {
+                        echo '<td>';
+                        if (empty($allergene_codes)) echo "Keine Allergene";
+                        else {
+                            foreach ($allergene_codes as $value) {
                                 echo $value . ', ';
                             }
                         }
+                        echo '</td>';
                         echo '</tr>';
                     }
                     mysqli_free_result($gerichte_db_res);
                     mysqli_close($link);
                 } else {
-                    echo $dbError;
+                    echo "<span style='color:red'>$dbError</span>";
                 }
                 ?>
             </table>
@@ -255,7 +253,6 @@ function getAllergensById($id, $link)
             <h2 id="kontakt">Interesse geweckt? Wir informieren Sie!</h2>
             <form action="index.php" method="post">
                 <fieldset id="nlform">
-                    <b style="color: red"><?php echo $errorp ?></b>
                     <legend>Newsletter abonieren</legend>
                     <div>
                         <label for="name">Ihr Name:</label>
