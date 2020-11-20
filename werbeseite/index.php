@@ -1,14 +1,13 @@
-
 <?php
-
 /**
  * Praktikum DBWT. Autoren:
  * Lukas, Gonnermann, 3218299
  * Hamdy, Sarhan, 3251443
  */
 
-
-
+/**
+ * Nur noch für Gerichte Anzahl verwendet
+ */
 $gerichteFileError = null;
 $gerichte = [];
 if (($file = fopen('gerichte.CSV', 'r')) !== FALSE) {
@@ -18,14 +17,12 @@ if (($file = fopen('gerichte.CSV', 'r')) !== FALSE) {
         }
     }
     fclose($file);
-}
-
-else {
+} else {
     $gerichteFileError = "Gerichte fileopen error";
 }
 
 /**
- * Besucher calc Section
+ * Zahlen Calc Sektion
  */
 $file = fopen('besuche.txt', 'r');
 $besucherCount = fgets($file, 1000);
@@ -35,26 +32,17 @@ $file = fopen('besuche.txt', 'w');
 fwrite($file, $besucherCount);
 fclose($file);
 
-/**
- * Newsletteranmeldungen
- * TODO
- * Diese Funktion ist nicht wirklich vertrauenswürdig, andere Lösung finden!
- */
 $file = fopen('newsletter.txt', 'r');
 $newsletterCounter = fgets($file, 1024);
 if ($newsletterCounter !== False) {
     $newsletterCounter = abs(intval($newsletterCounter));
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $newsletterCounter++;
-    $file = fopen('newsletter.txt', 'w');
-    fwrite($file, $newsletterCounter);
-}
-
 /**
  * Newsletteranmeldung
+ * Nach gültigen eingaben Filtern und bei erfolg Newslettercounter erhöhen
  */
+
 $errorp = '';
 $namep = '';
 $emailp = '';
@@ -64,37 +52,36 @@ $datenp = '';
 if (!isset($_POST['submit'])) {
 
     $error = 'Error';
-}
-else {
-if (!empty($_POST['name'])) {
-    $namep = $_POST['name'];
-
 } else {
-    $errorp = 'Bitte Ihre Name eingeben!';
+    if (!empty($_POST['name'])) {
+        $namep = $_POST['name'];
 
-}
-if (!empty($_POST['email'])) {
-    $emailp = $_POST['email'];
+    } else {
+        $errorp = 'Bitte Ihre Name eingeben!';
 
-} else {
-    $errorp = 'Bitte Ihre Email eingeben!';
+    }
+    if (!empty($_POST['email'])) {
+        $emailp = $_POST['email'];
 
-}
-if (!empty($_POST['sprache'])) {
+    } else {
+        $errorp = 'Bitte Ihre Email eingeben!';
+
+    }
+    if (!empty($_POST['sprache'])) {
         $sprachep = $_POST['sprache'];
 
-} else {
+    } else {
         $errorp = 'Bitte Ihre Sprache auswählen!';
 
-}
-if (!empty($_POST['checkbox'])) {
+    }
+    if (!empty($_POST['checkbox'])) {
         $datenp = $_POST['checkbox'];
 
-} else {
+    } else {
         $errorp = 'Bitte Ihre Datenschutz lesen und beschtätigen!';
 
-}
-if ($errorp == '') {
+    }
+    if ($errorp == '') {
         $fileopen = fopen("gespeichert.csv", "a");
         $no_rows = count(file("gespeichert.csv"));
 
@@ -107,11 +94,44 @@ if ($errorp == '') {
 
         );
         fputcsv($fileopen, $form_data);
-        echo '<span style="color:green";>Daten erfolgreich gespeichert!</span>';
-
+        $newsletterCounter++;
+        $file = fopen('newsletter.txt', 'w');
+        fwrite($file, $newsletterCounter);
+        echo '<span style="color:green">Daten erfolgreich gespeichert!</span>';
     }
+}
 
+/**
+ * Datenbank connection
+ * $link abh von der lokalen Datenbank setzten
+ */
 
+$link = mysqli_connect(
+    "127.0.0.1",
+    "root",
+    "praktPass",
+    "emensawerbeseite",
+    3306
+);
+
+$dbError = null;
+if (!$link) {
+    $dbError = "Datenbank Verbindung Fehlgeschlagen: " . mysqli_connect_error();
+}
+
+/**
+ * Datenbank anfragen
+ */
+$query = "SELECT name,preis_intern,preis_extern,id 
+                          FROM gericht 
+                          ORDER BY name ASC LIMIT 5;";
+$gerichte_db_res = mysqli_query($link, $query);
+
+function getAllergensById($id, $link)
+{
+    // DB Query
+    $query = "SELECT code FROM gericht_hat_allergen WHERE gericht_id =$id";
+    return mysqli_query($link, $query);
 }
 
 ?>
@@ -171,88 +191,42 @@ if ($errorp == '') {
         <!-- Speisen -->
         <div>
             <h2 id="speisen">Köstlichkeiten, die Sie erwarten</h2>
-
-                <?php
-                    /*foreach ($gerichte as $key => $value) {
-                        echo "<tr>";
-                            for ($i = 0; $i < count($value) - 1; $i++) {
-                                if ($i == 0) {
-                                    echo "<td>$value[$i]</td>";
-                                }
-                                else {
-                                    echo "<td>$value[$i]€</td>";
-                                }
-
-                            }
-                            // TODO
-                            echo "<td><img src='$value[3]' alt='Gericht: $value[3]' width='75px' height='75px'></td>";
-                        echo "</tr>";
-                    }*/?>
-
-
-                  <table class="center" >
+            <table class="center">
                 <tr>
                     <th>Name</th>
                     <th>Preis intern</th>
                     <th>Preis extern</th>
                     <th>Allergen</th>
                 </tr>
-                      <?php
-                $link = mysqli_connect(
-                    "127.0.0.1", // Host der Datenbank
-                    "root",                 // Benutzername zur Anmeldung
-                    "1234",    // Passwort
-                    "emensawerbeseite", // Auswahl der Datenbanken (bzw. des Schemas)
-                    3306
+                <?php
+                if (!$dbError) {
+                    while ($row = mysqli_fetch_assoc($gerichte_db_res)) {
+                        echo '<tr>';
+                        echo '<td>' . $row['name'] . '</td>';
+                        echo '<td>' . $row['preis_intern'] . '</td>';
+                        echo '<td>' . $row['preis_extern'] . '</td>';
+                        $allergene = getAllergensById($row['id'], $link);
+                        $allergene_codes = array();
+                        while ($row2 = mysqli_fetch_assoc($allergene)) {
+                            array_push($allergene_codes, $row2['code']);
+                        }
+                        echo '<th>';
+                        $k = "Keine Allergen";
+                        foreach ($allergene_codes as $value) {
+                            if (!isset($value)) {
 
-// optional port der Datenbank
-                );
-
-
-                $mysqli= "SELECT name,preis_intern,preis_extern,id 
-                          FROM gericht 
-                          ORDER BY name ASC LIMIT 5;";
-                      $result = mysqli_query($link, $mysqli);
-
-                      while ($row = mysqli_fetch_assoc($result)) {
-
-                          echo '<tr>';
-                          echo '<th>'. $row['name']. '</th>';
-                          echo '<th>'. $row['preis_intern']. '</th>';
-                          echo '<th>'. $row['preis_extern'].'</th>';
-                          $id=$row['id'];
-                          $mysqli2 = "SELECT code 
-                                      FROM gericht_hat_allergen 
-                                      WHERE gericht_id =$id";
-                          $result2 = mysqli_query($link, $mysqli2);
-
-                          $allergen = array();
-                          while ($row2 = mysqli_fetch_assoc($result2)) {
-                              array_push($allergen,$row2['code']);
-                          }
-                          echo '<th>';
-                          $k="Keine Allergen";
-                          foreach ($allergen as $value){
-                              if(!isset($value)){
-
-                                  echo '<b>Keine Value</b>';
-                              }
-                              else{
-                                  echo  $value .', ';
-                              }
-                          }
-
-                          '</th>';
-                          echo '</tr>';
-                      }
-
-
-
-
-                mysqli_free_result($result);
-                mysqli_close($link);
-
-
+                                echo '<b>Keine Value</b>';
+                            } else {
+                                echo $value . ', ';
+                            }
+                        }
+                        echo '</tr>';
+                    }
+                    mysqli_free_result($gerichte_db_res);
+                    mysqli_close($link);
+                } else {
+                    echo $dbError;
+                }
                 ?>
             </table>
         </div>
@@ -263,7 +237,7 @@ if ($errorp == '') {
                 <tr>
                     <td><?php echo $besucherCount . " Besucher" ?></td>
                     <td><?php echo $newsletterCounter . " Anmeldungen zum Newsletter" ?></td>
-                    <td><?php echo sizeof($gerichte) . " Gerichte"?></td>
+                    <td><?php echo sizeof($gerichte) . " Gerichte" ?></td>
                 </tr>
             </table>
         </div>
