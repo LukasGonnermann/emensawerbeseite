@@ -21,8 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6555435a-c353-4646-8b3b-b61504428d61" name="Default Changelist" comment="Aufgabe 2,6,7 fertig">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/werbeseite/besuche.txt" beforeDir="false" afterPath="$PROJECT_DIR$/werbeseite/besuche.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/werbeseite/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/werbeseite/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/werbeseite/nl-admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/werbeseite/nl-admin.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,14 +96,7 @@
       <option name="project" value="LOCAL" />
       <updated>1605827590552</updated>
     </task>
-    <task id="LOCAL-00003" summary="Aufgabe 2,6,7 fertig">
-      <created>1605829121268</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1605829121268</updated>
-    </task>
-    <option name="localTasksCounter" value="4" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,10 +158,10 @@
     <state x="137" y="115" key="SettingsEditor/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1605789124939" />
     <state x="2091" y="259" key="SettingsEditor/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605788045929" />
     <state x="228" y="348" key="SettingsEditor/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1602705184553" />
-    <state x="191" y="257" key="Vcs.Push.Dialog.v2" timestamp="1605829132471">
+    <state x="191" y="257" key="Vcs.Push.Dialog.v2" timestamp="1605827601521">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="191" y="257" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1605829132471" />
+    <state x="191" y="257" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1605827601521" />
     <state x="319" y="436" key="Vcs.Push.Dialog.v2/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1602707657318" />
     <state x="631" y="10" width="504" height="803" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1605791504660">
       <screen x="0" y="0" width="1536" height="824" />

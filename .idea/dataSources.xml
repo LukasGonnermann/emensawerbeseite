@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="PraktDB" uuid="b5112bcd-c8eb-4cdc-8267-fb662f32380c">
+    <data-source source="LOCAL" name="Prakt DB" uuid="b4144c5a-cbb6-4a29-a937-fb8e830c2187">
       <driver-ref>mariadb</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>

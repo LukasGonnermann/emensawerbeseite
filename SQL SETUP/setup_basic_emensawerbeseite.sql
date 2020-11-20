@@ -33,7 +33,7 @@ create table gericht_hat_kategorie(
 
 -- SET NAMES utf8mb4;
 
-USE werbeseiteemensa;
+USE emensawerbeseite;
 
 INSERT INTO `allergen` (`code`, `name`, `typ`) VALUES
 	('a', 'Getreideprodukte', 'Getreide (Gluten)'),
