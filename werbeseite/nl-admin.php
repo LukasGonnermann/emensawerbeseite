@@ -61,8 +61,6 @@ if(isset($_GET[GET_PARAM_NAME]))
                         $filter[] = $form;
                     }
                 }
-
-
                 foreach ($filter as $element) {
                     echo "<tr>",
                         "<td>$element[0]</td>".
@@ -72,15 +70,10 @@ if(isset($_GET[GET_PARAM_NAME]))
                         "<td>$element[4]</td>".
                         "</tr>";
                 }
-
-
                 '</tr>';
-
                 '<tr>';
             }
             else  {
-
-
                 foreach ($sort as $form) {
                     if (!isset($_GET[GET_PARAM_SEARCH_NAME]) && !isset($_GET[GET_PARAM_SEARCH_EMAIL])) {
                         echo "<tr>",

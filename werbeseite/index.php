@@ -121,6 +121,12 @@ if ($errorp == '') {
     <meta charset="UTF-8">
     <title>Ihre E-Mensa</title>
     <link href="ind_style.css" rel="stylesheet">
+    <style type="text/css">
+        table, th, td {
+            border: 1px solid black;
+        }
+
+    </style>
 </head>
 <body>
 <div id="main_grid_container">
@@ -184,7 +190,7 @@ if ($errorp == '') {
                     }*/?>
 
 
-                  <table class="center">
+                  <table class="center" >
                 <tr>
                     <th>Name</th>
                     <th>Preis intern</th>
@@ -203,23 +209,46 @@ if ($errorp == '') {
                 );
 
 
-                $mysqli= "SELECT *  
-                FROM gericht
-                JOIN gericht_hat_allergen
-                ON gericht.id=gericht_hat_allergen.gericht_id 
-                GROUP BY gericht.id LIMIT 5 offset 0  ";
+                $mysqli= "SELECT name,preis_intern,preis_extern,id 
+                          FROM gericht 
+                          ORDER BY name ASC LIMIT 5;";
+                      $result = mysqli_query($link, $mysqli);
+
+                      while ($row = mysqli_fetch_assoc($result)) {
+
+                          echo '<tr>';
+                          echo '<th>'. $row['name']. '</th>';
+                          echo '<th>'. $row['preis_intern']. '</th>';
+                          echo '<th>'. $row['preis_extern'].'</th>';
+                          $id=$row['id'];
+                          $mysqli2 = "SELECT code 
+                                      FROM gericht_hat_allergen 
+                                      WHERE gericht_id =$id";
+                          $result2 = mysqli_query($link, $mysqli2);
+
+                          $allergen = array();
+                          while ($row2 = mysqli_fetch_assoc($result2)) {
+                              array_push($allergen,$row2['code']);
+                          }
+                          echo '<th>';
+                          $k="Keine Allergen";
+                          foreach ($allergen as $value){
+                              if(!isset($value)){
+
+                                  echo '<b>Keine Value</b>';
+                              }
+                              else{
+                                  echo  $value .', ';
+                              }
+                          }
+
+                          '</th>';
+                          echo '</tr>';
+                      }
 
 
-                $result = mysqli_query($link, $mysqli);
-                if (!$result) {
-                    echo "Fehler während der Abfrage:  ", mysqli_error($link);
-                    exit();
-                }
 
-                while ($row = mysqli_fetch_assoc($result)) {
-                    //array_multisort($row['name'], SORT_STRING ,$sort);
-                    echo "<tr><td>" . $row['name'] . "</td><td>" . $row['preis_intern'] . "</td><td>" . $row['preis_extern'] . "</td><td>" . $row['code'] . "</td></tr>";
-                }
+
                 mysqli_free_result($result);
                 mysqli_close($link);
 
