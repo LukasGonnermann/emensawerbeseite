@@ -51,6 +51,7 @@ $emailp = '';
 $sprachep = '';
 $datenp = '';
 
+// Fehlerhaft
 if (!isset($_POST['submit'])) {
     $error = 'Error';
 } else {
@@ -59,10 +60,9 @@ if (!isset($_POST['submit'])) {
 
     } else {
         $errorp = 'Bitte Ihre Name eingeben!';
-
     }
     if (!empty($_POST['email'])) {
-        $emailp = $_POST['email'];
+        $email = $_POST['email'];
 
     } else {
         $errorp = 'Bitte Ihre Email eingeben!';
