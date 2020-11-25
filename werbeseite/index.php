@@ -46,6 +46,7 @@ if ($newsletterCounter !== False) {
  */
 
 $errorp = '';
+$confirmed_msg = null;
 $namep = '';
 $emailp = '';
 $sprachep = '';
@@ -107,7 +108,7 @@ if (!isset($_POST['submit'])) {
         $newsletterCounter++;
         $file = fopen('newsletter.txt', 'w');
         fwrite($file, $newsletterCounter);
-        echo '<span style="color:green">Daten erfolgreich gespeichert!</span>';
+        $confirmed_msg = "Daten erfolgreich gespeichert";
     }
 }
 
@@ -119,7 +120,7 @@ if (!isset($_POST['submit'])) {
 $link = mysqli_connect(
     "127.0.0.1",
     "root",
-    "1234",
+    "praktPass",
     "emensawerbeseite",
     3306
 );
@@ -244,6 +245,7 @@ function getAllergensById($id, $link)
             <h2 id="zahlen">E-Mensa in Zahlen</h2>
             <table>
                 <tr>
+                    <!-- Noch nicht mit der Datenbank dynamisiert -->
                     <td><?php echo $besucherCount . " Besucher" ?></td>
                     <td><?php echo $newsletterCounter . " Anmeldungen zum Newsletter" ?></td>
                     <td><?php echo sizeof($gerichte) . " Gerichte" ?></td>
@@ -264,7 +266,14 @@ function getAllergensById($id, $link)
             <h2 id="kontakt">Interesse geweckt? Wir informieren Sie!</h2>
             <form action="index.php" method="post">
                 <fieldset id="nlform">
-                    <b style="color: red"><?php echo $errorp ?></b>
+                    <?php
+                        if ($confirmed_msg != null) {
+                            echo " <b style='color: green'>$confirmed_msg</b>";
+                        }
+                        else if($errorp != '') {
+                            echo " <b style='color: red'>$errorp</b>";
+                        }
+                    ?>
                     <legend>Newsletter abonieren</legend>
                     <div>
                         <label for="name">Ihr Name:</label>
