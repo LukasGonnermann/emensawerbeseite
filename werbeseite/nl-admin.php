@@ -43,10 +43,10 @@ if(isset($_GET[$GET_SEARCHNAME]))
 <br>
 <form method="get">
 
-    <label for="search_name">Search a name:</label>
+    <label for="Name Suchen">Name Suchen</label>
     <input id="search_text" type="text" name="SearchName" value="<?=htmlspecialchars($G);?>">
 
-    <input type="submit" value="Search">
+    <input type="submit" value="Suchen">
     <table>
         <th>Nummer</th> <th>Name</th> <th>E-Mail</th> <th>Sprache</th> <th>Datenschutzstatus</th>
         <tr>
