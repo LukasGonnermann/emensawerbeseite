@@ -55,14 +55,22 @@ $datenp = '';
 if (!isset($_POST['submit'])) {
     $error = 'Error';
 } else {
-    if (!empty($_POST['name'])) {
+    if (!empty($_POST['name'])&&!ctype_space($_POST['name'])) {
         $namep = $_POST['name'];
+        if (!preg_match("/^[a-zA-Z ]*$/", $namep)) {
+            $errorp = 'Nur Buchstaben und Leerzeichen erlaubt! ';
+        }
 
     } else {
         $errorp = 'Bitte Ihre Name eingeben!';
     }
-    if (!empty($_POST['email'])) {
-        $email = $_POST['email'];
+    if (!empty($_POST['email'])&&!ctype_space($_POST['email'])) {
+        $emailp = $_POST['email'];
+        if (!filter_var($emailp, FILTER_VALIDATE_EMAIL)) $errorp = 'Ihre E-Mail entspricht nicht den Vorgaben!';
+        else if (strpos($emailp, "rcpt.at")) $errorp = 'Ihre E-Mail enthält eine ungültige Domain!';
+        else if (strpos($emailp, "damnthespam.at")) $errorp = 'Ihre E-Mail enthält eine ungültige Domain!';
+        else if (strpos($emailp, "wegwerfmail.de")) $errorp = 'Ihre E-Mail enthält eine ungültige Domain!';
+        else if (strpos($emailp, "trashmail.")) $errorp = 'Ihre E-Mail enthält eine ungültige Domain!';
 
     } else {
         $errorp = 'Bitte Ihre Email eingeben!';
@@ -111,7 +119,7 @@ if (!isset($_POST['submit'])) {
 $link = mysqli_connect(
     "127.0.0.1",
     "root",
-    "praktPass",
+    "1234",
     "emensawerbeseite",
     3306
 );
@@ -256,6 +264,7 @@ function getAllergensById($id, $link)
             <h2 id="kontakt">Interesse geweckt? Wir informieren Sie!</h2>
             <form action="index.php" method="post">
                 <fieldset id="nlform">
+                    <b style="color: red"><?php echo $errorp ?></b>
                     <legend>Newsletter abonieren</legend>
                     <div>
                         <label for="name">Ihr Name:</label>

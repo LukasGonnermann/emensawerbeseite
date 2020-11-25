@@ -6,9 +6,9 @@
  */
 
 $file = file('gespeichert.csv');
-const GET_PARAM_SEARCH_NAME = 'ByName';
-const GET_PARAM_SEARCH_EMAIL = 'ByEmail';
-const GET_PARAM_NAME = 'SearchName';
+$GET_BYNAME = 'ByName';
+$GET_BYEMAIL = 'ByEmail';
+$GET_SEARCHNAME = 'SearchName';
 
 foreach($file as $zeile) {
     $sort[] = explode(",",$zeile);
@@ -16,9 +16,9 @@ foreach($file as $zeile) {
 
 $name = array_column($sort, 1);
 $email = array_column($sort, 2);
-if(isset($_GET[GET_PARAM_NAME]))
+if(isset($_GET[$GET_SEARCHNAME]))
 {
-    $G = $_GET[GET_PARAM_NAME];
+    $G = $_GET[$GET_SEARCHNAME];
 }
 ?>
 <!DOCTYPE html>
@@ -75,7 +75,7 @@ if(isset($_GET[GET_PARAM_NAME]))
             }
             else  {
                 foreach ($sort as $form) {
-                    if (!isset($_GET[GET_PARAM_SEARCH_NAME]) && !isset($_GET[GET_PARAM_SEARCH_EMAIL])) {
+                    if (!isset($_GET[$GET_BYNAME]) && !isset($_GET[$GET_BYEMAIL])) {
                         echo "<tr>",
                             "<td>$form[0]</td>" .
                             "<td>$form[1]</td>" .
@@ -85,7 +85,7 @@ if(isset($_GET[GET_PARAM_NAME]))
                             "</tr>";
                     }
                 }
-                if (isset($_GET[GET_PARAM_SEARCH_NAME])) {
+                if (isset($_GET[$GET_BYNAME])) {
                     array_multisort($name, SORT_STRING, $sort);
                     foreach ($sort as $form) {
                         echo "<tr>",
@@ -99,7 +99,7 @@ if(isset($_GET[GET_PARAM_NAME]))
                             "</tr>";
                     }
                 }
-                if (isset($_GET[GET_PARAM_SEARCH_EMAIL])) {
+                if (isset($_GET[$GET_BYEMAIL])) {
                     array_multisort($email, SORT_STRING, $sort);
                     foreach ($sort as $form) {
                         echo "<tr>",
