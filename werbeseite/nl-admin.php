@@ -5,7 +5,8 @@
  * Hamdy, Sarhan, 3251443
  */
 
-$file = file('gespeichert.csv');
+$nl_anmeldungen_file = 'nl_anmeldungen.csv';
+$file = file($nl_anmeldungen_file);
 $GET_BYNAME = 'ByName';
 $GET_BYEMAIL = 'ByEmail';
 $GET_SEARCHNAME = 'SearchName';
