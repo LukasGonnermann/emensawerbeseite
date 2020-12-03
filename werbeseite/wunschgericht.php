@@ -24,10 +24,20 @@ if(isset($_POST["submit"])) {
 
     mysqli_query($link, $wunschgericht_query);
 
+
     $ersteller_query = "INSERT INTO emensawerbeseite.ersteller (name, email)
                     VALUES ('$ersteller_name', '$ersteller_email')";
-
     mysqli_query($link, $ersteller_query);
+
+    //$wid="SELECT wid FROM emensawerbeseite.wunschgericht ORDER BY wid DESC ";
+    //$eid="SELECT eid FROM emensawerbeseite.ersteller ORDER BY eid DESC ";
+    $wunschgericht_hat_id_wid="INSERT INTO emensawerbeseite.wunschgericht_hat_ersteller (wid)
+                  SELECT wid FROM emensawerbeseite.wunschgericht ORDER BY wid DESC LIMIT 1";
+    mysqli_query($link, $wunschgericht_hat_id_wid);
+
+    $wunschgericht_hat_id_eid="INSERT INTO emensawerbeseite.wunschgericht_hat_ersteller (eid)
+                  SELECT eid FROM emensawerbeseite.ersteller ORDER BY eid DESC LIMIT 1";
+    mysqli_query($link, $wunschgericht_hat_id_eid);
 }
 
 ?>
