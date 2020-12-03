@@ -19,7 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6555435a-c353-4646-8b3b-b61504428d61" name="Default Changelist" comment="stuff">
+    <list default="true" id="6555435a-c353-4646-8b3b-b61504428d61" name="Default Changelist" comment="querys">
+      <change beforePath="$PROJECT_DIR$/.idea/E-Mensa Werbeseite.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/E-Mensa Werbeseite.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/werbeseite/wunschgericht.php" beforeDir="false" afterPath="$PROJECT_DIR$/werbeseite/wunschgericht.php" afterDir="false" />
     </list>
@@ -28,7 +30,8 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" doNotAsk="true">
+    <pharConfigPath>$PROJECT_DIR$/emensa/composer.json</pharConfigPath>
     <execution />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -47,8 +50,13 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
-  <component name="PhpDebugGeneral" listening_started="true" />
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP_v7.4.11" />
+  <component name="PhpDebugGeneral" xdebug_debug_port="10000" listening_started="true" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP_v7.4.11">
+    <include_path>
+      <path value="$PROJECT_DIR$/emensa/vendor/composer" />
+      <path value="$PROJECT_DIR$/emensa/vendor/eftec/bladeone" />
+    </include_path>
+  </component>
   <component name="ProjectId" id="1iolBgY7HuoNtf77kRQZ5AvsWW5" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -59,22 +67,25 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../JetBrains/php-7.4.11-Win32-vc15-x64/php.exe" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/emensa/public" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.debug" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
-    <configuration name="Praktikum PHP Server" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$" host="127.0.0.1" port="9050">
+    <configuration name="Praktikum PHP Server" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$/emensa/public" host="127.0.0.1" port="9000">
       <method v="2" />
     </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\lukas\AppData\Roaming\Subversion</configuration>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="6555435a-c353-4646-8b3b-b61504428d61" name="Default Changelist" comment="" />
@@ -87,6 +98,13 @@
       <workItem from="1605891655845" duration="2624000" />
       <workItem from="1607012048433" duration="773000" />
       <workItem from="1607013394994" duration="3786000" />
+      <workItem from="1607026022858" duration="222000" />
+      <workItem from="1607026504875" duration="183000" />
+      <workItem from="1607026718714" duration="436000" />
+      <workItem from="1607027292642" duration="93000" />
+      <workItem from="1607027398523" duration="119000" />
+      <workItem from="1607027573310" duration="76000" />
+      <workItem from="1607027667324" duration="134000" />
     </task>
     <task id="LOCAL-00001" summary="Added and Finished Aufgabe 4a, 4b">
       <created>1602707661471</created>
@@ -123,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606927781725</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="querys">
+      <created>1607023784052</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1607023784052</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,7 +172,8 @@
     <MESSAGE value="Die gerichte Abfrage wurde verschönert mit Fehlermeldung bei fehlgeschlagener Verbindung" />
     <MESSAGE value="Keine allergene ausgabe hinzugefügt" />
     <MESSAGE value="stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="stuff" />
+    <MESSAGE value="querys" />
+    <option name="LAST_COMMIT_MESSAGE" value="querys" />
   </component>
   <component name="WindowStateProjectService">
     <state x="647" y="273" key="#CLI_Interpreters" timestamp="1606923373866">
@@ -164,35 +190,35 @@
     </state>
     <state x="194" y="251" key="#SQL_Dialects/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1605787772959" />
     <state x="323" y="426" key="#SQL_Dialects/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1605892180637" />
-    <state x="879" y="258" width="1092" height="728" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607013600584">
+    <state x="475" y="263" width="1092" height="896" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607027800278">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="361" y="71" width="1089" height="713" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1605810532847" />
-    <state x="879" y="258" width="1092" height="728" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1607013600584" />
-    <state x="847" y="373" key="FileChooserDialogImpl" timestamp="1606923340628">
+    <state x="475" y="263" width="1092" height="896" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1607027800278" />
+    <state x="847" y="373" key="FileChooserDialogImpl" timestamp="1607027798950">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="847" y="373" key="FileChooserDialogImpl/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1606923340628" />
-    <state width="1270" height="399" key="GridCell.Tab.0.bottom" timestamp="1607023365390">
+    <state x="847" y="373" key="FileChooserDialogImpl/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1607027798950" />
+    <state width="2517" height="399" key="GridCell.Tab.0.bottom" timestamp="1607026687583">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1024" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1605812045564" />
-    <state width="1270" height="399" key="GridCell.Tab.0.bottom/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1607023365390" />
-    <state width="1270" height="399" key="GridCell.Tab.0.center" timestamp="1607023365390">
+    <state width="2517" height="399" key="GridCell.Tab.0.bottom/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1607026687583" />
+    <state width="2517" height="399" key="GridCell.Tab.0.center" timestamp="1607026687582">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1024" height="210" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1605812045564" />
-    <state width="1270" height="399" key="GridCell.Tab.0.center/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1607023365390" />
-    <state width="1270" height="399" key="GridCell.Tab.0.left" timestamp="1607023365389">
+    <state width="2517" height="399" key="GridCell.Tab.0.center/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1607026687582" />
+    <state width="2517" height="399" key="GridCell.Tab.0.left" timestamp="1607026687582">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1024" height="210" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1605812045563" />
-    <state width="1270" height="399" key="GridCell.Tab.0.left/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1607023365389" />
-    <state width="1270" height="399" key="GridCell.Tab.0.right" timestamp="1607023365390">
+    <state width="2517" height="399" key="GridCell.Tab.0.left/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1607026687582" />
+    <state width="2517" height="399" key="GridCell.Tab.0.right" timestamp="1607026687582">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1024" height="210" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1605812045564" />
-    <state width="1270" height="399" key="GridCell.Tab.0.right/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1607023365390" />
+    <state width="2517" height="399" key="GridCell.Tab.0.right/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1607026687582" />
     <state width="196" height="457" key="HiddenNamespacesPopup" timestamp="1606921964371">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -201,17 +227,17 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1605635180843" />
-    <state x="749" y="331" width="998" height="718" key="SettingsEditor" timestamp="1607018437023">
+    <state x="749" y="331" width="998" height="718" key="SettingsEditor" timestamp="1607027626570">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="137" y="115" key="SettingsEditor/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1605789124939" />
     <state x="2091" y="259" key="SettingsEditor/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605788045929" />
-    <state x="749" y="331" width="998" height="718" key="SettingsEditor/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1607018437023" />
-    <state x="319" y="436" key="Vcs.Push.Dialog.v2" timestamp="1606927790887">
+    <state x="749" y="331" width="998" height="718" key="SettingsEditor/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1607027626570" />
+    <state x="319" y="436" key="Vcs.Push.Dialog.v2" timestamp="1607023786730">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="191" y="257" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1605827601521" />
-    <state x="319" y="436" key="Vcs.Push.Dialog.v2/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1606927790887" />
+    <state x="319" y="436" key="Vcs.Push.Dialog.v2/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1607023786730" />
     <state x="1065" y="580" width="429" height="247" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1607018655847">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
