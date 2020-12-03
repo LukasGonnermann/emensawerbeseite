@@ -24,15 +24,10 @@ if(isset($_POST["submit"])) {
                     VALUES ('$ersteller_name', '$ersteller_email')";
     mysqli_query($link, $ersteller_query);
 
-    //$wid="SELECT wid FROM emensawerbeseite.wunschgericht ORDER BY wid DESC ";
-    //$eid="SELECT eid FROM emensawerbeseite.ersteller ORDER BY eid DESC ";
-    $wunschgericht_hat_id_wid="INSERT INTO emensawerbeseite.wunschgericht_hat_ersteller (wid)
-                  SELECT wid FROM emensawerbeseite.wunschgericht ORDER BY wid DESC LIMIT 1";
-    mysqli_query($link, $wunschgericht_hat_id_wid);
 
-    $wunschgericht_hat_id_eid="INSERT INTO emensawerbeseite.wunschgericht_hat_ersteller (eid)
-                  SELECT eid FROM emensawerbeseite.ersteller ORDER BY eid DESC LIMIT 1";
-    mysqli_query($link, $wunschgericht_hat_id_eid);
+    $wunschgericht_hat_id_wid="INSERT INTO emensawerbeseite.wunschgericht_hat_ersteller (wid, eid)
+                  SELECT wid , eid FROM emensawerbeseite.wunschgericht, emensawerbeseite.ersteller ORDER BY wid DESC , eid DESC LIMIT 1 ";
+    mysqli_query($link, $wunschgericht_hat_id_wid);
 }
 
 ?>

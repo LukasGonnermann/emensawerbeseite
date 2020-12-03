@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6555435a-c353-4646-8b3b-b61504428d61" name="Default Changelist" comment="test wunschgericht" />
+    <list default="true" id="6555435a-c353-4646-8b3b-b61504428d61" name="Default Changelist" comment="stuff" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,8 +46,8 @@
   <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP v7.4">
     <include_path>
-      <path value="$PROJECT_DIR$/emensa/vendor/eftec/bladeone" />
       <path value="$PROJECT_DIR$/emensa/vendor/composer" />
+      <path value="$PROJECT_DIR$/emensa/vendor/eftec/bladeone" />
     </include_path>
   </component>
   <component name="ProjectId" id="1iolBgY7HuoNtf77kRQZ5AvsWW5" />
@@ -60,7 +60,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../JetBrains/php-7.4.11-Win32-vc15-x64/php.exe" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/emensa/public" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -71,7 +71,7 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
-    <configuration name="Praktikum PHP Server" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$" host="127.0.0.1" port="9050">
+    <configuration name="Praktikum PHP Server" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$/emensa/public" host="127.0.0.1" port="9000">
       <method v="2" />
     </configuration>
   </component>
@@ -124,7 +124,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606927781725</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="stuff">
+      <created>1607028113757</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1607028113757</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,14 +172,15 @@
     </state>
     <state x="194" y="251" key="#SQL_Dialects/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1605787772959" />
     <state x="323" y="426" key="#SQL_Dialects/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1605892180637" />
-    <state x="879" y="258" width="1092" height="728" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607013600584">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state x="361" y="71" width="1089" height="737" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607028195987">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="71" width="1089" height="713" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1605810532847" />
+    <state x="361" y="71" width="1089" height="737" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1607028195987" />
     <state x="879" y="258" width="1092" height="728" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1607013600584" />
-    <state x="847" y="373" key="FileChooserDialogImpl" timestamp="1606923340628">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state x="508" y="220" key="FileChooserDialogImpl" timestamp="1607028194072">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="508" y="220" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1607028194072" />
     <state x="847" y="373" key="FileChooserDialogImpl/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1606923340628" />
     <state width="1493" height="208" key="GridCell.Tab.0.bottom" timestamp="1607025259986">
       <screen x="0" y="0" width="1536" height="824" />
@@ -198,6 +206,14 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="196" height="457" key="HiddenNamespacesPopup/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1606921964371" />
+    <state x="147" y="65" key="MergeDialog" timestamp="1607028144688">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="147" y="65" key="MergeDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1607028144688" />
+    <state x="407" y="174" key="MultipleFileMergeDialog" timestamp="1607028149789">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="407" y="174" key="MultipleFileMergeDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1607028149789" />
     <state x="604" y="336" key="NewPhpFileDialog" timestamp="1605635180843">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -208,9 +224,10 @@
     <state x="137" y="115" key="SettingsEditor/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1605789124939" />
     <state x="2091" y="259" key="SettingsEditor/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605788045929" />
     <state x="749" y="331" width="998" height="718" key="SettingsEditor/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1607018437023" />
-    <state x="319" y="436" key="Vcs.Push.Dialog.v2" timestamp="1606927790887">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state x="191" y="257" key="Vcs.Push.Dialog.v2" timestamp="1607028170368">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="191" y="257" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1607028170368" />
     <state x="191" y="257" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1605827601521" />
     <state x="319" y="436" key="Vcs.Push.Dialog.v2/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1606927790887" />
     <state x="1065" y="580" width="429" height="247" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1607018655847">
@@ -221,10 +238,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="631" y="10" width="504" height="803" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1605791504660" />
-    <state x="658" y="361" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607028057537">
+    <state x="658" y="361" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607028119737">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="658" y="361" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1607028057537" />
+    <state x="658" y="361" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1607028119737" />
     <state x="1097" y="614" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2560.1400/2560.-490.1080.1880@0.0.2560.1400" timestamp="1607012075728" />
     <state x="349" y="67" key="editAsTableFormatDialogDimension" timestamp="1605643306080">
       <screen x="0" y="0" width="1536" height="824" />
