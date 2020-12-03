@@ -8,7 +8,7 @@ $ersteller_email = $_POST['ersteller_email'];
 $link = mysqli_connect(
     "127.0.0.1",
     "root",
-    "praktPass",
+    "1234",
     "emensawerbeseite",
     3306
 );
@@ -16,8 +16,20 @@ $link = mysqli_connect(
 if (!$link) {
     echo "Datenbank Verbindung Fehlgeschlagen: " . mysqli_connect_error();
 }
+//else echo "Verbindung erfolgreich!";
+if(!isset($_POST["submit"])) {
+  echo "ERROR";
+}
+else {
+    $ersteller_query = "INSERT INTO emensawerbeseite.ersteller (name, email)
+                    VALUES ($ersteller_name, $ersteller_email)";
+    $ersteller_query = "INSERT INTO emensawerbeseite.wunschgericht (name, beschreibung,erstellt_am)
+                    VALUES ($gericht_name, $gericht_beschreibung, now())";
 
-$gericht = "INSERT INTO wunschgericht (wid, name , beschreibung, erstellt_am);"
+    //$res = mysqli_query($link, $ersteller_query);
+    //var_dump($res);
+}
+
 
 
 /* SQL DEFINITIONEN
@@ -77,7 +89,7 @@ wunschgericht_hat_ersteller (
             <input id="ersteller_email" type="email" name="ersteller_email">
         </div>
         <div>
-            <button type="submit" name="action" value="submit">Wunschgericht abschicken!</button>
+            <button type="submit" name="submit" value="submit">Wunschgericht abschicken!</button>
         </div>
     </fieldset>
 </form>
