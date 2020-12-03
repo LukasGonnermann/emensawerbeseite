@@ -14,11 +14,6 @@ if(isset($_POST["submit"])) {
         3306
     );
 
-    if (!$link) {
-        echo "Datenbank Verbindung Fehlgeschlagen: " . mysqli_connect_error();
-    }
-    else echo "Verbindung erfolgreich!";
-
     $wunschgericht_query = "INSERT INTO emensawerbeseite.wunschgericht (name, beschreibung,erstellt_am)
                     VALUES ('$gericht_name', '$gericht_beschreibung', now())";
 
