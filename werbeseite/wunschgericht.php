@@ -17,21 +17,29 @@ if (!$link) {
     echo "Datenbank Verbindung Fehlgeschlagen: " . mysqli_connect_error();
 }
 
-$dt = date("YYYY-MM-DD HH:MM:SS",time());
+$gericht = "INSERT INTO wunschgericht (wid, name , beschreibung, erstellt_am);"
 
-$gericht_query = "INSERT INTO wunschgericht (name,beschreibung,erstellt_am)
-            VALUES($gericht_name, $gericht_beschreibung, $dt)";
-$ersteller_query = "INSERT INTO ersteller (name,email)
-                    VALUES ($ersteller_name, $ersteller_email)";
 
-$query_status = mysqli_query($link,$gericht_query);
-if (!$query_status){
-    echo "Fehler";
-}
-$query_status = mysqli_query($link, $ersteller_query);
-if (!$query_status){
-    echo "Fehler";
-}
+/* SQL DEFINITIONEN
+wunschgericht (
+    wid INTEGER PRIMARY KEY AUTO_INCREMENT,
+    name varchar(40) not null,
+    beschreibung varchar(400) not null,
+    erstellt_am datetime not null
+);
+
+ersteller (
+    eid INTEGER PRIMARY KEY AUTO_INCREMENT,
+    name varchar(40) not null default 'anonym',
+    email varchar(40) not null
+);
+
+wunschgericht_hat_ersteller (
+    wid INTEGER REFERENCES wunschgericht(wid),
+    eid INTEGER REFERENCES ersteller(eid)
+);
+ */
+
 
 ?>
 
