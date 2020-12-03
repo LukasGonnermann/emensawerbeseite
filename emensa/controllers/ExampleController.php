@@ -10,16 +10,16 @@ class ExampleController
 
     }
     public function m4_6b_kategorie() {
-        $data2 = namen_sort();
+        $data = namen_sort();
         // ...
-        return view('examples.m4_6b_kategorie', ['data' => $data2 ]);
+        return view('examples.m4_6b_kategorie', ['context' => $data ]);
 
 
     }
     public function m4_6c_gerichte () {
-        $data2 = db_gericht_select_np();
+        $data = db_gericht_select_np();
         // ...
-        return view('examples.m4_6c_gerichte', ['data' => $data2 ]);
+        return view('examples.m4_6c_gerichte', ['context' => $data ]);
 
 
     }
