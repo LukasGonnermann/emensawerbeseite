@@ -1,57 +1,34 @@
 <?php
 
-$gericht_name = $_POST['gericht_name'];
-$gericht_beschreibung = $_POST['gericht_beschreibung'];
-$ersteller_name = $_POST['ersteller_name'];
-$ersteller_email = $_POST['ersteller_email'];
+if(isset($_POST["submit"])) {
+    $gericht_name = $_POST['gericht_name'];
+    $gericht_beschreibung = $_POST['gericht_beschreibung'];
+    $ersteller_name = $_POST['ersteller_name'];
+    $ersteller_email = $_POST['ersteller_email'];
 
-$link = mysqli_connect(
-    "127.0.0.1",
-    "root",
-    "1234",
-    "emensawerbeseite",
-    3306
-);
+    $link = mysqli_connect(
+        "127.0.0.1",
+        "root",
+        "1234",
+        "emensawerbeseite",
+        3306
+    );
 
-if (!$link) {
-    echo "Datenbank Verbindung Fehlgeschlagen: " . mysqli_connect_error();
-}
-//else echo "Verbindung erfolgreich!";
-if(!isset($_POST["submit"])) {
-  echo "ERROR";
-}
-else {
+    if (!$link) {
+        echo "Datenbank Verbindung Fehlgeschlagen: " . mysqli_connect_error();
+    }
+    else echo "Verbindung erfolgreich!";
+
+    $wunschgericht_query = "INSERT INTO emensawerbeseite.wunschgericht (name, beschreibung,erstellt_am)
+                    VALUES ('$gericht_name', '$gericht_beschreibung', now())";
+
+    mysqli_query($link, $wunschgericht_query);
+
     $ersteller_query = "INSERT INTO emensawerbeseite.ersteller (name, email)
-                    VALUES ($ersteller_name, $ersteller_email)";
-    $ersteller_query = "INSERT INTO emensawerbeseite.wunschgericht (name, beschreibung,erstellt_am)
-                    VALUES ($gericht_name, $gericht_beschreibung, now())";
+                    VALUES ('$ersteller_name', '$ersteller_email')";
 
-    //$res = mysqli_query($link, $ersteller_query);
-    //var_dump($res);
+    mysqli_query($link, $ersteller_query);
 }
-
-
-
-/* SQL DEFINITIONEN
-wunschgericht (
-    wid INTEGER PRIMARY KEY AUTO_INCREMENT,
-    name varchar(40) not null,
-    beschreibung varchar(400) not null,
-    erstellt_am datetime not null
-);
-
-ersteller (
-    eid INTEGER PRIMARY KEY AUTO_INCREMENT,
-    name varchar(40) not null default 'anonym',
-    email varchar(40) not null
-);
-
-wunschgericht_hat_ersteller (
-    wid INTEGER REFERENCES wunschgericht(wid),
-    eid INTEGER REFERENCES ersteller(eid)
-);
- */
-
 
 ?>
 
