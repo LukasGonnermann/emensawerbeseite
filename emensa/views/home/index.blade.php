@@ -11,11 +11,11 @@
 
 @section('navigation')
     <div id="adressen" >
-        <a href="#ankuendigungen">Ankündigungen</a>
+        <a href="/">Ankündigungen</a>
         <a href="#speisen">Speisen</a>
-        <a href="#zahlen">Zahlen</a>
-        <a href="#diuw">Wichtig für uns</a>
-        <a href="#kontakt">Kontakt</a>
+        <a href="/">Zahlen</a>
+        <a href="/">Wichtig für uns</a>
+        <a href="/">Kontakt</a>
     </div>
 @endsection
 
