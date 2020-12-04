@@ -26,20 +26,12 @@ function db_gericht_select_np() {
     else return false;
 }
 
-function db_getAllergensById($id)
+function getAllergensById($id)
 {
     $link = connectdb();
     // DB Query
-    $query = "SELECT code 
-                FROM gericht_hat_allergen 
-                WHERE gericht_id =$id";
-    $res = mysqli_query($link, $query);
-    mysqli_close($link);
-    if ($res) {
-        return mysqli_fetch_assoc($res);
-    }
-    else return "Keine Allergene";
-
+    $query = "SELECT code FROM gericht_hat_allergen WHERE gericht_id = $id";
+    return mysqli_query($link, $query);
 }
 
 function db_gerichte_select_amount_asc($amount) {
