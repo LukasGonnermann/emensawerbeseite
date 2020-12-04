@@ -1,30 +1,40 @@
 <?php
+$link = mysqli_connect(
+    "127.0.0.1",
+    "root",
+    "1234",
+    "emensawerbeseite",
+    3306
+);
 
 if(isset($_POST["submit"])) {
-    $gericht_name = $_POST['gericht_name'];
-    $gericht_beschreibung = $_POST['gericht_beschreibung'];
-    $ersteller_name = $_POST['ersteller_name'];
-    $ersteller_email = $_POST['ersteller_email'];
+    // Eingabenmaskierung
+    $gericht_name = htmlspecialchars($_POST['gericht_name'])  ?? null;
+    $gericht_name = mysqli_real_escape_string($link,$gericht_name);
+    $gericht_beschreibung = htmlspecialchars($_POST['gericht_beschreibung'])?? null;
+    $gericht_beschreibung = mysqli_real_escape_string($link,$gericht_beschreibung);
+    $ersteller_name = htmlspecialchars($_POST['ersteller_name'])?? null;
+    $ersteller_name = mysqli_real_escape_string($link,$ersteller_name);
+    $ersteller_email = htmlspecialchars($_POST['ersteller_email']) ?? null;
+    $ersteller_email = mysqli_real_escape_string($link,$ersteller_email);
 
-    $link = mysqli_connect(
-        "127.0.0.1",
-        "root",
-        "1234",
-        "emensawerbeseite",
-        3306
-    );
+    // Prepared Statement fuer Wunschgericht
+    $wg_stmt = mysqli_stmt_init($link);
+    mysqli_stmt_prepare($wg_stmt,
+        "INSERT INTO emensawerbeseite.wunschgericht (name, beschreibung,erstellt_am)
+                    VALUES (gericht_name, gericht_beschreibung, now())");
+    mysqli_stmt_bind_param($wg_stmt, 's',$gericht_name,$gericht_beschreibung);
+    mysqli_stmt_execute($wg_stmt);
 
-    $wunschgericht_query = "INSERT INTO emensawerbeseite.wunschgericht (name, beschreibung,erstellt_am)
-                    VALUES ('$gericht_name', '$gericht_beschreibung', now())";
+    // Prepared Statement fuer ersteller
+    $e_stmt = mysqli_stmt_init($link);
+    mysqli_stmt_prepare($e_stmt,
+        "INSERT INTO emensawerbeseite.ersteller (name, email)
+                    VALUES (ersteller_name, ersteller_email)");
+    mysqli_stmt_bind_param($e_stmt, 's',$ersteller_name,$ersteller_email);
+    mysqli_stmt_execute($e_stmt);
 
-    mysqli_query($link, $wunschgericht_query);
-
-
-    $ersteller_query = "INSERT INTO emensawerbeseite.ersteller (name, email)
-                    VALUES ('$ersteller_name', '$ersteller_email')";
-    mysqli_query($link, $ersteller_query);
-
-
+    // Nutzer hat keinen Zugriff auf diese Werte
     $wunschgericht_hat_id_wid="INSERT INTO emensawerbeseite.wunschgericht_hat_ersteller (wid, eid)
                   SELECT wid , eid FROM emensawerbeseite.wunschgericht, emensawerbeseite.ersteller ORDER BY wid DESC , eid DESC LIMIT 1 ";
     mysqli_query($link, $wunschgericht_hat_id_wid);
