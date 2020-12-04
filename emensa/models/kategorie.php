@@ -13,6 +13,7 @@ function db_kategorie_select_all() {
     mysqli_close($link);
     return $data;
 }
+
 function namen_sort(){
     $link = connectdb();
     $sql = "SELECT name FROM emensawerbeseite.kategorie   ORDER BY name ASC ;";

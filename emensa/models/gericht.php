@@ -19,8 +19,10 @@ function db_gericht_select_np() {
     $link = connectdb();
     $sql = "SELECT name, preis_intern FROM emensawerbeseite.gericht WHERE preis_intern > 2 ORDER BY name ASC";
     $result = mysqli_query($link, $sql);
-    $data = mysqli_fetch_all($result, MYSQLI_BOTH);
     mysqli_close($link);
-    return $data;
-
+    if($result) {
+        return mysqli_fetch_all($result, MYSQLI_BOTH);
+    }
+    else return false;
 }
+
