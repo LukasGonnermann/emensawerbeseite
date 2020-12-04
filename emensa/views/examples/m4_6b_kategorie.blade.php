@@ -1,13 +1,17 @@
-<html>
+<!DOCTYPE html>
+<html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Kategorie</title>
 </head>
 <body>
+<ul>
+    @if ($kategorie_data)
+        @foreach($kategorie_data as $name)
+            <li>{{ $name['name'] }}</li>
+        @endforeach
 
+    @endif
 
+</ul>
 </body>
 </html>

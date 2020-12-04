@@ -16,11 +16,11 @@ function db_kategorie_select_all() {
 
 function namen_sort(){
     $link = connectdb();
-    $sql = "SELECT name FROM emensawerbeseite.kategorie   ORDER BY name ASC ;";
+    $sql = "SELECT name FROM emensawerbeseite.kategorie  ORDER BY name ASC ;";
     $result = mysqli_query($link, $sql);
-
-    $data2 = mysqli_fetch_all($result, MYSQLI_BOTH);
     mysqli_close($link);
-    return $data2;
-
+    if ($result) {
+        return mysqli_fetch_all($result, MYSQLI_BOTH);
+    }
+    else return false;
 }

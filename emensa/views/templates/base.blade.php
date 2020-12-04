@@ -11,6 +11,7 @@
     @section('navigation')
     @show
 </header>
+
 <main>
     @section('main')
     @show

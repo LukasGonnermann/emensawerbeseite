@@ -12,15 +12,15 @@ class ExampleController
 
     public function m4_6b_kategorie()
     {
-        $data = namen_sort();
+        $kategorie_data = namen_sort();
         // ...
-        return view('examples.m4_6b_kategorie', ['context' => $data]);
+        return view('examples.m4_6b_kategorie', ['kategorie_data' => $kategorie_data]);
     }
 
     public function m4_6c_gerichte()
     {
         $gericht_data = db_gericht_select_np();
-        return view('examples.m4_6c_gerichte', ['test' => "TESTSTRING",'gericht_data' => $gericht_data]);
+        return view('examples.m4_6c_gerichte', ['gericht_data' => $gericht_data]);
     }
 
     public function m4_6d_layout()
