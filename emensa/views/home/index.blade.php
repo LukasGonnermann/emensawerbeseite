@@ -23,6 +23,7 @@
     <div id="placeholder">
         <h1>Wilkommen auf der E-Mensa Webseite</h1>
     </div>
+    {{ print("<pre>".print_r($gerichte,true)."</pre>") }}
     <div>
         <h2 id="speisen">Köstlichkeiten, die Sie erwarten:</h2>
         <table class="center">
@@ -30,14 +31,14 @@
                 <th>Name</th>
                 <th>Preis intern</th>
                 <th>Preis extern</th>
-                <th>Allergen</th>
+                <th>Allergene</th>
             </tr>
             @foreach($gerichte as $gericht)
                 <tr>
-                    <td>{{ $gericht[0] }}</td>
-                    <td>{{ $gericht[1] }}</td>
-                    <td>{{ $gericht[2] }}</td>
-                    <td>TBD</td>
+                    <td>{{ $gericht[0]}}</td>
+                    <td>{{ number_format($gericht[1], 2) . "€" }}</td>
+                    <td>{{ number_format($gericht[2], 2) . "€" }}</td>
+                    <td></td>
                 </tr>
             @endforeach
         </table>
