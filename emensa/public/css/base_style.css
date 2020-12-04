@@ -46,7 +46,9 @@ table.center {
     /* Seitenabstände zur Content width anpassen */
     margin-left: auto;
     margin-right: auto;
+    /*
     border: 1px solid black;
+    */
 }
 
 td + td {   /* Gilt für alles nach der ersten Spalte(Preise etc.) */

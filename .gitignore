@@ -1,2 +1,4 @@
 /GE_dossier.docx
-.idea
+.idea/
+**/.idea/
+*.xml
