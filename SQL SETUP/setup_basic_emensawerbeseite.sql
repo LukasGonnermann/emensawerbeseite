@@ -124,21 +124,48 @@ INSERT INTO `kategorie` (`id`, `eltern_id`, `name`, `bildname`) VALUES
 INSERT INTO `gericht_hat_kategorie` (`kategorie_id`, `gericht_id`) VALUES
 	(3, 1),	(3, 3),	(3, 4),	(3, 5),	(3, 6),	(3, 7),	(3, 9),	(4, 16), (4, 17), (4, 18), (5, 16), (5, 17), (5, 18);
 
+#1
 ALTER TABLE gericht_hat_kategorie
     ADD UNIQUE INDEX `einzigartig`(`gericht_id`, `kategorie_id`);
 
+#2
 ALTER TABLE gericht
     ADD INDEX `nameabfragebeschleunigt`(`name`);
 
-ALTER TABLE gericht_hat_kategorie DROP FOREIGN KEY gericht_hat_kategorie_fk_1;
-ALTER TABLE gericht_hat_kategorie DROP FOREIGN KEY gericht_hat_kategorie_fk_2;
+#3
 ALTER TABLE gericht_hat_kategorie
-    ADD CONSTRAINT gericht_hat_kategorie_fk_1 FOREIGN KEY (`gericht_id`) REFERENCES gericht (`id`) ON DELETE CASCADE ON UPDATE RESTRICT,
-    ADD CONSTRAINT gericht_hat_kategorie_fk_2 FOREIGN KEY (`kategorie_id`) REFERENCES kategorie (`id`) ON DELETE CASCADE ON UPDATE RESTRICT;
+    ADD CONSTRAINT gericht_hat_kategorie_fk_1
+        FOREIGN KEY (`gericht_id`)
+            REFERENCES gericht (`id`) ON DELETE CASCADE ON UPDATE RESTRICT,
+    ADD CONSTRAINT gericht_hat_kategorie_fk_2
+        FOREIGN KEY (`kategorie_id`)
+            REFERENCES kategorie (`id`) ON DELETE CASCADE ON UPDATE RESTRICT;
 
-
-ALTER TABLE gericht_hat_allergen DROP FOREIGN KEY gericht_hat_allergen_fk_1;
-ALTER TABLE gericht_hat_allergen DROP FOREIGN KEY gericht_hat_allergen_fk_2;
 ALTER TABLE gericht_hat_allergen
-    ADD CONSTRAINT gericht_hat_allergen_fk_1 FOREIGN KEY (`code`) REFERENCES allergen (`code`) ON DELETE CASCADE ON UPDATE RESTRICT,
-    ADD CONSTRAINT gericht_hat_allergen_fk_2 FOREIGN KEY (`gericht_id`) REFERENCES gericht (`id`) ON DELETE CASCADE ON UPDATE RESTRICT;
+    ADD CONSTRAINT gericht_hat_allergen_fk_1
+        FOREIGN KEY (`code`)
+            REFERENCES allergen (`code`) ON DELETE CASCADE ON UPDATE RESTRICT,
+    ADD CONSTRAINT gericht_hat_allergen_fk_2
+        FOREIGN KEY (`gericht_id`)
+            REFERENCES gericht (`id`) ON DELETE CASCADE ON UPDATE RESTRICT;
+
+#4
+ALTER TABLE gericht_hat_kategorie
+    ADD CONSTRAINT gericht_hat_kategorie_fk_3
+        FOREIGN KEY (`kategorie_id`)
+            REFERENCES kategorie (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT ;
+
+ALTER TABLE kategorie
+    ADD CONSTRAINT eltern_id
+        FOREIGN KEY (`eltern_id`)
+            REFERENCES kategorie (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT ;
+
+#5
+ALTER TABLE gericht_hat_allergen
+    ADD CONSTRAINT gericht_hat_allergen_fk_3
+        FOREIGN KEY (`code`)
+            REFERENCES allergen (`code`) ON DELETE CASCADE ON UPDATE CASCADE ;
+
+#6
+ALTER TABLE gericht_hat_kategorie
+   ADD PRIMARY KEY (`gericht_id`,`kategorie_id`);
