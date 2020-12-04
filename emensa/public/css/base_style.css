@@ -1,0 +1,58 @@
+/* Globals */
+* {
+    font-family: "Sans-serif", "Verdana", sans-serif;
+}
+
+body {
+    margin: auto;
+    width: 80%;
+    border: 1px solid;
+    /*padding: 10px;*/
+}
+
+header {
+    display: grid;
+    grid-template-columns: 15% 70% auto;
+    margin-bottom: 1%;
+}
+
+main {
+    display: grid;
+    width: 70%;
+    margin:auto;
+}
+
+footer {
+    display: grid;
+    grid-template-columns: 15% 70% auto;
+    /*border: 1px solid;*/
+    padding: 0.5%;
+}
+
+/* Navbar Section */
+#adressen {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-top: 2%;
+}
+
+#adressen > a{
+    padding-right:20px;
+}
+
+/* Gerichte Tabelle */
+table.center {
+    /* Seitenabstände zur Content width anpassen */
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+}
+
+td + td {   /* Gilt für alles nach der ersten Spalte(Preise etc.) */
+    text-align: center;
+}
+
+td {
+    padding: 10px;
+}

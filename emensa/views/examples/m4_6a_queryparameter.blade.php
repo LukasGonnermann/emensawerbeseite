@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<p>Der Wert von ?name lautet {{ $context->$rd['name'] }}</p>
+<p>Der Wert von ?name lautet {{ $name }}</p>
 
 </body>
 </html>
