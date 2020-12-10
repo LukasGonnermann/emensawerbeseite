@@ -38,7 +38,10 @@
                     <td>{{ number_format($gericht[1], 2) . "€" }}</td>
                     <td>{{ number_format($gericht[2], 2) . "€" }}</td>
                     <td>
-                        @if($allergene[$key]['code']) {{ $allergene[$key]['code'] }}
+                        @if($allergene[$key])
+                              @foreach($allergene[$key] as $value)
+                                  {{ $value }}
+                            @endforeach
                         @else
                             {{ "Keine Allergene" }}
                         @endif
@@ -47,6 +50,13 @@
                 </tr>
             @endforeach
         </table>
+    </div>
+    <div id="#allergenLegende">
+        <p>Alle enthaltenden Allergene:
+        @foreach($allergene_legende as $key => $value)
+            {{ $value . ", " }}
+            @endforeach
+        </p>
     </div>
 @endsection
 

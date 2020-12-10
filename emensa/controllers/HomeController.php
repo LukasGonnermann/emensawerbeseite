@@ -9,10 +9,23 @@ class HomeController
         $allergene = [];
         foreach ($gerichte as $gericht) {
             $allergen = getAllergensById($gericht['3']);
-            $allergen = mysqli_fetch_assoc($allergen);
-            array_push($allergene, $allergen);
+            $allergene_codes = array();
+            while ($row = mysqli_fetch_assoc($allergen)) {
+                array_push($allergene_codes, $row['code']);
+            }
+            array_push($allergene, $allergene_codes);
         }
-        return view('home.index', ['title' => "E-Mensa Startseite",'gerichte' => $gerichte, 'allergene' => $allergene]);
+        $legende = [];
+        foreach ($allergene as $key => $allergen) {
+            foreach ($allergen as $value)
+            if (!in_array($value, $legende)) array_push($legende, $value);
+        }
+        return view('home.index', [
+            'title' => "E-Mensa Startseite",
+            'gerichte' => $gerichte,
+            'allergene' => $allergene,
+            'allergene_legende' => $legende,
+        ]);
     }
 
     public function home(RequestData $request) {

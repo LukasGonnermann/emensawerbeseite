@@ -120,7 +120,7 @@ if (!isset($_POST['submit'])) {
 $link = mysqli_connect(
     "127.0.0.1",
     "root",
-    "praktPass",
+    "1234",
     "emensawerbeseite",
     3306
 );
