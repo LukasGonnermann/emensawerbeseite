@@ -6,12 +6,16 @@
 <body>
 <ul>
     @if ($kategorie_data)
-        @foreach($kategorie_data as $name)
-            <li>{{ $name['name'] }}</li>
-        @endforeach
-
+        @forelse($kategorie_data as $key=>$name)
+            @if($key % 2 == 0)
+                <li>{{ $name['name'] }}</li>
+            @else
+                <li style="font-weight: bold">{{ $name['name'] }}</li>
+            @endif
+        @empty
+            <li>Keine Daten</li>
+        @endforelse
     @endif
-
 </ul>
 </body>
 </html>
