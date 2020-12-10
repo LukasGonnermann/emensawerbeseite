@@ -148,7 +148,7 @@ CREATE TABLE wunschgericht
     wid          INTEGER PRIMARY KEY AUTO_INCREMENT,
     name         varchar(40) not null,
     beschreibung varchar(400) not null,
-    erstellt_am  datetime not null
+    erstellt_am  datetime not null DEFAULT (NOW())
 );
 
 CREATE TABLE ersteller
