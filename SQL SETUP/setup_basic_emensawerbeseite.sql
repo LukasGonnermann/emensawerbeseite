@@ -207,3 +207,4 @@ ALTER TABLE gericht_hat_allergen
 #6
 ALTER TABLE gericht_hat_kategorie
     ADD PRIMARY KEY (`gericht_id`, `kategorie_id`);
+

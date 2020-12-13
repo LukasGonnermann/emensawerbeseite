@@ -1,4 +1,5 @@
 @extends('templates.base')
+
 @section('page_title')
     {{ $title }}
 @endsection
