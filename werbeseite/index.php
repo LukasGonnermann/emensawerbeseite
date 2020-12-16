@@ -214,9 +214,9 @@ function getAllergensById($id, $link)
                 if (!$dbError) {
                     while ($row = mysqli_fetch_assoc($gerichte_db_res)) {
                         echo '<tr>';
-                        echo '<td>' . $row['name'] . '</td>';
-                        echo '<td>' . $row['preis_intern'] . '</td>';
-                        echo '<td>' . $row['preis_extern'] . '</td>';
+                        echo '<td>' . htmlspecialchars($row['name']) . '</td>';
+                        echo '<td>' . htmlspecialchars($row['preis_intern']) . '</td>';
+                        echo '<td>' . htmlspecialchars($row['preis_extern']) . '</td>';
                         $allergene = getAllergensById($row['id'], $link);
                         $allergene_codes = array();
                         while ($row2 = mysqli_fetch_assoc($allergene)) {
@@ -226,7 +226,7 @@ function getAllergensById($id, $link)
                         if (empty($allergene_codes)) echo "Keine Allergene";
                         else {
                             foreach ($allergene_codes as $value) {
-                                echo $value . ', ';
+                                echo htmlspecialchars($value) . ', ';
                             }
                         }
                         echo '</td>';
@@ -246,9 +246,9 @@ function getAllergensById($id, $link)
             <table>
                 <tr>
                     <!-- Noch nicht mit der Datenbank dynamisiert -->
-                    <td><?php echo $besucherCount . " Besucher" ?></td>
-                    <td><?php echo $newsletterCounter . " Anmeldungen zum Newsletter" ?></td>
-                    <td><?php echo sizeof($gerichte) . " Gerichte" ?></td>
+                    <td><?php echo htmlspecialchars($besucherCount) . " Besucher" ?></td>
+                    <td><?php echo htmlspecialchars($newsletterCounter) . " Anmeldungen zum Newsletter" ?></td>
+                    <td><?php echo htmlspecialchars(sizeof($gerichte)) . " Gerichte" ?></td>
                 </tr>
             </table>
         </div>

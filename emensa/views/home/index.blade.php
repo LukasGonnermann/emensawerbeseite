@@ -32,6 +32,7 @@
                 <th>Preis intern</th>
                 <th>Preis extern</th>
                 <th>Allergene</th>
+                <th>Bild</th>
             </tr>
             @foreach($gerichte as $key => $gericht)
                 <tr>

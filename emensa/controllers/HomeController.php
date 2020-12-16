@@ -7,6 +7,7 @@ class HomeController
     public function index(RequestData $request) {
         $gerichte = db_gerichte_select_amount_asc(5);
         $allergene = [];
+
         foreach ($gerichte as $gericht) {
             $allergen = getAllergensById($gericht['3']);
             $allergene_codes = array();

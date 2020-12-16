@@ -73,19 +73,19 @@ if (isset($_POST["submit"])) {
         <legend>Wunschgericht vorschlagen</legend>
         <div>
             <label for="gericht_name_TF">Gericht Name:</label>
-            <input id="gericht_name_TF" type="text" name="gericht_name" placeholder="Spaghetti">
+            <input id="gericht_name_TF" type="text" name="gericht_name" placeholder="Spaghetti" value="<?=htmlspecialchars($gericht_name);?>" required>
         </div>
         <div>
             <label for="gericht_beschreibung_TF">Beschreibung des Gerichts:</label>
-            <input id="gericht_beschreibung_TF" type="text" name="gericht_beschreibung" placeholder="...">
+            <input id="gericht_beschreibung_TF" type="text" name="gericht_beschreibung" placeholder="..." value="<?=htmlspecialchars($gericht_beschreibung);?>" required>
         </div>
         <div>
             <label for="ersteller_name">Ersteller/-in:</label>
-            <input id="ersteller_name" type="text" name="ersteller_name">
+            <input id="ersteller_name" type="text" name="ersteller_name" value="<?=htmlspecialchars($ersteller_name);?>" required>
         </div>
         <div>
             <label for="ersteller_email">Ersteller/-in Email Adresse:</label>
-            <input id="ersteller_email" type="email" name="ersteller_email">
+            <input id="ersteller_email" type="email" name="ersteller_email" value="<?=htmlspecialchars($ersteller_email);?>" required>
         </div>
         <div>
             <button type="submit" name="submit" value="submit">Wunschgericht abschicken!</button>
