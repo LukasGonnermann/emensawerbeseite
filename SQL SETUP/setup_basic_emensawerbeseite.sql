@@ -223,15 +223,26 @@ create table benutzer
 ALTER TABLE gericht
     ADD bildname varchar(200) default null;
 
-UPDATE gericht SET bildname=LOAD_FILE('C:/Users/Hamdy Sarhan/PhpstormProjects/e-mensa_werbeseite/emensa/public/img/gerichte/01_bratkartoffel.jpg') where id='1';
-UPDATE gericht SET bildname=LOAD_FILE('C:/Users/Hamdy Sarhan/PhpstormProjects/e-mensa_werbeseite/emensa/public/img/gerichte/03_bratkartoffel.jpg') where id='3';
-UPDATE gericht SET bildname=LOAD_FILE('C:/Users/Hamdy Sarhan/PhpstormProjects/e-mensa_werbeseite/emensa/public/img/gerichte/06_lasagne.jpg') where id='6';
-UPDATE gericht SET bildname=LOAD_FILE('C:/Users/Hamdy Sarhan/PhpstormProjects/e-mensa_werbeseite/emensa/public/img/gerichte/10_forelle.jpg') where id='10';
-UPDATE gericht SET bildname=LOAD_FILE('C:/Users/Hamdy Sarhan/PhpstormProjects/e-mensa_werbeseite/emensa/public/img/gerichte/11_soup.jpg') where id='11';
-UPDATE gericht SET bildname=LOAD_FILE('C:/Users/Hamdy Sarhan/PhpstormProjects/e-mensa_werbeseite/emensa/public/img/gerichte/12_kassler.jpg') where id='12';
-UPDATE gericht SET bildname=LOAD_FILE('C:/Users/Hamdy Sarhan/PhpstormProjects/e-mensa_werbeseite/emensa/public/img/gerichte/13_reibekuchen.jpg') where id='13';
-UPDATE gericht SET bildname=LOAD_FILE('C:/Users/Hamdy Sarhan/PhpstormProjects/e-mensa_werbeseite/emensa/public/img/gerichte/15_pilze.jpg') where id='15';
-UPDATE gericht SET bildname=LOAD_FILE('C:/Users/Hamdy Sarhan/PhpstormProjects/e-mensa_werbeseite/emensa/public/img/gerichte/17_broetchen.jpg') where id='17';
-UPDATE gericht SET bildname=LOAD_FILE('C:/Users/Hamdy Sarhan/PhpstormProjects/e-mensa_werbeseite/emensa/public/img/gerichte/19_mousse.jpg') where id='19';
-UPDATE gericht SET bildname=LOAD_FILE('C:/Users/Hamdy Sarhan/PhpstormProjects/e-mensa_werbeseite/emensa/public/img/gerichte/20_suppe.jpg') where id='20';
-UPDATE gericht SET bildname=LOAD_FILE('C:/Users/Hamdy Sarhan/PhpstormProjects/e-mensa_werbeseite/emensa/public/img/gerichte/00_image_missing.jpg') where id='20';
+start transaction ;
+UPDATE gericht SET bildname='01_bratkartoffel.jpg' where id='1';
+UPDATE gericht SET bildname='03_bratkartoffel.jpg' where id='3';
+UPDATE gericht SET bildname='06_lasagne.jpg' where id='6';
+UPDATE gericht SET bildname='10_forelle.jpg'where id='10';
+UPDATE gericht SET bildname='11_soup.jpg' where id='11';
+UPDATE gericht SET bildname='12_kassler.jpg' where id='12';
+UPDATE gericht SET bildname='13_reibekuchen.jpg' where id='13';
+UPDATE gericht SET bildname='15_pilze.jpg' where id='15';
+UPDATE gericht SET bildname='17_broetchen.jpg' where id='17';
+UPDATE gericht SET bildname='19_mousse.jpg' where id='19';
+UPDATE gericht SET bildname='20_suppe.jpg'where id='20';
+
+UPDATE gericht SET bildname='00_image_missing.jpg' where id='4';
+UPDATE gericht SET bildname='00_image_missing.jpg'where id='5';
+UPDATE gericht SET bildname='00_image_missing.jpg'where id='7';
+UPDATE gericht SET bildname='00_image_missing.jpg' where id='8';
+UPDATE gericht SET bildname='00_image_missing.jpg'where id='9';
+UPDATE gericht SET bildname='00_image_missing.jpg'where id='14';
+UPDATE gericht SET bildname='00_image_missing.jpg' where id='16';
+UPDATE gericht SET bildname='00_image_missing.jpg'where id='18';
+commit ;
+

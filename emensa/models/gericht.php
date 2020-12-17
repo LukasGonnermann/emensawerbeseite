@@ -36,7 +36,7 @@ function getAllergensById($id)
 
 function db_gerichte_select_amount_asc($amount) {
     $link = connectdb();
-    $query = "SELECT name,preis_intern,preis_extern,id,bildname 
+    $query = "SELECT name,preis_intern,preis_extern,id,bildname
                           FROM emensawerbeseite.gericht 
                           ORDER BY name ASC LIMIT $amount;";
     $gerichte_db_res = mysqli_query($link, $query);
@@ -44,3 +44,12 @@ function db_gerichte_select_amount_asc($amount) {
     return mysqli_fetch_all($gerichte_db_res);
 }
 
+/*function get_bild($amount){
+    $link = connectdb();
+    $query = "SELECT bildname
+                          FROM emensawerbeseite.gericht
+                          ORDER BY name ASC LIMIT $amount;";
+    $bilder_db_res = mysqli_query($link, $query);
+    mysqli_close($link);
+    return mysqli_fetch_all($bilder_db_res);
+}*/

@@ -39,6 +39,7 @@
                     <td>{{ $gericht[0]}}</td>
                     <td>{{ number_format($gericht[1], 2) . "€" }}</td>
                     <td>{{ number_format($gericht[2], 2) . "€" }}</td>
+
                     <td>
                         @if($allergene[$key])
                               @foreach($allergene[$key] as $value)
@@ -49,8 +50,11 @@
                         @endif
 
                     </td>
+                    <td><img src="http://localhost:9000/img/gerichte/{{$gericht[4]}}"  width="70" height="70"></td>
+
                 </tr>
             @endforeach
+
         </table>
     </div>
     <div id="#allergenLegende">
