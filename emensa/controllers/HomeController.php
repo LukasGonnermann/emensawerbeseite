@@ -31,10 +31,6 @@ class HomeController
             'gerichte' => $gerichte,
             'allergene' => $allergene,
             'allergene_legende' => $legende,
-
-
-
-
         ]);
     }
 
