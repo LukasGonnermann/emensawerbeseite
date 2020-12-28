@@ -210,14 +210,17 @@ ALTER TABLE gericht_hat_kategorie
 
 create table benutzer
 (
-    id                  bigint PRIMARY KEY AUTO_INCREMENT,
-    email               varchar(100)  not null unique,
-    password            varchar(200) not null,
-    admin               boolean  default false,
-    anzahlfehler        int  not null DEFAULT 0,
-    anzahlanmeldungen   int  not null DEFAULT false,
-    letzteanmeldung     datetime,
-    letzterfehler       datetime
+    id bigint auto_increment
+        primary key,
+    email varchar(100) not null,
+    passwort varchar(200) not null,
+    admin tinyint(1) default 0 null,
+    anzahlfehler int default 0 not null,
+    anzahlanmeldungen int not null,
+    letzteanmeldung datetime null,
+    letzterfehler datetime null,
+    constraint email
+        unique (email)
 );
 
 ALTER TABLE gericht
