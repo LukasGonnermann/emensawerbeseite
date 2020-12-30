@@ -47,6 +47,8 @@ class FrontController
 
     public static function handleRequest($url, $method = 'GET',$verbosity=0, $configPath = CONFIG_WEBROUTES)
     {
+        // Sessions enabled
+        session_start();
         $scriptPath = dirname(__FILE__, 2) . '/';
         $controllerDirectory = $scriptPath.'controllers/';
 

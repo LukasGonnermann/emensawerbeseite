@@ -2,13 +2,15 @@
 <html lang="@yield('lang')">
 <head>
     <title>@yield('page_title')</title>
-    <link rel="stylesheet" type="text/css" href="css/base_style.css"/>
+    <link rel="stylesheet" type="text/css" href="@yield('css_path')"/>
 </head>
 <body>
 <header>
     @section('header')
     @show
     @section('navigation')
+    @show
+    @section('user')
     @show
 </header>
 

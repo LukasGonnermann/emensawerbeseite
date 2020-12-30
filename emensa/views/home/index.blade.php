@@ -4,6 +4,10 @@
     {{ $title }}
 @endsection
 
+@section('css_path')
+    {{ "css/base_style.css" }}
+@endsection
+
 @section('header')
     <div id="logo">
     <div>E-Mensa Logo</div>
@@ -17,6 +21,18 @@
         <a href="/">Zahlen</a>
         <a href="/">Wichtig für uns</a>
         <a href="/">Kontakt</a>
+    </div>
+@endsection
+@section('user')
+    <div id="user">
+        @if($_SESSION['login_ok'])
+            Angemeldet als: {{ $_SESSION['name'] }}
+            <br>
+            <a href="/abmeldung">Abmelden</a>
+        @else
+            <a href="/anmeldung">Anmelden</a>
+        @endif
+
     </div>
 @endsection
 

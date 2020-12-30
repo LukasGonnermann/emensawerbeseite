@@ -10,7 +10,10 @@ return array(
     "home"         => "HomeController@home",
     "/demo"        => "DemoController@demo",
     '/dbconnect'   => 'DemoController@dbconnect',
-    "/hashCalc"    => "HashController@HashCalc",
+    "/hashCalc"    => "HashController@hashCalc",
+    "/anmeldung"   => "AnmeldungController@anmeldung",
+    "/anmeldung_verifizieren" => "AnmeldungController@anmeldung_verifizieren",
+    "/abmeldung" => "AnmeldungController@abmelden",
 
     // Erstes Beispiel:
     '/m4_6a_queryparameter' => 'ExampleController@m4_6a_queryparameter',

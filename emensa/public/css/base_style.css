@@ -6,7 +6,10 @@
 body {
     margin: auto;
     width: 80%;
+    /*
     border: 1px solid;
+    */
+
     /*padding: 10px;*/
 }
 
@@ -57,4 +60,16 @@ td + td {   /* Gilt für alles nach der ersten Spalte(Preise etc.) */
 
 td {
     padding: 10px;
+}
+
+#anmeldung {
+    width: 60%;
+    margin: auto;
+    display: grid;
+    grid-column: 2;
+}
+
+#anmeldung_submit {
+    width: 40%;
+    margin: auto;
 }
