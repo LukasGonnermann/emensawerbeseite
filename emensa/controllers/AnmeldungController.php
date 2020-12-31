@@ -21,19 +21,22 @@ class AnmeldungController
 
         $_SESSION['login_result_message'] = null;
         if ($verified) {
+            logger()->info("Benutzer:" . $email . ", hat sich angemeldet");
             $_SESSION['login_ok'] = true;
-            $target = $_SESSION['target'];
             $_SESSION['name'] = $email;
+            $target = $_SESSION['target'];
             header('Location: /' . $target);
         } else {
             $_SESSION['login_result_message'] = 'Benutzer- oder Passwort falsch!';
+            logger()->warning("Benutzer: ". $email . ", Fehlgeschlagener Login. Verifizierung fehlgeschlagen");
             header('Location: /anmeldung');
         }
-
     }
 
     public function abmelden(RequestData $request) {
+        $email = $_SESSION['name'];
         session_destroy();
+        logger()->info("Benutzer:" . $email . "hat sich abgemeldet");
         header('Location: /');
     }
 }

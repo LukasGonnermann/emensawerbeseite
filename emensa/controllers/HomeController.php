@@ -26,6 +26,8 @@ class HomeController
             if (!in_array($value, $legende)) array_push($legende, $value);
         }
 
+
+        logger()->info("Ein Benutzer hat die Seite besucht");
         return view('home.index', [
             'title' => "E-Mensa Startseite",
             'gerichte' => $gerichte,
