@@ -14,6 +14,7 @@ header {
     display: grid;
     grid-template-columns: 15% 70% auto;
     margin-bottom: 1%;
+    padding-top: 2%;
 }
 
 main {
@@ -27,6 +28,7 @@ footer {
     grid-template-columns: 15% 70% auto;
     /*border: 1px solid;*/
     padding: 0.5%;
+    margin-top: 3%;
 }
 
 /* Navbar Section */
@@ -34,7 +36,6 @@ footer {
     display: inline-flex;
     flex-direction: row;
     flex-wrap: wrap;
-    padding-top: 2%;
 }
 
 #adressen > a{
@@ -46,9 +47,9 @@ table.center {
     /* Seitenabstände zur Content width anpassen */
     margin-left: auto;
     margin-right: auto;
-    /*
+
     border: 1px solid black;
-    */
+
 }
 
 td + td {   /* Gilt für alles nach der ersten Spalte(Preise etc.) */

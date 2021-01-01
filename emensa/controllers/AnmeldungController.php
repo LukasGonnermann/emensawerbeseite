@@ -21,14 +21,14 @@ class AnmeldungController
 
         $_SESSION['login_result_message'] = null;
         if ($verified) {
-            logger()->info("Benutzer:" . $email . ", hat sich angemeldet");
+            logger()->info("Benutzer:" . $email . ", hat sich von der Adresse: " . $_SERVER['REMOTE_ADDR'] . " angemeldet");
             $_SESSION['login_ok'] = true;
             $_SESSION['name'] = $email;
             $target = $_SESSION['target'];
             header('Location: /' . $target);
         } else {
             $_SESSION['login_result_message'] = 'Benutzer- oder Passwort falsch!';
-            logger()->warning("Benutzer: ". $email . ", Fehlgeschlagener Login. Verifizierung fehlgeschlagen");
+            logger()->warning("Benutzer: " . $email . ", Fehlgeschlagener Login. Verifizierung fehlgeschlagen. Remote Address: " . $_SERVER['REMOTE_ADDR']);
             header('Location: /anmeldung');
         }
     }
@@ -36,7 +36,7 @@ class AnmeldungController
     public function abmelden(RequestData $request) {
         $email = $_SESSION['name'];
         session_destroy();
-        logger()->info("Benutzer:" . $email . "hat sich abgemeldet");
+        logger()->info("Benutzer:" . $email . ", hat sich abgemeldet");
         header('Location: /');
     }
 }

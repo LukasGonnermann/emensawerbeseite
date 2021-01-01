@@ -23,11 +23,15 @@ class HomeController
         $legende = [];
         foreach ($allergene as $key => $allergen) {
             foreach ($allergen as $value)
-            if (!in_array($value, $legende)) array_push($legende, $value);
+                if (!in_array($value, $legende)) array_push($legende, $value);
         }
 
+        if ($_SESSION['login_ok']) {
+            logger()->info("Benutzer: " . $_SESSION['name'] . ", hat die Hauptseite besucht.");
+        } else {
+            logger()->info("Ein Anonymer Benutzer hat  die Seite besucht", ["Remote Address->", $_SERVER['REMOTE_ADDR']]);
+        }
 
-        logger()->info("Ein Benutzer hat die Seite besucht");
         return view('home.index', [
             'title' => "E-Mensa Startseite",
             'gerichte' => $gerichte,
