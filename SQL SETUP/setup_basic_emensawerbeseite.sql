@@ -223,6 +223,10 @@ create table benutzer
         unique (email)
 );
 
+# Admin User: Password -> praktPass
+INSERT INTO emensawerbeseite.benutzer (email, passwort, admin, anzahlfehler, anzahlanmeldungen, letzteanmeldung, letzterfehler)
+VALUES ('admin@emensa.example','68ddb738b06bcef103ac145803495bc8741e3d62',1,0,0,null,null);
+
 ALTER TABLE gericht
     ADD bildname varchar(200) default null;
 
