@@ -249,3 +249,10 @@ UPDATE gericht SET bildname='00_image_missing.jpg' where id='16';
 UPDATE gericht SET bildname='00_image_missing.jpg'where id='18';
 commit ;
 
+
+CREATE PROCEDURE increment_erfolg_anmeldung(
+IN paramId INTEGER
+)
+BEGIN
+    UPDATE emensawerbeseite.benutzer SET anzahlanmeldungen = anzahlanmeldungen + 1 WHERE paramId = id;
+end;
