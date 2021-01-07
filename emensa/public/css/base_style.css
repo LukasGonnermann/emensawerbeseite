@@ -71,3 +71,14 @@ td {
     width: 40%;
     margin: auto;
 }
+
+#profil_container {
+    width: 80%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+#profil_container > div {
+    padding:3%;
+}

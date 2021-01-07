@@ -6,7 +6,7 @@ function verify($email, $password): bool
     $pwHash = getPwHashWithSalt($password);
     $link = connectdb();
 
-    $query = "SELECT id, email, passwort FROM benutzer WHERE email = '$email'";
+    $query = "SELECT id, email, passwort, anzahlanmeldungen,admin FROM benutzer WHERE email = '$email'";
     mysqli_begin_transaction($link);
     $result =  mysqli_query($link, $query);
     mysqli_commit($link);
@@ -16,6 +16,8 @@ function verify($email, $password): bool
     if ($pwHash == $resultAssocArray['passwort']) {
         mysqli_begin_transaction($link);
         // $_SESSION['user_id'] = $id;
+        $_SESSION['anzahlanmeldungen'] = $resultAssocArray['anzahlanmeldungen'];
+        $_SESSION['admin'] = $resultAssocArray['admin'];
         $link->query("CALL increment_erfolg_anmeldung($id)");
         $link->query("UPDATE benutzer SET letzteanmeldung = now()");
         mysqli_commit($link);

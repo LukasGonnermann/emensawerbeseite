@@ -10,7 +10,7 @@
 
 @section('header')
     <div id="logo">
-        <div>E-Mensa Logo</div>
+        <div><a href="/">E-Mensa Logo</a></div>
     </div>
 @endsection
 
@@ -26,7 +26,7 @@
 @section('user')
     <div id="user">
         @if($_SESSION['login_ok'])
-            Angemeldet als: {{ $_SESSION['name'] }}
+            Angemeldet als: <a href="/profil">{{ $_SESSION['name'] }}</a>
             <br>
             <a href="/abmeldung">Abmelden</a>
         @else
@@ -40,6 +40,7 @@
     <div id="placeholder">
         <h1>Wilkommen auf der E-Mensa Webseite</h1>
     </div>
+
     <div>
         <h2 id="ankuendigungen">Bald gibt es Essen auch online</h2>
         <p id="info">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
@@ -119,6 +120,7 @@
 @endsection
 
 @section('footer')
+
     <div id="autor" class="footer_innen_abstaende">
         Hamdy Sarhan, Lukas Gonnermann
     </div>
