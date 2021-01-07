@@ -29,6 +29,10 @@
     <div>Anzahl der Anmeldungen:</div>
     <div>{{ $anzahlanmeldungen }}</div>
     <div>Admin:</div>
-    <div>{{ $admin }}</div>
+    <div>@if($admin == 1)
+            Ja
+        @else
+            Nein
+        @endif</div>
 </div>
 @endsection
