@@ -25,7 +25,7 @@
 @endsection
 @section('user')
     <div id="user">
-        @if($_SESSION['login_ok'])
+        @if($_SESSION['login_ok'] != null)
             Angemeldet als: <a href="/profil">{{ $_SESSION['name'] }}</a>
             <br>
             <a href="/abmeldung">Abmelden</a>

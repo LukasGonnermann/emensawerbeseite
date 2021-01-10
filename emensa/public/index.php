@@ -51,6 +51,7 @@ class FrontController
     {
         // Sessions enabled
         session_start();
+
         $scriptPath = dirname(__FILE__, 2) . '/';
         $controllerDirectory = $scriptPath.'controllers/';
 
