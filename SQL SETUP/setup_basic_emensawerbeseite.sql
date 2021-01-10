@@ -250,13 +250,29 @@ UPDATE gericht SET bildname='00_image_missing.jpg' where id='8';
 UPDATE gericht SET bildname='00_image_missing.jpg'where id='9';
 UPDATE gericht SET bildname='00_image_missing.jpg'where id='14';
 UPDATE gericht SET bildname='00_image_missing.jpg' where id='16';
-UPDATE gericht SET bildname='00_image_missing.jpg'where id='18';
-commit ;
+UPDATE gericht
+SET bildname='00_image_missing.jpg'
+where id = '18';
+commit;
 
 
 CREATE PROCEDURE increment_erfolg_anmeldung(
-IN paramId INTEGER
+    IN paramId INTEGER
 )
 BEGIN
     UPDATE emensawerbeseite.benutzer SET anzahlanmeldungen = anzahlanmeldungen + 1 WHERE paramId = id;
 end;
+
+CREATE TABLE bewertung
+(
+    bewertung_id     bigint PRIMARY KEY AUTO_INCREMENT,
+    bemerkung        varchar(300) not null,
+    sterne_bewertung INTEGER      not null,
+    zeitpunkt        datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE gericht_hat_bewertung
+(
+    gericht_id   bigint not null references emensawerbeseite.gericht (id),
+    bewertung_id bigint references emensawerbeseite.bewertung (bewertung_id)
+);
