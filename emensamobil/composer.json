@@ -1,8 +1,0 @@
-{
-    "name": "emensa/mvc",
-    "require": {
-        "eftec/bladeone": "^3.47",
-        "monolog/monolog": "2.2.*",
-        "laravel/laravel": "8.x-dev"
-    }
-}
