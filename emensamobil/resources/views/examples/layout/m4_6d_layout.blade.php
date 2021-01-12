@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@yield('title')</title>
+</head>
+<body>
+<header>
+    @section('header')
+        Kopfbereich
+    @show
+</header>
+<main>
+    @section('main')
+        Mainbereich
+    @show
+</main>
+<footer>
+    @section('footer')
+        Footerbereich
+    @show
+</footer>
+</body>
+</html>

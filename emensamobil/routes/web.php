@@ -13,6 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// [Homepage]
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
+// [Anmeldungpage]
+Route::get('/anmeldung', [App\Http\Controllers\AnmeldungController::class, 'anmeldung']);
+// [Anmeldung Verifizieren Endpunkt]
+Route::post('/anmeldung_verifizieren', [App\Http\Controllers\AnmeldungController::class, 'anmeldung_verifizieren']);
+// [Abmeldung Endpunkt]
+Route::get('/abmeldung', [App\Http\Controllers\AnmeldungController::class, 'abmelden']);
+// [Profil Endpunkt]
+Route::get('/profil', [App\Http\Controllers\UserController::class, 'profil']);
+
