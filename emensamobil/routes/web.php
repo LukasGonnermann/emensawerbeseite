@@ -21,6 +21,8 @@ Route::get('/anmeldung', [App\Http\Controllers\AnmeldungController::class, 'anme
 Route::post('/anmeldung_verifizieren', [App\Http\Controllers\AnmeldungController::class, 'anmeldung_verifizieren']);
 // [Abmeldung Endpunkt]
 Route::get('/abmeldung', [App\Http\Controllers\AnmeldungController::class, 'abmelden']);
-// [Profil Endpunkt]
+// [Profil Page]
 Route::get('/profil', [App\Http\Controllers\UserController::class, 'profil']);
+// [Gericht Bewertung Page]
+Route::get('/bewertung', [App\Http\Controllers\GerichtBewertungController::class, 'bewertung']);
 

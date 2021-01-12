@@ -16,11 +16,11 @@
 
 @section('navigation')
     <div id="adressen">
-        <a href="/">Ankündigungen</a>
+        <a href="#ankuendigungen">Ankündigungen</a>
         <a href="#speisen">Speisen</a>
         <a href="/">Zahlen</a>
-        <a href="/">Wichtig für uns</a>
-        <a href="/">Kontakt</a>
+        <a href="#diuw">Wichtig für uns</a>
+        <a href="#impressum">Kontakt</a>
     </div>
 @endsection
 @section('user')

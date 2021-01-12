@@ -19,7 +19,7 @@
 
 @section('main')
     <!-- Anmeldung Form -->
-    <Form method="post" action="/anmeldung_verifizieren">
+    <Form method="post" action="{{ url('/anmeldung_verifizieren') }}">
         @csrf
         <fieldset id="anmeldung">
             <legend>
