@@ -15,8 +15,15 @@
 </header>
 
 <main>
-    @section('main')
-    @show
+    <div>
+        @section('sidebar')
+        @show
+    </div>
+    <div>
+        @section('main')
+        @show
+    </div>
+
 </main>
 
 <footer>

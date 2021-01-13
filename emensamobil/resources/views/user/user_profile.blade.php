@@ -14,12 +14,17 @@
 @endsection
 
 @section('navigation')
-<a href="{{ url('/') }}">◄ Zurück zur Hauptseite</a>
+    <a href="{{ url('/') }}">◄ Zurück zur Hauptseite</a>
 @endsection
 
 @section('user')
     <a href="{{ url('/abmeldung') }}">Abmelden</a>
 @endsection
+
+@section('sidebar')
+    <a href="{{ '/meinebewertungen' }}">Meine Bewertungen</a>
+@endsection
+
 @section('main')
 <div id="profil_container">
     <h2>EMensa Profil</h2>

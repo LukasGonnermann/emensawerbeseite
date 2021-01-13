@@ -273,6 +273,11 @@ CREATE TABLE bewertung
 
 CREATE TABLE gericht_hat_bewertung
 (
-    gericht_id   bigint not null references emensawerbeseite.gericht (id),
-    bewertung_id bigint references emensawerbeseite.bewertung (bewertung_id)
+    gericht_id   bigint not null references emensawerbeseite.gericht (id) ON DELETE CASCADE,
+    bewertung_id bigint references emensawerbeseite.bewertung (bewertung_id) On DELETE CASCADE
+);
+
+CREATE TABLE benutzer_hat_bewertung(
+    benutzer_id bigint not null references emensawerbeseite.benutzer (id) ON DELETE CASCADE,
+    bewertung_id bigint references emensawerbeseite.bewertung (bewertung_id) On DELETE CASCADE
 );

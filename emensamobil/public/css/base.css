@@ -13,13 +13,13 @@ body {
 header {
     display: grid;
     grid-template-columns: 15% 70% auto;
-    margin-bottom: 1%;
+    margin-bottom: 2%;
     padding-top: 2%;
 }
 
 main {
     display: grid;
-    width: 70%;
+    grid-template-columns: 15% 70% auto;
     margin:auto;
 }
 
@@ -47,7 +47,6 @@ table.center {
     /* Seitenabstände zur Content width anpassen */
     margin-left: auto;
     margin-right: auto;
-
     border: 1px solid black;
 
 }
@@ -57,7 +56,7 @@ td + td {   /* Gilt für alles nach der ersten Spalte(Preise etc.) */
 }
 
 td {
-    padding: 10px;
+    padding: 13px;
 }
 
 #anmeldung {
@@ -84,10 +83,17 @@ td {
 }
 
 #bewertung {
-    width: 60%;
+    width: 80%;
     margin: auto;
     display: grid;
     grid-column: 2;
+}
+
+#error_msg {
+    width: 60%;
+    margin: auto;
+    display: grid;
+    grid-column: 1;
 }
 
 #sterneDrop {

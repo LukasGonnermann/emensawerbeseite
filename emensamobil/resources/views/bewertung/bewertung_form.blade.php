@@ -17,7 +17,12 @@
     <form method="post" action="{{ url('/bewertung_verifizieren') }}">
         @csrf
         <fieldset id="bewertung">
-            <legend>Gericht Bewerten</legend>
+            <legend>Gericht Bewertung</legend>
+            <label> {{ $gericht->name }} </label>
+            <br>
+            <img src="http://localhost:9005/img/gerichte/{{$gericht->bildname}}" width="170" height="170"
+                 alt="Bild des Gerichts">
+            <br>
             <label for="sterneDrop">Bewertung:</label>
             <select name="sterne" id="sterneDrop">
                 <option value="1">Sehr gut!</option>
@@ -27,7 +32,8 @@
             </select><br>
             <label for="bemerkungArea">Bemerkung:</label>
             <textarea id="bemerkungArea" name="bemerkung" rows="6" cols="50"
-                      placeholder="Hier eine kleine Bemerkung zu der Bewertung verfassen!"></textarea><br>
+                      placeholder="Hier eine kleine Bemerkung zu der Bewertung verfassen!" maxlength="300"></textarea><br>
+            <input name="gerichtid" value="{{ $gericht->id }}" hidden>
             <input id="bewertung_submit" type="submit" value="Abschicken!" name="submit">
         </fieldset>
     </form>

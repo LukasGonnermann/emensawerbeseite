@@ -27,4 +27,7 @@ Route::get('/profil', [App\Http\Controllers\UserController::class, 'profil']);
 Route::get('/bewertung', [App\Http\Controllers\GerichtBewertungController::class, 'bewertung']);
 // [Gericht Bewertung verifizieren Endpunkt]
 Route::post('bewertung_verifizieren', [App\Http\Controllers\GerichtBewertungController::class, 'bewertung_verifizieren']);
-
+// [Gericht Bewertung speichern Fehler Endpunkt]
+Route::get('/bewertung_error', [App\Http\Controllers\GerichtBewertungController::class, 'bewertung_error']);
+// [Gericht Bewertung gespeichert ]
+Route::get('/bewertung_success', [App\Http\Controllers\GerichtBewertungController::class, 'bewertung_success']);

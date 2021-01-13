@@ -85,8 +85,10 @@
                         @endif
 
                     </td>
-                    <td><img src="http://localhost:9005/img/gerichte/{{$gericht->bildname}}" width="70" height="70">
-                    </td>
+                    <td><img src="http://localhost:9005/img/gerichte/{{$gericht->bildname}}" width="70" height="70"></td>
+                    @if(session()->get('login_ok'))
+                        <td><a href="{{ url("/bewertung?gerichtid=$gericht->id") }}">Bewerten</a></td>
+                    @endif
 
                 </tr>
             @endforeach
