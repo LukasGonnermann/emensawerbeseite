@@ -47,7 +47,7 @@ if (isset($_POST["submit"])) {
 
     // Nutzer hat keinen Zugriff auf diese Werte
     $wunschgericht_hat_id_wid = "INSERT INTO emensawerbeseite.wunschgericht_hat_ersteller (wid, eid)
-                      SELECT wid , eid FROM emensawerbeseite.wunschgericht, emensawerbeseite.ersteller ORDER BY wid DESC , eid DESC LIMIT 1 ";
+                      SELECT wid , eid FROM emensawerbeseite.wunschgericht, emensawerbeseite.ersteller ORDER BY wid DESC , eid DESC LIMIT 1";
     mysqli_query($link, $wunschgericht_hat_id_wid);
 
 }

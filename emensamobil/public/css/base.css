@@ -82,3 +82,19 @@ td {
 #profil_container > div {
     padding:3%;
 }
+
+#bewertung {
+    width: 60%;
+    margin: auto;
+    display: grid;
+    grid-column: 2;
+}
+
+#sterneDrop {
+    width: 30%;
+}
+
+#bewertung_submit {
+    width: 40%;
+    margin: auto;
+}
