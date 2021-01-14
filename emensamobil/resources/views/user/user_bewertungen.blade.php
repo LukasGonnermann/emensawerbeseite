@@ -9,7 +9,7 @@ Meine Bewertungen
 @endsection
 
 @section('navigation')
-    <a href="{{ url('/') }}">◄ Zurück zur Hauptseite</a>
+    <a href="{{ url('/profil') }}">◄ Zurück zum Profil</a>
 @endsection
 
 @section('user')
@@ -17,17 +17,19 @@ Meine Bewertungen
 @endsection
 
 @section('main')
+    @if($bewertungen != null)
     <table>
         <tr>
-            <th>ID der Bewertung</th>
+            <th>Name des Gerichts</th>
             <th>Bemerkung</th>
             <th>Zeitpunkt</th>
             <th>Sterne</th>
             <th></th>
         </tr>
+
         @foreach($bewertungen as $key => $bewertung)
             <tr>
-                <td>{{ $bewertung->bewertung_id }}</td>
+                <td>{{ $bewertung->name }}</td>
                 <td>{{ $bewertung->bemerkung }}</td>
                 <td>{{ $bewertung->zeitpunkt }}</td>
                 <td>
@@ -46,7 +48,13 @@ Meine Bewertungen
                         @break
                 @endswitch
                 </td>
+                <td>
+                    <a href="{{ url("/bewertung_loeschen?bewertung_id=$bewertung->bewertung_id") }}">Löschen</a>
+                </td>
             </tr>
         @endforeach
     </table>
+    @else
+        <h3 id="keine_bewertungen">Keine Bewertungen vorhanden!</h3>
+    @endif
 @endsection

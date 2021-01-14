@@ -15,5 +15,6 @@
 
 @section('main')
     <h1>Ihre Bewertung wurde gespeichert!</h1>
+    <a href="{{ url('/meinebewertungen') }}">Zu allen meinen Bewertungen</a><br>
     <a href="{{ url('/') }}"> Zurück zur Hauptseite</a>
 @endsection

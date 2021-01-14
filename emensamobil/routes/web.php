@@ -37,3 +37,5 @@ Route::post('bewertung_verifizieren', [App\Http\Controllers\GerichtBewertungCont
 Route::get('/bewertung_error', [App\Http\Controllers\GerichtBewertungController::class, 'bewertung_error']);
 // [Gericht Bewertung gespeichert ]
 Route::get('/bewertung_success', [App\Http\Controllers\GerichtBewertungController::class, 'bewertung_success']);
+// [Gericht Bewertung löschen]
+Route::get('/bewertung_loeschen', [App\Http\Controllers\GerichtBewertungController::class, 'bewertung_loeschen']);

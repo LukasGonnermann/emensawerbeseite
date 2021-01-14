@@ -52,6 +52,17 @@ class GerichtBewertungController extends BaseController
 
     }
 
+    public function bewertung_loeschen(Request $request) {
+        if ($request->session()->get('login_ok')) {
+            $bewertung_id = $request->input('bewertung_id');
+            DB::delete("DELETE FROM emensawerbeseite.bewertung WHERE bewertung_id = ?", [$bewertung_id]);
+            return redirect('/meinebewertungen');
+        }
+        else {
+            return redirect('/anmeldung');
+        }
+    }
+
     private function getGerichtNameBild($gerichtid) {
         return DB::select("SELECT id,name, bildname FROM emensawerbeseite.gericht WHERE gericht.id = ?", [$gerichtid]);
     }
