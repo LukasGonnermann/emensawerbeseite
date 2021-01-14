@@ -29,7 +29,6 @@ class AnmeldungController extends BaseController
         $email = $request->get('email');
         $password = $request->get('password');
         $verified = $this->verifizieren($email, $password);
-        echo $verified;
         if ($verified) {
             $request->session()->put('login_ok', true);
             $request->session()->put('name', $email);

@@ -32,22 +32,7 @@ Meine Bewertungen
                 <td>{{ $bewertung->name }}</td>
                 <td>{{ $bewertung->bemerkung }}</td>
                 <td>{{ $bewertung->zeitpunkt }}</td>
-                <td>
-                @switch($bewertung->sterne_bewertung)
-                    @case('1')
-                    ☆☆☆☆
-                        @break
-                    @case('2')
-                    ☆☆☆
-                        @break
-                    @case('3')
-                    ☆☆
-                        @break
-                    @case('4')
-                    ☆
-                        @break
-                @endswitch
-                </td>
+
                 <td>
                     <a href="{{ url("/bewertung_loeschen?bewertung_id=$bewertung->bewertung_id") }}">Löschen</a>
                 </td>

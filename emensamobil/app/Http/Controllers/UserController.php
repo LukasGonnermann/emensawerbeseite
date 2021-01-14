@@ -39,7 +39,7 @@ WHERE bhb.benutzer_id = ?;", [$userid]);
             return view('user.user_bewertungen', ['bewertungen' => $bewertungen]);
         }
         else {
-            return redirect('/');
+            return redirect('/anmeldung');
         }
     }
 

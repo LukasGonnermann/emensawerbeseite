@@ -29,11 +29,11 @@ class GerichtBewertungController extends BaseController
             if ($this->checkInputs($sterne, $bemerkung)) {
                 // insert into databank
                 DB::beginTransaction();
-                DB::insert("INSERT INTO bewertung (bemerkung, sterne_bewertung) VALUES (?,?)",[$bemerkung,$sterne]);
+                DB::insert("INSERT INTO emensawerbeseite.bewertung (bemerkung, sterne_bewertung) VALUES (?,?)",[$bemerkung,$sterne]);
                 $bewertungid = DB::select("SELECT bewertung_id FROM bewertung ORDER BY bewertung_id DESC LIMIT 1");
                 $bewertungid = $bewertungid[0]->bewertung_id;
-                DB::insert("INSERT INTO gericht_hat_bewertung (gericht_id, bewertung_id) VALUES (?,?)", [$gerichtid,$bewertungid]);
-                DB::insert("INSERT INTO benutzer_hat_bewertung (benutzer_id, bewertung_id) VALUES (?,?)", [$userId,$bewertungid]);
+                DB::insert("INSERT INTO emensawerbeseite.gericht_hat_bewertung (gericht_id, bewertung_id) VALUES (?,?)", [$gerichtid,$bewertungid]);
+                DB::insert("INSERT INTO emensawerbeseite.benutzer_hat_bewertung (benutzer_id, bewertung_id) VALUES (?,?)", [$userId,$bewertungid]);
                 DB::commit();
                 return redirect('/bewertung_success');
             }
@@ -63,6 +63,32 @@ class GerichtBewertungController extends BaseController
         }
     }
 
+    public function bewertungen(Request $request) {
+        if ($request->session()->get('login_ok')) {
+
+            $userid = 1;
+            $bewertungen = DB::select("SELECT * from emensawerbeseite.bewertung
+                        JOIN emensawerbeseite.benutzer_hat_bewertung bhb on bewertung.bewertung_id = bhb.bewertung_id
+                         WHERE bhb.benutzer_id = ? ORDER BY sterne_bewertung DESC LIMIT 30 OFFSET 0;", [$userid]);
+            return view('bewertung.bewertungen', ['bewertungen' => $bewertungen]);
+        }
+        else {
+            return redirect('/anmeldung');
+        }
+    }
+
+    public function hervorheben(Request $request) {
+        if ($request->session()->get('login_ok')) {
+            $bewertung_id = $request->input('bewertung_id');
+            DB::update("UPDATE emensawerbeseite.bewertung SET hervorhebung = 1 WHERE bewertung_id = ?",[$bewertung_id]);
+            return view('bewertung.hervorheben', []);
+        }
+        else {
+            return redirect('/anmeldung');
+        }
+    }
+
+
     private function getGerichtNameBild($gerichtid) {
         return DB::select("SELECT id,name, bildname FROM emensawerbeseite.gericht WHERE gericht.id = ?", [$gerichtid]);
     }
@@ -70,4 +96,5 @@ class GerichtBewertungController extends BaseController
     private function checkInputs ($sterne, $bewertung): bool {
         return ($sterne > 0 && $sterne < 5) && (strlen($bewertung) <= 300);
     }
+
 }

@@ -146,9 +146,9 @@ VALUES (3, 1),
 CREATE TABLE wunschgericht
 (
     wid          INTEGER PRIMARY KEY AUTO_INCREMENT,
-    name         varchar(40) not null,
+    name         varchar(40)  not null,
     beschreibung varchar(400) not null,
-    erstellt_am  datetime not null DEFAULT (NOW())
+    erstellt_am  datetime     not null DEFAULT (NOW())
 );
 
 CREATE TABLE ersteller
@@ -160,15 +160,15 @@ CREATE TABLE ersteller
 
 CREATE TABLE wunschgericht_hat_ersteller
 (
-    wid INTEGER REFERENCES wunschgericht(wid),
-    eid INTEGER REFERENCES ersteller(eid)
+    wid INTEGER REFERENCES wunschgericht (wid),
+    eid INTEGER REFERENCES ersteller (eid)
 );
 
 #1
-CREATE UNIQUE INDEX idx_gericht_kategorie ON gericht_hat_kategorie(gericht_id, kategorie_id);
+CREATE UNIQUE INDEX idx_gericht_kategorie ON gericht_hat_kategorie (gericht_id, kategorie_id);
 
 #2
-CREATE UNIQUE INDEX idx_name ON gericht(name);
+CREATE UNIQUE INDEX idx_name ON gericht (name);
 
 #3
 ALTER TABLE gericht_hat_kategorie
@@ -210,50 +210,109 @@ ALTER TABLE gericht_hat_kategorie
 
 create table benutzer
 (
-    id bigint auto_increment
+    id                bigint auto_increment
         primary key,
-    email varchar(100) not null,
-    passwort varchar(200) not null,
-    admin tinyint(1) default 0 null,
-    anzahlfehler int default 0 not null,
-    anzahlanmeldungen int not null,
-    letzteanmeldung datetime null,
-    letzterfehler datetime null,
+    email             varchar(100)         not null,
+    passwort          varchar(200)         not null,
+    admin             tinyint(1) default 0 null,
+    anzahlfehler      int        default 0 not null,
+    anzahlanmeldungen int                  not null,
+    letzteanmeldung   datetime             null,
+    letzterfehler     datetime             null,
     constraint email
         unique (email)
 );
 
 # Admin User: Password -> praktPass
-INSERT INTO emensawerbeseite.benutzer (email, passwort, admin, anzahlfehler, anzahlanmeldungen, letzteanmeldung, letzterfehler)
-VALUES ('admin@emensa.example','68ddb738b06bcef103ac145803495bc8741e3d62',1,0,0,null,null);
+INSERT INTO emensawerbeseite.benutzer (email, passwort, admin, anzahlfehler, anzahlanmeldungen, letzteanmeldung,
+                                       letzterfehler)
+VALUES ('admin@emensa.example', '68ddb738b06bcef103ac145803495bc8741e3d62', 1, 0, 0, null, null);
 
 ALTER TABLE gericht
     ADD bildname varchar(200) default null;
 
-start transaction ;
-UPDATE gericht SET bildname='01_bratkartoffel.jpg' where id='1';
-UPDATE gericht SET bildname='03_bratkartoffel.jpg' where id='3';
-UPDATE gericht SET bildname='06_lasagne.jpg' where id='6';
-UPDATE gericht SET bildname='10_forelle.jpg'where id='10';
-UPDATE gericht SET bildname='11_soup.jpg' where id='11';
-UPDATE gericht SET bildname='12_kassler.jpg' where id='12';
-UPDATE gericht SET bildname='13_reibekuchen.jpg' where id='13';
-UPDATE gericht SET bildname='15_pilze.jpg' where id='15';
-UPDATE gericht SET bildname='17_broetchen.jpg' where id='17';
-UPDATE gericht SET bildname='19_mousse.jpg' where id='19';
-UPDATE gericht SET bildname='20_suppe.jpg'where id='20';
+start transaction;
+UPDATE gericht
+SET bildname='01_bratkartoffel.jpg'
+where id = '1';
+UPDATE gericht
+SET bildname='03_bratkartoffel.jpg'
+where id = '3';
+UPDATE gericht
+SET bildname='06_lasagne.jpg'
+where id = '6';
+UPDATE gericht
+SET bildname='10_forelle.jpg'
+where id = '10';
+UPDATE gericht
+SET bildname='11_soup.jpg'
+where id = '11';
+UPDATE gericht
+SET bildname='12_kassler.jpg'
+where id = '12';
+UPDATE gericht
+SET bildname='13_reibekuchen.jpg'
+where id = '13';
+UPDATE gericht
+SET bildname='15_pilze.jpg'
+where id = '15';
+UPDATE gericht
+SET bildname='17_broetchen.jpg'
+where id = '17';
+UPDATE gericht
+SET bildname='19_mousse.jpg'
+where id = '19';
+UPDATE gericht
+SET bildname='20_suppe.jpg'
+where id = '20';
 
-UPDATE gericht SET bildname='00_image_missing.jpg' where id='4';
-UPDATE gericht SET bildname='00_image_missing.jpg'where id='5';
-UPDATE gericht SET bildname='00_image_missing.jpg'where id='7';
-UPDATE gericht SET bildname='00_image_missing.jpg' where id='8';
-UPDATE gericht SET bildname='00_image_missing.jpg'where id='9';
-UPDATE gericht SET bildname='00_image_missing.jpg'where id='14';
-UPDATE gericht SET bildname='00_image_missing.jpg' where id='16';
+UPDATE gericht
+SET bildname='00_image_missing.jpg'
+where id = '4';
+UPDATE gericht
+SET bildname='00_image_missing.jpg'
+where id = '5';
+UPDATE gericht
+SET bildname='00_image_missing.jpg'
+where id = '7';
+UPDATE gericht
+SET bildname='00_image_missing.jpg'
+where id = '8';
+UPDATE gericht
+SET bildname='00_image_missing.jpg'
+where id = '9';
+UPDATE gericht
+SET bildname='00_image_missing.jpg'
+where id = '14';
+UPDATE gericht
+SET bildname='00_image_missing.jpg'
+where id = '16';
 UPDATE gericht
 SET bildname='00_image_missing.jpg'
 where id = '18';
 commit;
+
+CREATE VIEW Suppen_Gerichte AS
+SELECT *
+FROM emensawerbeseite.gericht
+WHERE name LIKE '%suppe%'
+   or name LIKE '%Suppe%';
+
+CREATE VIEW view_anmeldungen AS
+SELECT *
+FROM emensawerbeseite.benutzer
+ORDER BY anzahlanmeldungen DESC;
+
+CREATE VIEW view_kategoriegerichte_vegetarisch AS
+SELECT DISTINCT emensawerbeseite.gericht.name                 AS gerichtname,
+                GROUP_CONCAT(emensawerbeseite.kategorie.name) AS Kategorie
+FROM emensawerbeseite.gericht
+         LEFT JOIN emensawerbeseite.gericht_hat_kategorie
+                   on emensawerbeseite.gericht.id = gericht_hat_kategorie.gericht_id
+         LEFT JOIN emensawerbeseite.kategorie ON gericht_hat_kategorie.kategorie_id = emensawerbeseite.kategorie.id
+WHERE gericht.vegetarisch = 1
+GROUP BY gericht.name;
+
 
 
 CREATE PROCEDURE increment_erfolg_anmeldung(
@@ -277,7 +336,11 @@ CREATE TABLE gericht_hat_bewertung
     bewertung_id bigint references emensawerbeseite.bewertung (bewertung_id) On DELETE CASCADE
 );
 
-CREATE TABLE benutzer_hat_bewertung(
-    benutzer_id bigint not null references emensawerbeseite.benutzer (id) ON DELETE CASCADE,
+CREATE TABLE benutzer_hat_bewertung
+(
+    benutzer_id  bigint not null references emensawerbeseite.benutzer (id) ON DELETE CASCADE,
     bewertung_id bigint references emensawerbeseite.bewertung (bewertung_id) On DELETE CASCADE
 );
+
+ALTER TABLE bewertung
+    ADD hervorhebung boolean default false;
