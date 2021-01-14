@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 // [Homepage]
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
+
+// User Section
 // [Anmeldungpage]
 Route::get('/anmeldung', [App\Http\Controllers\AnmeldungController::class, 'anmeldung']);
 // [Anmeldung Verifizieren Endpunkt]
@@ -23,6 +25,10 @@ Route::post('/anmeldung_verifizieren', [App\Http\Controllers\AnmeldungController
 Route::get('/abmeldung', [App\Http\Controllers\AnmeldungController::class, 'abmelden']);
 // [Profil Page]
 Route::get('/profil', [App\Http\Controllers\UserController::class, 'profil']);
+// [User Bewertungen]
+Route::get('/meinebewertungen', [App\Http\Controllers\UserController::class, 'meine_bewertungen']);
+
+// Bewertungen Section
 // [Gericht Bewertung Page]
 Route::get('/bewertung', [App\Http\Controllers\GerichtBewertungController::class, 'bewertung']);
 // [Gericht Bewertung verifizieren Endpunkt]

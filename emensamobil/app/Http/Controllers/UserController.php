@@ -26,6 +26,20 @@ class UserController extends BaseController
         return view('user.user_profile', $userdata);
     }
 
+    public function meine_bewertungen(Request $request) {
+        if ($request->session()->get('login_ok')) {
+            //$userid = DB::select("");
+            $userid = 1;
+            $bewertungen = DB::select("SELECT * from bewertung
+                        JOIN benutzer_hat_bewertung bhb on bewertung.bewertung_id = bhb.bewertung_id
+                        WHERE bhb.benutzer_id = ?;", [$userid]);
+            return view('user.user_bewertungen', ['bewertungen' => $bewertungen]);
+        }
+        else {
+            return redirect('/');
+        }
+    }
+
     private function getProfileData($user_email) {
         return DB::select("SELECT email, anzahlanmeldungen, admin FROM emensawerbeseite.benutzer WHERE email = ?", [$user_email]);
     }

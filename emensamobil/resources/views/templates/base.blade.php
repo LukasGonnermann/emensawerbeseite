@@ -13,9 +13,11 @@
     @section('user')
     @show
 </header>
-
+<hr>
 <main>
     <div>
+        <br>
+        <br>
         @section('sidebar')
         @show
     </div>
@@ -25,7 +27,7 @@
     </div>
 
 </main>
-
+<hr>
 <footer>
     @section('copyright')
     @show
