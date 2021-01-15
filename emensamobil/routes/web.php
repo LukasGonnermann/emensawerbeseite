@@ -25,16 +25,12 @@ Route::post('/anmeldung_verifizieren', [App\Http\Controllers\AnmeldungController
 Route::get('/abmeldung', [App\Http\Controllers\AnmeldungController::class, 'abmelden']);
 // [Profil Page]
 Route::get('/profil', [App\Http\Controllers\UserController::class, 'profil']);
-// [User Bewertungen]
-Route::get('/meinebewertungen', [App\Http\Controllers\UserController::class, 'meine_bewertungen']);
 
 // Bewertungen Section
 // [Gericht Bewertung Page]
 Route::get('/bewertung', [App\Http\Controllers\GerichtBewertungController::class, 'bewertung']);
 // [Gericht Bewertung verifizieren Endpunkt]
 Route::post('bewertung_verifizieren', [App\Http\Controllers\GerichtBewertungController::class, 'bewertung_verifizieren']);
-// [Gericht Bewertung speichern Fehler Endpunkt]
-Route::get('/bewertung_error', [App\Http\Controllers\GerichtBewertungController::class, 'bewertung_error']);
 // [Gericht Bewertung gespeichert ]
 Route::get('/bewertung_success', [App\Http\Controllers\GerichtBewertungController::class, 'bewertung_success']);
 // [Gericht 30 Bewertungen]
@@ -45,3 +41,7 @@ Route::get('/hervorheben', [App\Http\Controllers\GerichtBewertungController::cla
 Route::get('/nicht_hervorheben', [App\Http\Controllers\GerichtBewertungController::class,'nicht_hervorheben']);
 // [Gericht Bewertung löschen]
 Route::get('/bewertung_loeschen', [App\Http\Controllers\GerichtBewertungController::class, 'bewertung_loeschen']);
+// [User Bewertungen]
+Route::get('/meinebewertungen', [App\Http\Controllers\GerichtBewertungController::class, 'meine_bewertungen']);
+
+Route::get('/ormdemo', [App\Http\Controllers\HomeController::class, 'ormdemo']);

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BewertungModel;
+use App\Models\GerichtModel;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\DB;
@@ -11,9 +13,17 @@ class GerichtBewertungController extends BaseController
 {
     public function bewertung(Request $request) {
         if ($request->session()->get('login_ok')) {
-            // Get Gericht Data
-            $gericht = $this->getGerichtNameBild($request->input('gerichtid'));
-            return view('bewertung.bewertung_form', ['gericht' => $gericht[0]]);
+            $gerichtid = $request->input('gerichtid');
+            $gericht = GerichtModel::find($gerichtid);
+            $context = [
+                'gerichtid' => $gericht->id,
+                'gerichtname' => $gericht->name,
+                'gerichtbildname' => $gericht->bildname,
+            ];
+            /*echo "<pre>";
+            var_dump($gericht);
+            echo "</pre>";*/
+            return view('bewertung.bewertung_form', $context);
         }
         else {
             return redirect('/anmeldung');
@@ -48,14 +58,11 @@ class GerichtBewertungController extends BaseController
         return view('bewertung.bewertung_success',[]);
     }
 
-    public function bewertung_error() {
-
-    }
-
     public function bewertung_loeschen(Request $request) {
         if ($request->session()->get('login_ok')) {
             $bewertung_id = $request->input('bewertung_id');
-            DB::delete("DELETE FROM emensawerbeseite.bewertung WHERE bewertung_id = ?", [$bewertung_id]);
+            $bewertung = BewertungModel::find($bewertung_id);
+            $bewertung->delete();
             return redirect('/meinebewertungen');
         }
         else {
@@ -65,8 +72,7 @@ class GerichtBewertungController extends BaseController
 
     public function bewertungen(Request $request) {
         if ($request->session()->get('login_ok')) {
-
-            $userid = 1;
+            $userid = session()->get('id');
             $bewertungen = DB::select("SELECT * from emensawerbeseite.bewertung
                         JOIN emensawerbeseite.benutzer_hat_bewertung bhb on bewertung.bewertung_id = bhb.bewertung_id
                          WHERE bhb.benutzer_id = ? ORDER BY sterne_bewertung DESC LIMIT 30 OFFSET 0;", [$userid]);
@@ -80,7 +86,9 @@ class GerichtBewertungController extends BaseController
     public function hervorheben(Request $request) {
         if ($request->session()->get('login_ok')) {
             $bewertung_id = $request->input('bewertung_id');
-            DB::update("UPDATE emensawerbeseite.bewertung SET hervorhebung = 1 WHERE bewertung_id = ?",[$bewertung_id]);
+            $bewertung = BewertungModel::find($bewertung_id);
+            $bewertung->hervorhebung = 1;
+            $bewertung->save();
             return redirect('/bewertungen');
         }
         else {
@@ -91,8 +99,27 @@ class GerichtBewertungController extends BaseController
     public function nicht_hervorheben(Request $request) {
         if ($request->session()->get('login_ok')) {
             $bewertung_id = $request->input('bewertung_id');
-            DB::update("UPDATE emensawerbeseite.bewertung SET hervorhebung = 0 WHERE bewertung_id = ?",[$bewertung_id]);
+            $bewertung = BewertungModel::find($bewertung_id);
+            $bewertung->hervorhebung = 0;
+            $bewertung->save();
             return redirect('/bewertungen');
+        }
+        else {
+            return redirect('/anmeldung');
+        }
+    }
+
+    public function meine_bewertungen(Request $request) {
+        if ($request->session()->get('login_ok')) {
+            $db_user_id = DB::select("SELECT id from emensawerbeseite.benutzer WHERE email = ?", [session()->get('name')]);
+            $userid = $db_user_id[0]->id;
+            $bewertungen = DB::select("SELECT name,bemerkung, sterne_bewertung, zeitpunkt, b.bewertung_id FROM gericht
+JOIN gericht_hat_bewertung ghb on gericht.id = ghb.gericht_id
+LEFT JOIN gericht_hat_bewertung g on gericht.id = g.gericht_id
+LEFT JOIN bewertung b ON g.bewertung_id = b.bewertung_id
+LEFT JOIN benutzer_hat_bewertung bhb on b.bewertung_id = bhb.bewertung_id
+WHERE bhb.benutzer_id = ?;", [$userid]);
+            return view('user.user_bewertungen', ['bewertungen' => $bewertungen]);
         }
         else {
             return redirect('/anmeldung');

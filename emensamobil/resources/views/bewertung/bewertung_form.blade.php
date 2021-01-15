@@ -14,9 +14,9 @@
         @csrf
         <fieldset id="bewertung">
             <legend>Gericht Bewertung</legend>
-            <label> {{ $gericht->name }} </label>
+            <label> {{ $gerichtname }} </label>
             <br>
-            <img src="http://localhost:9005/img/gerichte/{{$gericht->bildname}}" width="170" height="170"
+            <img src="http://localhost:9005/img/gerichte/{{$gerichtbildname}}" width="170" height="170"
                  alt="Bild des Gerichts">
             <br>
             <label for="sterneDrop">Bewertung:</label>
@@ -29,7 +29,7 @@
             <label for="bemerkungArea">Bemerkung:</label>
             <textarea id="bemerkungArea" name="bemerkung" rows="6" cols="50"
                       placeholder="Hier eine kleine Bemerkung zu der Bewertung verfassen!" maxlength="300"></textarea><br>
-            <input name="gerichtid" value="{{ $gericht->id }}" hidden>
+            <input name="gerichtid" value="{{ $gerichtid }}" hidden>
             <input id="bewertung_submit" type="submit" value="Abschicken!" name="submit">
         </fieldset>
     </form>

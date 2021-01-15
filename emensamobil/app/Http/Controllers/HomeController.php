@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\BewertungModel;
+use App\Models\GerichtModel;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\DB;
@@ -8,6 +10,15 @@ use Illuminate\Support\Facades\DB;
 
 class HomeController extends BaseController
 {
+    public function ormdemo(Request $request) {
+        $gericht = GerichtModel::find(1);
+        $gericht->vegan = "Ja";
+        echo "<pre>";
+        var_dump($gericht);
+        echo "</pre>";
+    }
+
+
     public function index(Request $request)
     {
         $gerichte = $this->db_gerichte_select_amount_asc();
