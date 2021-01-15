@@ -43,9 +43,11 @@
                         ☆
                         @break
                     @endswitch</td>
-                @if(session()->get('login_ok'))
+                @if($bewertung->hervorhebung == 0)
                     <td><a href="{{  url("/hervorheben?bewertung_id=$bewertung->bewertung_id") }}">Hervorheben</a></td>
-                    @endif
+                @else
+                    <td><a href="{{ url("/nicht_hervorheben?bewertung_id=$bewertung->bewertung_id")}}">Nicht mehr Hervorheben</a></td>
+                @endif
             </tr>
         @endforeach
     </table>

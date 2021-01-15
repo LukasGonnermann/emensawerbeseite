@@ -41,5 +41,7 @@ Route::get('/bewertung_success', [App\Http\Controllers\GerichtBewertungControlle
 Route::get('/bewertungen', [App\Http\Controllers\GerichtBewertungController::class, 'bewertungen']);
 // [Hervorgehoben]
 Route::get('/hervorheben', [App\Http\Controllers\GerichtBewertungController::class, 'hervorheben']);
+// [Nicht mehr hervorheben]
+Route::get('/nicht_hervorheben', [App\Http\Controllers\GerichtBewertungController::class,'nicht_hervorheben']);
 // [Gericht Bewertung löschen]
 Route::get('/bewertung_loeschen', [App\Http\Controllers\GerichtBewertungController::class, 'bewertung_loeschen']);

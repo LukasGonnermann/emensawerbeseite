@@ -28,8 +28,8 @@ footer {
     grid-template-columns: 15% 70% auto;
     /*border: 1px solid;*/
     padding: 0.5%;
-    margin-top: 1.5%;
-    margin-bottom: 1.5%;
+    margin-top: 1%;
+    margin-bottom: 1%;
 }
 
 /* Navbar Section */
@@ -43,13 +43,16 @@ footer {
     padding-right:20px;
 }
 
+#speisen_table {
+    border: 1px solid black;
+}
+
 /* Gerichte Tabelle */
 table.center {
     /* Seitenabstände zur Content width anpassen */
     margin-left: auto;
     margin-right: auto;
     border: 1px solid black;
-
 }
 
 td + td {   /* Gilt für alles nach der ersten Spalte(Preise etc.) */
@@ -88,6 +91,15 @@ td {
     margin: auto;
     display: grid;
     grid-column: 2;
+}
+
+#user_bewertungen {
+    width: 70%;
+    text-align: center;
+}
+
+#user_bewertungen > td {
+
 }
 
 #error_msg {

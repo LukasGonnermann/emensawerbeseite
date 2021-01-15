@@ -81,7 +81,18 @@ class GerichtBewertungController extends BaseController
         if ($request->session()->get('login_ok')) {
             $bewertung_id = $request->input('bewertung_id');
             DB::update("UPDATE emensawerbeseite.bewertung SET hervorhebung = 1 WHERE bewertung_id = ?",[$bewertung_id]);
-            return view('bewertung.hervorheben', []);
+            return redirect('/bewertungen');
+        }
+        else {
+            return redirect('/anmeldung');
+        }
+    }
+
+    public function nicht_hervorheben(Request $request) {
+        if ($request->session()->get('login_ok')) {
+            $bewertung_id = $request->input('bewertung_id');
+            DB::update("UPDATE emensawerbeseite.bewertung SET hervorhebung = 0 WHERE bewertung_id = ?",[$bewertung_id]);
+            return redirect('/bewertungen');
         }
         else {
             return redirect('/anmeldung');

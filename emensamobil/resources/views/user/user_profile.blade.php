@@ -1,6 +1,6 @@
 @extends('templates.base')
 @section('page_title')
-    EMensa Profil
+    E-Mensa Profil
 @endsection
 
 @section('css_path')
@@ -22,12 +22,16 @@
 @endsection
 
 @section('sidebar')
-    <a href="{{ '/meinebewertungen' }}">Meine Bewertungen</a>
+    <a href="{{ '/meinebewertungen' }}">Meine Bewertungen</a><br>
+    <br>
+    @if($admin == 1)
+    <a href="{{ '/bewertungen' }}">Alle Bewertungen</a>
+    @endif
 @endsection
 
 @section('main')
 <div id="profil_container">
-    <h2>EMensa Profil</h2>
+    <h2>E-Mensa Profil</h2>
     <p></p>
     <div>Email:</div>
     <div>{{ $email }}</div>

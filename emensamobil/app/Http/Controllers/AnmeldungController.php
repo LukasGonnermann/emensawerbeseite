@@ -52,6 +52,9 @@ class AnmeldungController extends BaseController
 
         $dbUser = DB::table('benutzer')->where('email', $email)->first();
         if ($dbUser->passwort == $pwHash) {
+            if ($dbUser->admin) {
+                session()->put('admin', true);
+            }
             session()->put('id', $dbUser->id);
             return true;
         }

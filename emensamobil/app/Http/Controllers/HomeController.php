@@ -13,6 +13,7 @@ class HomeController extends BaseController
         $gerichte = $this->db_gerichte_select_amount_asc();
         $allergene = [];
 
+
         foreach ($gerichte as $gericht) {
             $allergen = $this->getAllergensById($gericht->bildname);
             $allergene_codes = array();
@@ -28,18 +29,22 @@ class HomeController extends BaseController
                 if (!in_array($value, $legende)) array_push($legende, $value);
         }
 
+        // Get Hervorgehobene Bewertungen
+        $bewertungen = DB::select("SELECT bemerkung, sterne_bewertung, g.name FROM emensawerbeseite.bewertung
+                                        LEFT JOIN gericht_hat_bewertung ghb on bewertung.bewertung_id = ghb.bewertung_id
+                                        LEFT JOIN gericht g on ghb.gericht_id = g.id
+                                        WHERE hervorhebung = 1");
+
         $context =  [
             'title' => "E-Mensa Startseite",
             'gerichte' => $gerichte,
             'allergene' => $allergene,
             'allergene_legende' => $legende,
+            'bewertungen' => $bewertungen,
         ];
 
-
-        if ($request->session()->get('login_ok')) {
-            $login = [ 'username' => $request->get('name')];
-            array_push($context, $login);
-        }
+        // for debugging
+        //print('<pre>'.print_r($context,true).'</pre>');
         return view('home.index', $context);
     }
 

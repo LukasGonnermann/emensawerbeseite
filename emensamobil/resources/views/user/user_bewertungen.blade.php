@@ -32,7 +32,6 @@ Meine Bewertungen
                 <td>{{ $bewertung->name }}</td>
                 <td>{{ $bewertung->bemerkung }}</td>
                 <td>{{ $bewertung->zeitpunkt }}</td>
-
                 <td>
                     <a href="{{ url("/bewertung_loeschen?bewertung_id=$bewertung->bewertung_id") }}">Löschen</a>
                 </td>

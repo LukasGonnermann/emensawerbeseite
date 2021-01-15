@@ -26,7 +26,7 @@
 @section('user')
     <div id="user">
         @if(session()->get('login_ok'))
-            Angemeldet als: <a href="/profil">{{ Session::get('name') }}</a>
+            Angemeldet als: <a href="{{ '/profil' }}">{{ Session::get('name') }}</a>
             <br>
             <a href="{{ url('/abmeldung') }}">Abmelden</a>
         @else
@@ -61,7 +61,7 @@
     <!-- Gerichte -->
     <div>
         <h2 id="speisen">Köstlichkeiten, die Sie erwarten:</h2>
-        <table class="center">
+        <table id="speisen_table" class="center">
             <tr>
                 <th>Name</th>
                 <th>Preis intern</th>
@@ -85,7 +85,7 @@
                         @endif
 
                     </td>
-                    <td><img src="http://localhost:9005/img/gerichte/{{$gericht->bildname}}" width="70" height="70"></td>
+                    <td><img src="http://localhost:9005/img/gerichte/{{$gericht->bildname}}" width="70" height="70" alt="{{ $gericht->name }}"></td>
                     @if(session()->get('login_ok'))
                         <td><a href="{{ url("/bewertung?gerichtid=$gericht->id") }}">Bewerten</a></td>
                     @endif
@@ -102,6 +102,42 @@
             @endforeach
         </p>
     </div>
+
+    @if($bewertungen != null)
+    <!-- User Bewertungen -->
+    <div>
+        <h2>Das sagen unsere Nutzer</h2>
+        <table id="user_bewertungen" class="center">
+            <tr>
+                <th>Name des Gerichts</th>
+                <th>Bemerkung</th>
+                <th>Sterne</th>
+            </tr>
+            @foreach($bewertungen as $key => $bewertung)
+                <tr>
+                    <td>{{ $bewertung->name }}</td>
+                    <td>{{ $bewertung->bemerkung }}</td>
+                    <td>
+                        @switch($bewertung->sterne_bewertung)
+                            @case('1')
+                            ☆☆☆☆
+                            @break
+                            @case('2')
+                            ☆☆☆
+                            @break
+                            @case('3')
+                            ☆☆
+                            @break
+                            @case('4')
+                            ☆
+                            @break
+                        @endswitch</td>
+
+                </tr>
+            @endforeach
+        </table>
+    </div>
+    @endif
     <!-- Wichtig für uns -->
     <div>
         <h2 id="diuw">Das ist uns wichtig</h2>
