@@ -44,4 +44,5 @@ Route::get('/bewertung_loeschen', [App\Http\Controllers\GerichtBewertungControll
 // [User Bewertungen]
 Route::get('/meinebewertungen', [App\Http\Controllers\GerichtBewertungController::class, 'meine_bewertungen']);
 
+// [TEST Endpunkt]
 Route::get('/ormdemo', [App\Http\Controllers\HomeController::class, 'ormdemo']);

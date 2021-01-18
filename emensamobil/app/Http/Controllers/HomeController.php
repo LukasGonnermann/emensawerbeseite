@@ -12,10 +12,11 @@ class HomeController extends BaseController
 {
     public function ormdemo(Request $request) {
         $gericht = GerichtModel::find(1);
-        $gericht->vegan = "Ja";
+        $gericht->vegetarisch = "Ja";
         echo "<pre>";
         var_dump($gericht);
         echo "</pre>";
+        $gericht->save();
     }
 
 

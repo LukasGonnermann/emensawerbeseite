@@ -21,6 +21,13 @@ class GerichtModel extends \Illuminate\Database\Eloquent\Model
     }
 
     public function setVegetarischAttribute($value) {
+        if (preg_match("/[ ]*[J][ ]*[a][ ]*/", $value))
+            $this->attributes['vegetarisch'] = 1;
+        else if ($value == "Nein")
+            $this->attributes['vegetarisch'] = 0;
+    }
+
+    /*public function setVegetarischAttribute($value) {
         // Wenn Yes
         if (preg_match("/[ ]*[Jj][ ]*[Aa][ ]*]/", $value) || preg_match("/[ ]*[Yy][ ]*[Ee][ ]*[Ss][ ]*]/", $value)) {
             $this->attributes['vegetarisch'] = 1;
@@ -29,7 +36,7 @@ class GerichtModel extends \Illuminate\Database\Eloquent\Model
         else if (preg_match("/[ ]*[Nn][ ]*[Oo][ ]*]/", $value) || preg_match("/[ ]*[Nn][ ]*[Ee][ ]*[Ii][ ]*[Nn][ ]*]/", $value)) {
             $this->attributes['vegetarisch'] = 0;
         }
-    }
+    }*/
 
     public function setVeganAttribute($value) {
         // Wenn Yes
