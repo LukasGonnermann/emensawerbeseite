@@ -8,7 +8,7 @@ class GerichtModel extends \Illuminate\Database\Eloquent\Model
 {
     public $table = 'gericht';
     public $primaryKey = 'id';
-    public bool $timestamps = false;
+    public $timestamps = false;
 
     public function getPreisInternAttribute($value)
     {
@@ -21,30 +21,19 @@ class GerichtModel extends \Illuminate\Database\Eloquent\Model
     }
 
     public function setVegetarischAttribute($value) {
-        if (preg_match("/[ ]*[J][ ]*[a][ ]*/", $value))
+        if (preg_match("/[ ]*[J|j][ ]*[A|a][ ]*/", $value) || preg_match("/[ ]*[Y|y][ ]*[E|e][ ]*[S|s][ ]*/", $value))
             $this->attributes['vegetarisch'] = 1;
-        else if ($value == "Nein")
+        else if (preg_match("/[ ]*[N|n][ ]*[E|e][ ]*[I|i][ ]*[N|n][ ]*/", $value) || preg_match("/[ ]*[N|n][ ]*[O|o][ ]*/", $value))
             $this->attributes['vegetarisch'] = 0;
     }
 
-    /*public function setVegetarischAttribute($value) {
-        // Wenn Yes
-        if (preg_match("/[ ]*[Jj][ ]*[Aa][ ]*]/", $value) || preg_match("/[ ]*[Yy][ ]*[Ee][ ]*[Ss][ ]*]/", $value)) {
-            $this->attributes['vegetarisch'] = 1;
-        }
-        // Wenn No
-        else if (preg_match("/[ ]*[Nn][ ]*[Oo][ ]*]/", $value) || preg_match("/[ ]*[Nn][ ]*[Ee][ ]*[Ii][ ]*[Nn][ ]*]/", $value)) {
-            $this->attributes['vegetarisch'] = 0;
-        }
-    }*/
-
     public function setVeganAttribute($value) {
         // Wenn Yes
-        if (preg_match("/[ ]*[Jj][ ]*[Aa][ ]*]/", $value) || preg_match("/[ ]*[Yy][ ]*[Ee][ ]*[Ss][ ]*]/", $value)) {
+        if (preg_match("/[ ]*[J|j][ ]*[A|a][ ]*/", $value) || preg_match("/[ ]*[Y|y][ ]*[E|e][ ]*[S|s][ ]*/", $value)) {
             $this->attributes['vegan'] = 1;
         }
         // Wenn No
-        else if (preg_match("/[ ]*[Nn][ ]*[Oo][ ]*]/", $value) || preg_match("/[ ]*[Nn][ ]*[Ee][ ]*[Ii][ ]*[Nn][ ]*]/", $value)) {
+        else if (preg_match("/[ ]*[N|n][ ]*[O|o][ ]*/", $value) || preg_match("/[ ]*[N|n][ ]*[E|e][ ]*[I|i][ ]*[N|n][ ]*/", $value)) {
             $this->attributes['vegan'] = 0;
         }
     }

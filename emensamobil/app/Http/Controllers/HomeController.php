@@ -11,8 +11,8 @@ use Illuminate\Support\Facades\DB;
 class HomeController extends BaseController
 {
     public function ormdemo(Request $request) {
-        $gericht = GerichtModel::find(1);
-        $gericht->vegetarisch = "Ja";
+        $gericht = GerichtModel::query()->find(1);
+        $gericht->vegan = "n    E i N";
         echo "<pre>";
         var_dump($gericht);
         echo "</pre>";
