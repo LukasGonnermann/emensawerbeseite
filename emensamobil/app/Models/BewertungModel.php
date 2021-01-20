@@ -11,6 +11,6 @@ class BewertungModel extends \Illuminate\Database\Eloquent\Model
 {
     public $table = 'bewertung';
     public $primaryKey = 'bewertung_id';
-    public bool $timestamps = false;
+    public $timestamps = false;
 
 }

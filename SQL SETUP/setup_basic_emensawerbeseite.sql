@@ -229,7 +229,7 @@ INSERT INTO emensawerbeseite.benutzer (email, passwort, admin, anzahlfehler, anz
 VALUES ('admin@emensa.example', '68ddb738b06bcef103ac145803495bc8741e3d62', 1, 0, 0, null, null);
 
 ALTER TABLE gericht
-    ADD bildname varchar(200) default null;
+    ADD bildname varchar(200) default '00_image_missing.jpg';
 
 start transaction;
 UPDATE gericht
@@ -265,31 +265,6 @@ where id = '19';
 UPDATE gericht
 SET bildname='20_suppe.jpg'
 where id = '20';
-
-UPDATE gericht
-SET bildname='00_image_missing.jpg'
-where id = '4';
-UPDATE gericht
-SET bildname='00_image_missing.jpg'
-where id = '5';
-UPDATE gericht
-SET bildname='00_image_missing.jpg'
-where id = '7';
-UPDATE gericht
-SET bildname='00_image_missing.jpg'
-where id = '8';
-UPDATE gericht
-SET bildname='00_image_missing.jpg'
-where id = '9';
-UPDATE gericht
-SET bildname='00_image_missing.jpg'
-where id = '14';
-UPDATE gericht
-SET bildname='00_image_missing.jpg'
-where id = '16';
-UPDATE gericht
-SET bildname='00_image_missing.jpg'
-where id = '18';
 commit;
 
 CREATE VIEW Suppen_Gerichte AS

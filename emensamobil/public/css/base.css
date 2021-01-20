@@ -1,35 +1,45 @@
 /* Globals */
 * {
     font-family: "Sans-serif", "Verdana", sans-serif;
+
 }
 
 body {
     margin: auto;
     width: 75%;
+    background-color: #cccccc;
     /*border: 1px solid;*/
     /*padding: 10px;*/
+}
+
+#content {
+    background-color: white;
+    padding-left:1.5%;
+    padding-right:1.5%;
 }
 
 header {
     display: grid;
     grid-template-columns: 15% 70% auto;
-    margin-top: 1.5%;
-    margin-bottom: 1.5%;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+
 }
 
 main {
     display: grid;
     grid-template-columns: 15% 70% auto;
     margin:auto;
+
 }
 
 footer {
     display: grid;
     grid-template-columns: 15% 70% auto;
     /*border: 1px solid;*/
-    padding: 0.5%;
-    margin-top: 1%;
-    margin-bottom: 1%;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+
 }
 
 /* Navbar Section */
@@ -94,7 +104,6 @@ td {
 }
 
 #user_bewertungen {
-    width: 70%;
     text-align: center;
 }
 
@@ -118,3 +127,7 @@ td {
     margin: auto;
 }
 
+#bewertungen_index {
+    margin-left: auto;
+    margin-right: auto;
+}

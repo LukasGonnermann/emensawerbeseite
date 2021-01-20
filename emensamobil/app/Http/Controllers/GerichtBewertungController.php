@@ -7,14 +7,13 @@ use App\Models\GerichtModel;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\DB;
-use JetBrains\PhpStorm\Pure;
 
 class GerichtBewertungController extends BaseController
 {
     public function bewertung(Request $request) {
         if ($request->session()->get('login_ok')) {
             $gerichtid = $request->input('gerichtid');
-            $gericht = GerichtModel::find($gerichtid);
+            $gericht = GerichtModel::query()->find($gerichtid);
             $context = [
                 'gerichtid' => $gericht->id,
                 'gerichtname' => $gericht->name,
@@ -108,24 +107,6 @@ class GerichtBewertungController extends BaseController
             return redirect('/anmeldung');
         }
     }
-
-    public function meine_bewertungen(Request $request) {
-        if ($request->session()->get('login_ok')) {
-            $db_user_id = DB::select("SELECT id from emensawerbeseite.benutzer WHERE email = ?", [session()->get('name')]);
-            $userid = $db_user_id[0]->id;
-            $bewertungen = DB::select("SELECT name,bemerkung, sterne_bewertung, zeitpunkt, b.bewertung_id FROM gericht
-JOIN gericht_hat_bewertung ghb on gericht.id = ghb.gericht_id
-LEFT JOIN gericht_hat_bewertung g on gericht.id = g.gericht_id
-LEFT JOIN bewertung b ON g.bewertung_id = b.bewertung_id
-LEFT JOIN benutzer_hat_bewertung bhb on b.bewertung_id = bhb.bewertung_id
-WHERE bhb.benutzer_id = ?;", [$userid]);
-            return view('user.user_bewertungen', ['bewertungen' => $bewertungen]);
-        }
-        else {
-            return redirect('/anmeldung');
-        }
-    }
-
 
     private function getGerichtNameBild($gerichtid) {
         return DB::select("SELECT id,name, bildname FROM emensawerbeseite.gericht WHERE gericht.id = ?", [$gerichtid]);

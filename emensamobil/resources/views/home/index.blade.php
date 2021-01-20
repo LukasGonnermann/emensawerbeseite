@@ -27,7 +27,6 @@
     <div id="user">
         @if(session()->get('login_ok'))
             Angemeldet als: <a href="{{ '/profil' }}">{{ Session::get('name') }}</a>
-            <br>
             <a href="{{ url('/abmeldung') }}">Abmelden</a>
         @else
             <a href="{{ url('/anmeldung') }}">Anmelden</a>
@@ -105,7 +104,7 @@
 
     @if($bewertungen != null)
     <!-- User Bewertungen -->
-    <div>
+    <div id="bewertungen_index">
         <h2>Das sagen unsere Nutzer</h2>
         <table id="user_bewertungen" class="center">
             <tr>

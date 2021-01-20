@@ -23,10 +23,13 @@ Route::get('/anmeldung', [App\Http\Controllers\AnmeldungController::class, 'anme
 Route::post('/anmeldung_verifizieren', [App\Http\Controllers\AnmeldungController::class, 'anmeldung_verifizieren']);
 // [Abmeldung Endpunkt]
 Route::get('/abmeldung', [App\Http\Controllers\AnmeldungController::class, 'abmelden']);
+// UserController Section
 // [Profil Page]
 Route::get('/profil', [App\Http\Controllers\UserController::class, 'profil']);
+// [User Bewertungen]
+Route::get('/meinebewertungen', [App\Http\Controllers\UserController::class, 'meine_bewertungen']);
 
-// Bewertungen Section
+// GerichtBewertungController
 // [Gericht Bewertung Page]
 Route::get('/bewertung', [App\Http\Controllers\GerichtBewertungController::class, 'bewertung']);
 // [Gericht Bewertung verifizieren Endpunkt]
@@ -41,8 +44,6 @@ Route::get('/hervorheben', [App\Http\Controllers\GerichtBewertungController::cla
 Route::get('/nicht_hervorheben', [App\Http\Controllers\GerichtBewertungController::class,'nicht_hervorheben']);
 // [Gericht Bewertung löschen]
 Route::get('/bewertung_loeschen', [App\Http\Controllers\GerichtBewertungController::class, 'bewertung_loeschen']);
-// [User Bewertungen]
-Route::get('/meinebewertungen', [App\Http\Controllers\GerichtBewertungController::class, 'meine_bewertungen']);
 
 // [TEST Endpunkt]
 Route::get('/ormdemo', [App\Http\Controllers\HomeController::class, 'ormdemo']);

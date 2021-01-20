@@ -5,7 +5,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/base.css') }}"/>
 </head>
 <body>
-<header>
+<div id="content">
+    <header>
     @section('header')
     @show
     @section('navigation')
@@ -34,5 +35,6 @@
     @section('footer')
     @show
 </footer>
+</div>
 </body>
 </html>
